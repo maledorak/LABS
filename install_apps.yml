@@ -1,0 +1,10 @@
+---
+
+- name: Configure arch apps
+  hosts: all
+  become: true
+  vars:
+    localhost_user: mariusz
+    update_pacman_cache: true
+  roles:
+  - install_packages
