@@ -4,21 +4,8 @@
   pacman:
     update_cache: "{{ update_pacman_cache }}"
 
-- name: Install basic pacman packages
-  pacman:
-    name: "{{ item }}"
-    state: present
-  with_items:
-  - firefox
-  - guake
-  - redshift
-  - vlc
-  - okular
-  - gimp
-  - libreoffice-fresh
-  - deluge
-
+- include_tasks: install_basic_packages.yml
 - include_tasks: install_docker.yml
+- include_tasks: install_fonts.yml
+- include_tasks: install_network.yml
 - include_tasks: install_udisks2.yml
-
-
