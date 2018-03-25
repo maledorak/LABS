@@ -1,15 +1,12 @@
 LAS - Localhost Ansible Script
 ==============================
 
-* [used packages](docs/used_packages.md)
-
-
 Using
 -----
+1. init submodules `git submodule foreach --recursive 'git submodule init && git submodule update && git checkout master'`
 1. run `ansible-playbook -Kvv some_playbook.yml`
 
+---
 
-Based on
---------
-* [Spark](https://github.com/pigmonkey/spark)
+More info in [Docs](docs/main.md)
 
