@@ -17,3 +17,19 @@
   - thunderbird
   - vim
   - vlc
+
+- name: Install basic aur packages
+  aur:
+    name: "{{ item }}"
+    use: trizen
+    skip_installed: true
+  with_items:
+  - advanced-ssh-config
+  - jetbrains-toolbox
+  - homebank
+  - gitlab-runner
+  - google-chrome
+  - nixnote2
+  - polybar
+  - slack-desktop
+  - qnapi
