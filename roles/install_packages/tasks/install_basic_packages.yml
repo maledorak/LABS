@@ -26,11 +26,12 @@
     skip_installed: true
   with_items:
   - advanced-ssh-config
+  - dropbox
   - franz
-  - jetbrains-toolbox
-  - homebank
   - gitlab-runner
   - google-chrome
+  - homebank
+  - jetbrains-toolbox
   - nixnote2
   - polybar
   - slack-desktop
