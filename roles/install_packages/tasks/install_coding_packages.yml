@@ -8,6 +8,8 @@
   - python-pip
   - python-virtualenv
   - python-virtualenvwrapper
+  - python-pew
+  - python-pipenv
 
 #- name: Install aur coding packages
 #  aur:
@@ -16,3 +18,4 @@
 #    skip_installed: true
 #  with_items:
 #  -
+

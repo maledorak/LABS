@@ -14,6 +14,7 @@
   - powerline
   - ranger
   - redshift
+  - rxvt-unicode
   - thunderbird
   - vim
   - vlc
@@ -25,6 +26,7 @@
     skip_installed: true
   with_items:
   - advanced-ssh-config
+  - franz
   - jetbrains-toolbox
   - homebank
   - gitlab-runner
@@ -32,4 +34,5 @@
   - nixnote2
   - polybar
   - slack-desktop
+  - spotify
   - qnapi
