@@ -10,6 +10,16 @@
   - python-virtualenvwrapper
   - python-pew
   - python-pipenv
+  - rabbitmq
+  - redis
+
+- name: Start basic apps
+  systemd:
+    name: "{{ item }}"
+    state: started
+  with_items:
+    - rabbitmq
+    - redis
 
 #- name: Install aur coding packages
 #  aur:
