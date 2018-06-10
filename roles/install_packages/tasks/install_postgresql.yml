@@ -22,7 +22,8 @@
     name: postgresql
     state: started
 
-- name: Create base user
+- name: Create localhost db user
   postgresql_user:
     name: "{{ localhost_user }}"
     state: present
+    role_attr_flags: CREATEDB
