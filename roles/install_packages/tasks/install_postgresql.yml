@@ -7,6 +7,11 @@
   with_items:
   - postgresql
 
+- name: Install psycopg2 package.
+  pip:
+    name: psycopg2
+    state: latest
+
 - name: Create database cluster.
   command: sudo -iu postgres initdb -D '/var/lib/postgres/data'
   args:
@@ -16,3 +21,8 @@
   systemd:
     name: postgresql
     state: started
+
+- name: Create base user
+  postgresql_user:
+    name: "{{ localhost_user }}"
+    state: present
