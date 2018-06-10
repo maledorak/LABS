@@ -1,0 +1,18 @@
+---
+
+- name: Install postgresql package.
+  pacman:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - postgresql
+
+- name: Create database cluster.
+  command: sudo -iu postgres initdb -D '/var/lib/postgres/data'
+  args:
+    creates: /var/lib/postgres/data
+
+- name: Start postgresql service.
+  systemd:
+    name: postgresql
+    state: started

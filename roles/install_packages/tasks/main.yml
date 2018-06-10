@@ -8,6 +8,7 @@
 - include_tasks: install_basic_packages.yml
 - include_tasks: install_coding_packages.yml
 - include_tasks: install_docker.yml
+- include_tasks: install_postgresql.yml
 - include_tasks: install_fonts.yml
 - include_tasks: install_network.yml
 - include_tasks: install_usb_mounting.yml

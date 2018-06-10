@@ -12,9 +12,11 @@
   - guake
   - libreoffice-fresh
   - okular
+  - pass
   - powerline
   - ranger
   - redshift
+  - reflector
   - rxvt-unicode
   - thunderbird
   - vim
@@ -27,6 +29,7 @@
     skip_installed: true
   with_items:
   - advanced-ssh-config
+  - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
   - dropbox
   - franz
   - gitlab-runner

@@ -5,4 +5,5 @@
     name: "{{ item }}"
     state: present
   with_items:
+  - networkmanager
   - network-manager-applet
