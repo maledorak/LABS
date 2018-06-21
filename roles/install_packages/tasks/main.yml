@@ -12,3 +12,4 @@
 - include_tasks: install_fonts.yml
 - include_tasks: install_network.yml
 - include_tasks: install_usb_mounting.yml
+- include_tasks: install_zsh.yml

@@ -5,6 +5,7 @@
   become: true
   vars:
     localhost_user: mariusz
+    localhost_user_home: /home/mariusz
     update_pacman_cache: true
   roles:
   - install_packages
