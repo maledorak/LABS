@@ -17,6 +17,7 @@
   - okular
   - pass
   - powerline
+  - poppler-glib # open pdf in gimp
   - ranger
   - redshift
   - reflector
