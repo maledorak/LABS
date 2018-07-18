@@ -35,6 +35,7 @@
   with_items:
   - advanced-ssh-config
   - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
+  - git-extras-git
   - dropbox
   - franz
   - gitlab-runner
