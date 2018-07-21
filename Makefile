@@ -1,6 +1,6 @@
 help:
 	@echo "install - Init submodules and install las requirements."
-	@echo "arch-config - Configure arch localhost."
+	@echo "configure-arch - Configure arch localhost."
 
 install:
 	git submodule init

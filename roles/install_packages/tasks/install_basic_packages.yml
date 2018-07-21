@@ -14,6 +14,8 @@
   - guake
   - keepassxc
   - libreoffice-fresh
+  - nfs-utils
+  - ntfs-3g
   - okular
   - pass
   - powerline
@@ -22,7 +24,10 @@
   - redshift
   - reflector
   - rxvt-unicode
+  - samba
+  - tig
   - thunderbird
+  - w3m # for ranger
   - wget
   - vim
   - vlc

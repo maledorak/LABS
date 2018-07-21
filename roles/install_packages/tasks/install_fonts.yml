@@ -14,5 +14,6 @@
     skip_installed: true
   with_items:
   - ttf-font-awesome
+  - ttf-font-icons
   - ttf-inconsolata
   - ttf-lato
