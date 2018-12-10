@@ -1,0 +1,53 @@
+---
+# Based on:
+# https://wiki.archlinux.org/index.php/bluetooth#Installation
+# https://wiki.archlinux.org/index.php/Bluetooth_headset#Headset_via_Bluez5/PulseAudio
+
+- name: Install bluetooth packages
+  pacman:
+    state: present
+    name:
+      - bluez
+      - bluez-libs
+      - bluez-utils
+      - blueman
+      - pulseaudio-alsa
+      - pulseaudio-bluetooth
+  tags:
+    - bluetooth
+    - install_pacman
+
+# https://wiki.archlinux.org/index.php/Blueman#Permissions
+- name: Set polkit rules
+  template:
+    src: blueman.rules
+    dest: /etc/polkit-1/rules.d/51-blueman.rules
+    owner: root
+    mode: 0644
+  tags:
+    - bluetooth
+
+- name: Add the btusb kernel module
+  modprobe:
+    name: btusb
+    state: present
+  tags:
+    - bluetooth
+
+- name: Start bluetooth service.
+  systemd:
+    name: bluetooth.service
+    state: started
+    enabled: true
+  tags:
+    - bluetooth
+
+- name: Add lp group to user.
+  user:
+    name: "{{ localhost_user }}"
+    groups:
+      - wheel
+      - lp
+    append: true
+  tags:
+    - bluetooth

@@ -1,0 +1,24 @@
+---
+
+- name: Install pacman fonts
+  pacman:
+    state: present
+    name:
+    - powerline-fonts
+  tags:
+    - fonts
+    - install_pacman
+
+- name: Install aur fonts
+  aur:
+    name: "{{ item }}"
+    use: trizen
+    skip_installed: true
+  with_items:
+    - ttf-font-awesome
+    - ttf-font-icons
+    - ttf-inconsolata
+    - ttf-lato
+  tags:
+    - fonts
+    - install_aur

@@ -1,0 +1,23 @@
+---
+
+- name: Install python packages
+  pacman:
+    state: present
+    name:
+    - python-pip
+    - python-virtualenv
+    - python-virtualenvwrapper
+    - python-pew
+    - python-pipenv
+  tags:
+    - python
+    - install_pacman
+
+#- name: Install aur coding packages
+#  aur:
+#    name: "{{ item }}"
+#    use: trizen
+#    skip_installed: true
+#  with_items:
+#  - some
+

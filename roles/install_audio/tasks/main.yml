@@ -1,0 +1,16 @@
+---
+
+- name: Install audio packages
+  pacman:
+    state: present
+    name:
+      - pulseaudio
+      - pulseaudio-alsa
+      - pamixer
+      - pavucontrol
+      - jack
+      - qjackctl
+      - pulseaudio-jack
+  tags:
+    - audio
+    - install_pacman

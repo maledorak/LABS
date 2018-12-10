@@ -2,12 +2,12 @@
 
 - name: Install zsh
   pacman:
-    name: "{{ item }}"
     state: present
-  with_items:
-    - zsh
+    name:
+      - zsh
   tags:
     - zsh
+    - install_pacman
 
 - name: Set zsh as default shell
   user:

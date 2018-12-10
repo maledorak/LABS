@@ -1,0 +1,11 @@
+---
+
+- name: Install network packages
+  pacman:
+    state: present
+    name:
+      - networkmanager
+      - network-manager-applet
+  tags:
+    - network
+    - install_pacman
