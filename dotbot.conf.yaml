@@ -12,6 +12,7 @@
     ~/.ideavimrc: home/.ideavimrc
     ~/.Xdefaults: home/.Xdefaults
     ~/.zshrc: home/.zshrc
+    ~/.spacemacs: home/.spacemacs
     ~/.zprofile: home/.zprofile
     ~/.xinitrc: home/.xinitrc
     ~/.config/ranger: home/.config/ranger
