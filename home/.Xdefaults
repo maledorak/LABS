@@ -1,0 +1,65 @@
+! Dracula Xresources palette
+!*.foreground: #F8F8F2
+!*.background: #282A36
+!*.color0:     #000000
+!*.color8:     #4D4D4D
+!*.color1:     #FF5555
+!*.color9:     #FF6E67
+!*.color2:     #50FA7B
+!*.color10:    #5AF78E
+!*.color3:     #F1FA8C
+!*.color11:    #F4F99D
+!*.color4:     #BD93F9
+!*.color12:    #CAA9FA
+!*.color5:     #FF79C6
+!*.color13:    #FF92D0
+!*.color6:     #8BE9FD
+!*.color14:    #9AEDFE
+!*.color7:     #BFBFBF
+!*.color15:    #E6E6E6
+
+!! Monokai theme
+! special
+*.foreground:   #d1d1d1
+*.background:   #272822
+*.cursorColor:  #d1d1d1
+! black
+*.color0:       #272822
+*.color8:       #75715e
+! red
+*.color1:       #f92672
+*.color9:       #f92672
+! green
+*.color2:       #a6e22e
+*.color10:      #a6e22e
+! yellow
+*.color3:       #f4bf75
+*.color11:      #f4bf75
+! blue
+*.color4:       #66d9ef
+*.color12:      #66d9ef
+! magenta
+*.color5:       #ae81ff
+*.color13:      #ae81ff
+! cyan
+*.color6:       #a1efe4
+*.color14:      #a1efe4
+! white
+*.color7:       #f8f8f2
+*.color15: #f9f8f5
+
+URxvt.font: 		xft:inconsolata:size=14
+URxvt.scrollBar: 	false
+
+rofi.color-enabled:	true
+rofi.color-window:	#000, #000, #000
+rofi.color-normal:	#111, #819396, #222, #008ed4, #ffffff
+rofi.color-active:	#002b37, #008ed4, #003643, #008ed4, #66c6ff
+rofi.color-urgent:	#002b37, #da4281, #003643, #008ed4, #890661
+
+rofi.fake-transparency:	true
+rofi.lines:		10
+rofi.bw:		0
+rofi.opacity:		"20"
+rofi.hide-scrollbar:	true
+rofi.width: 30

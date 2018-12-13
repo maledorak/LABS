@@ -1,0 +1,23 @@
+"
+" ~/.ideavimrc
+"
+" v0.0.2
+" updated 09.02.2018
+"
+
+set number                     " Show current line number
+set relativenumber             " Show relative line numbers
+
+set clipboard=unnamedplus   " clipboard as default register
+
+" Disable Arrow keys in Escape mode
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" Disable Arrow keys in Insert mode
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>

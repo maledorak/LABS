@@ -1,0 +1,103 @@
+#
+# ~/.gitconfig
+#
+# v0.0.1
+# updated: 24.02.2018
+#
+
+[user]
+	email = mariusz.korzekwa@gmail.com
+	name = Mariusz Korzekwa
+[core]
+	editor = vim
+
+[alias]
+# aliases gets from: https://github.com/GitAlias/gitalias
+
+    a = add
+    b = branch
+    c = commit
+    d = diff
+    f = fetch
+    g = grep
+    l = log
+    m = merge
+    o = checkout
+    p = pull
+    r = remote
+    s = status
+    w = whatchanged
+
+
+### commit ###
+# commit - amend the tip of the current branch rather than creating a new commit.
+    ca = commit --amend
+    can = commit --amend --no-edit
+
+
+### checkout ###
+# checkout - update the working tree to match a branch or paths. [same as "o" for "out"]
+    co = checkout
+
+
+### diff ###
+# diff - show changes not yet staged
+    dc = diff --cached
+
+
+### log ###
+# log with a text-based graphical representation of the commit history.
+    lg = log --graph
+
+
+### pull ###
+# pull if a merge can be resolved as a fast-forward, otherwise fail.
+    pf = pull --ff-only
+
+# pull with rebase - to provide a cleaner, linear, bisectable history.
+#
+# To integrate changes between branches, you can merge or rebase.
+#
+# When we use "git pull", git does a fetch then a merge.
+# If we've made changes locally and someone else has pushed changes
+# to our git host then git will automatically merge these together
+# and create a merge commit that looks like this in the history:
+#
+#    12345678 - Merge branch 'foo' of bar into master
+#
+# When we use "git pull --rebase", git does a fetch then a rebase.
+# A rebase resets the HEAD of your local branch to be the same as
+# the remote HEAD, then replays your local commits back into repo.
+# This means you don't get any noisy merge messages in your history.
+# This gives us a linear history, and also helps with git bisect.
+#
+# To automatically do "pull --rebase" for any branch based on master:
+#
+#    git config branch.master.rebase true
+#
+# To automatically do "pull --rebase" for all branches:
+#
+#     git config --global branch.autosetuprebase always
+#
+    pr = pull --rebase
+
+
+### push ###
+# 
+# Publish the current branch by pushing it to the remote "origin",
+# and setting the current branch to track the upstream branch.
+pub = !"git push --set-upstream origin $(git branch-name)"
+fpub = !"git push --force --set-upstream origin $(git branch-name)"
+ffpub = !"git add . && git commit --amend --no-edit && git push --force --set-upstream origin $(git branch-name)"
+
+### wip ###
+save = !"git add . && git commit -m 'WIP' --no-verify && git push --force --set-upstream origin $(git branch-name)"
+load = !"git reset HEAD^"
+
+
+### SHELL SCRIPTING ALIASES ###
+#
+# Get the current branch name
+branch-name = rev-parse --abbrev-ref HEAD
+
+
