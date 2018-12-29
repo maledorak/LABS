@@ -15,7 +15,8 @@ set $term --no-startup-id urxvt
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 
 ### --- Starting External Scripts --- ###
-
+# Starts dunst for notifications:
+exec --no-startup-id dunst
 # Composite manager:
 exec --no-startup-id compton --xrender-sync-fence
 # Launch Polybar where appropriate:
@@ -37,7 +38,7 @@ exec --no-startup-id spotify
 exec --no-startup-id guake -f
 
 # Start redshift and fallback to Krakow
-exec --no-startup-id redshift || redshift -l 50.06:19.94
+# exec --no-startup-id redshift || redshift -l 50.06:19.94
 
 exec --no-startup-id nixnote2
 
@@ -203,7 +204,7 @@ bindsym $mod+Shift+l		move right 30
 bindsym $mod+z			gaps outer current plus 5
 bindsym $mod+Shift+z		gaps outer current minus 5
 
-bindsym $mod+x			exec --no-startup-id ~/.config/i3/lock.sh
+bindsym $mod+x         exec --no-startup-id lockscreen
 bindsym $mod+Shift+x		exec $shutdown
 
 # Bindings to make the webcam float and stick.

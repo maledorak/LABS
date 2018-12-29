@@ -1,0 +1,6 @@
+dc:~/docs
+dotfiles:~/.dotfiles
+projects:~/code/projects
+venvs:~/code/venvs
+logs:/var/log
+venvs:~/code/venvs

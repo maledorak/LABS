@@ -1,9 +1,6 @@
 #
 # ~/.bash_aliases
 #
-# v0.0.5
-# updated: 24.02.2018
-#
 
 #Generic shortcuts:
 alias music="ncmpcpp"
@@ -41,7 +38,8 @@ alias gitpass="git config --global credential.helper cache"
 alias gitb="git branch | grep \* | cut -d ' ' -f2"
 alias tr="transmission-remote"
 alias mkd="mkdir -pv"
-alias rf="source ~/.bashrc"
+alias resetz="echo 'Restart zshrc' && source ~/.zshrc"
+alias resetb="echo 'Restart bashrc' && source ~/.bashrc"
 alias ref="~/.config/Scripts/shortcuts.sh && source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
 alias bars="bash ~/.config/polybar/launch.sh" # Run Polybar relaunch script
 alias bw="wal -i ~/.config/wall.png" # Rerun pywal
@@ -49,7 +47,17 @@ alias envg="env | grep "
 alias i="invoke"
 alias il="invoke --list"
 alias ntruf="node_modules/.bin/truffle"
-
+looper() {
+    command="$@"
+    while :
+    do
+        echo "######################"
+        echo "##### Start Loop #####"
+        echo "######################"
+        eval $command
+        sleep 1
+    done
+}
 # Adding color
 alias ls='ls -hNF --color --group-directories-first'
 alias la='ls -hFAN --color --group-directories-first'
@@ -108,6 +116,6 @@ alias dsp='./manage.py shell_plus'
 alias add2virtualenv_edit='cdvirtualenv && vim lib/python2.7/site-packages/_virtualenv_path_extensions.pth'
 
 # Files
-alias edit_alias='vim ~/.bash_aliases'
-alias show_alias='cat ~/.bash_aliases'
+alias edit_alias='vim ~/.aliases'
+alias show_alias='cat ~/.aliases'
 alias edit_ssh='vim ~/.ssh/assh.yml'

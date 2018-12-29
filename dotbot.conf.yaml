@@ -4,7 +4,9 @@
 
 - link:
     ~/.vimrc: home/.vimrc
-    ~/.bash_aliases: home/.bash_aliases
+    ~/.warprc: home/.warprc
+    ~/.scripts: home/.scripts
+    ~/.aliases: home/.aliases
     ~/.bash_logout: home/.bash_logout
     ~/.bash_profile: home/.bash_profile
     ~/.bashrc: home/.bashrc
@@ -17,5 +19,6 @@
     ~/.xinitrc: home/.xinitrc
     ~/.config/ranger: home/.config/ranger
     ~/.config/i3: home/.config/i3
+    ~/.config/dunst: home/.config/dunst
     ~/.config/polybar: home/.config/polybar
     ~/.config/fontconfig: home/.config/fontconfig

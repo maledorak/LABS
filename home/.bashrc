@@ -14,8 +14,8 @@ set -o vi
 PS1='[\u@\h \W]\$ '
 
 # Alias definitions
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
 fi
 
 # bash-completion

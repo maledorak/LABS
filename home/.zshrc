@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Adds `~/.scripts` and all subdirectories to $PATH
+export PATH="$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':')$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -115,8 +118,8 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-if [ -f ~/.bash_aliases ]; then 
-  . ~/.bash_aliases 
+if [ -f ~/.aliases ]; then
+  . ~/.aliases
 fi 
 
 # virtualenvwrapper 
