@@ -10,12 +10,13 @@
   roles:
     - update_pacman_cache
     - install_aur_helper
+    - install_python
     - install_basic_packages
     - install_audio
     - install_bluetooth
     - install_docker
     - install_fonts
     - install_network
-    - install_python
+    - install_spacemacs
     - install_usb
     - install_zsh

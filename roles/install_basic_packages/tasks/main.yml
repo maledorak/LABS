@@ -6,11 +6,15 @@
     name:
       - deluge
       - curl
+      - dunst
+      - exa # modern ls
+      - ffmpeg
       - firefox
       - flameshot
       - gimp
       - git
       - guake
+      - gwenview
       - imagemagick
       - keepassxc
       - libreoffice-fresh
@@ -43,19 +47,32 @@
   with_items:
     - advanced-ssh-config
     - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
-    - git-extras-git
-    - gitflow-avh
     - dropbox
     - franz
+    - phantomjs # for youtube-dl
+    - git-extras-git
+    - gitflow-avh
     - gitlab-runner
     - google-chrome
     - homebank
+    - insomnia # https://github.com/getinsomnia/insomnia
     - jetbrains-toolbox
     - nixnote2
     - polybar
     - slack-desktop
     - spotify
     - qnapi
+    - youtube-dl
   tags:
     - basic_packages
     - install_aur
+
+
+- name: Install basic python packages
+  pacman:
+    state: present
+    name:
+      - spotdl
+  tags:
+    - basic_packages
+    - install_pip

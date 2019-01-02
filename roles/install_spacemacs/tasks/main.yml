@@ -1,0 +1,30 @@
+---
+# based on: https://wiki.archlinux.org/index.php/Spacemacs#Installation
+
+- name: Install emacs
+  pacman:
+    state: present
+    name:
+      - emacs
+      - adobe-source-code-pro-fonts
+  tags:
+    - spacemacs
+    - install_pacman
+
+- name: Install spacemacs
+  git:
+    repo: https://github.com/syl20bnr/spacemacs
+    dest: "{{ localhost_user_home }}/.emacs.d"
+    force: yes
+  tags:
+    - spacemacs
+
+- name: Set owner of .emacs.d
+  file:
+    path: "{{ localhost_user_home }}/.emacs.d"
+    owner: "{{ localhost_user }}"
+    group: "{{ localhost_user }}"
+    state: directory
+    recurse: true
+  tags:
+    - spacemacs
