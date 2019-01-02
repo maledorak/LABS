@@ -138,10 +138,3 @@ export GID="$(id -g)"
 
 setopt no_share_history
 # SHARE_HISTORY="false"
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/mariusz/code/projects/gaselle/packages/services/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/mariusz/code/projects/gaselle/packages/services/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/mariusz/code/projects/gaselle/packages/services/node_modules/tabtab/.completions/sls.zsh ]] && . /home/mariusz/code/projects/gaselle/packages/services/node_modules/tabtab/.completions/sls.zsh

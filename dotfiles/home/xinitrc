@@ -6,8 +6,8 @@ setxkbmap pl
 # run udiskie automounter for udisks2
 udiskie --no-notify --tray --use-udisks2 &
 
-# run redshift
-pgrep redshift &> /dev/null || redshift &> /dev/null &
+# run redshift (now is in i3)
+#pgrep redshift &> /dev/null || redshift &> /dev/null &
 
 # run dropbox
 /usr/bin/dropbox &

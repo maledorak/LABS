@@ -1,9 +1,6 @@
 "
 " ~/.ideavimrc
 "
-" v0.0.2
-" updated 09.02.2018
-"
 
 set number                     " Show current line number
 set relativenumber             " Show relative line numbers
