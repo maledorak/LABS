@@ -10,6 +10,7 @@ alias files="ranger"
 alias audio="ncpamixer"
 
 # System Maintainence
+alias tr="gio trash" # Move file to trash
 alias progs="pacman -Qet" # List programs I've installed
 alias orphans="pacman -Qdt" # List orphan programs
 alias upgr="neofetch && sudo pacman -Syyu --noconfirm && echo Update complete. | figlet"

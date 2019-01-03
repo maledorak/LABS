@@ -60,7 +60,14 @@ handle_extension() {
         # PDF
         pdf)
             # Preview as image
-            try pdftoppm -jpeg -singlefile "$FILE_PATH" "${IMAGE_CACHE_PATH//.jpg}" && exit 6 || exit 1;;
+            pdftoppm -f 1 -l 1 \
+              -scale-to-x 1920 \
+              -scale-to-y -1 \
+              -singlefile \
+              -jpeg -tiffcompression jpeg \
+              -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" \
+             && exit 6 || exit 1;;
+
             # Preview as text conversion
             # pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - && exit 5
             # exiftool "${FILE_PATH}" && exit 5

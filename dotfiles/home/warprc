@@ -1,5 +1,7 @@
-dc:~/docs
-dotfiles:~/.dotfiles
+doc:~/Documents
+dotfiles:~/LABS
+labs:~/LABS
+loc:~/LABS
 projects:~/code/projects
 venvs:~/code/venvs
 logs:/var/log
