@@ -1,0 +1,7 @@
+---
+
+- name: Update pacman cache
+  pacman:
+    update_cache: "{{ update_cache }}"
+  tags:
+    - update_cache

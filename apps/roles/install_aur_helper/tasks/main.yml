@@ -1,0 +1,28 @@
+---
+
+- name: Add aur_builder user
+  user:
+    name: aur_builder
+    group: wheel
+  tags:
+    - aur_helper
+
+- name: Add to aur_builder user posibility to sudo without password
+  lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    validate: 'visudo -cf %s'
+  tags:
+    - aur_helper
+
+- name: Install trizen
+  aur:
+    name: trizen
+    use: internal
+    skip_installed: true
+  become: yes
+  become_user: aur_builder
+  tags:
+    - aur_helper
+    - install_aur

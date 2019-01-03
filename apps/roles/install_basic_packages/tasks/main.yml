@@ -1,0 +1,78 @@
+---
+
+- name: Install basic pacman packages
+  pacman:
+    state: present
+    name:
+      - deluge
+      - curl
+      - dunst
+      - exa # modern ls
+      - ffmpeg
+      - firefox
+      - flameshot
+      - gimp
+      - git
+      - guake
+      - gwenview
+      - imagemagick
+      - keepassxc
+      - libreoffice-fresh
+      - okular
+      - pass
+      - powerline
+      - poppler-glib # open pdf in gimp
+      - ranger
+      - redshift
+      - reflector
+      - rxvt-unicode
+      - samba
+      - texlive-core
+      - texlive-latexextra
+      - tig
+      - thunderbird
+      - w3m # for ranger
+      - wget
+      - vim
+      - vlc
+  tags:
+    - basic_packages
+    - install_pacman
+
+- name: Install basic aur packages
+  aur:
+    name: "{{ item }}"
+    use: trizen
+    skip_installed: true
+  with_items:
+    - advanced-ssh-config
+    - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
+    - dropbox
+    - franz
+    - phantomjs # for youtube-dl
+    - git-extras-git
+    - gitflow-avh
+    - gitlab-runner
+    - google-chrome
+    - homebank
+    - insomnia # https://github.com/getinsomnia/insomnia
+    - jetbrains-toolbox
+    - nixnote2
+    - polybar
+    - slack-desktop
+    - spotify
+    - qnapi
+    - youtube-dl
+  tags:
+    - basic_packages
+    - install_aur
+
+
+- name: Install basic python packages
+  pacman:
+    state: present
+    name:
+      - spotdl
+  tags:
+    - basic_packages
+    - install_pip

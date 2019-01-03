@@ -1,0 +1,41 @@
+---
+
+- name: Install udisks2 package
+  pacman:
+    state: present
+    name:
+      - udisks2
+      - udiskie
+      # ntfs utils below
+      - nfs-utils
+      - ntfs-3g
+  tags:
+    - usb
+    - install_pacman
+
+- name: Create /media dir
+  file:
+    name: /media
+    state: directory
+    owner: root
+    mode: 0755
+  tags:
+    - usb
+
+- name: Set mounting to /media conf file
+  template:
+    src: udisks2_99-udisks2.rules
+    dest: /etc/udev/rules.d/99-udisks2.rules
+    owner: root
+    mode: 0644
+  tags:
+    - usb
+
+- name: Create tempfiles.d snippet
+  template:
+    src: udisks2_media.conf
+    dest: /etc/tmpfiles.d/media.conf
+    owner: root
+    mode: 0644
+  tags:
+    - usb

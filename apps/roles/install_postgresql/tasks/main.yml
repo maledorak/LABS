@@ -1,0 +1,40 @@
+---
+
+- name: Install postgresql package.
+  pacman:
+    state: present
+    name:
+    - postgresql
+  tags:
+    - postgres
+    - install_pacman
+
+- name: Install psycopg2 package.
+  pip:
+    name: psycopg2
+    state: latest
+  tags:
+    - postgres
+    - install_pip
+
+- name: Create database cluster.
+  command: sudo -iu postgres initdb -D '/var/lib/postgres/data'
+  args:
+    creates: /var/lib/postgres/data
+  tags:
+    - postgres
+
+- name: Start postgresql service.
+  systemd:
+    name: postgresql
+    state: started
+  tags:
+    - postgres
+
+- name: Create localhost db user
+  postgresql_user:
+    name: "{{ localhost_user }}"
+    state: present
+    role_attr_flags: CREATEDB
+  tags:
+    - postgres

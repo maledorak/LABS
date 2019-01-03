@@ -1,0 +1,63 @@
+---
+
+- name: Install zsh
+  pacman:
+    state: present
+    name:
+      - zsh
+  tags:
+    - zsh
+    - install_pacman
+
+- name: Set zsh as default shell
+  user:
+    name: "{{ localhost_user }}"
+    shell: /bin/zsh
+  tags:
+    - zsh
+
+- name: Install oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: "{{ localhost_user_home }}/.oh-my-zsh"
+    force: yes
+  tags:
+    - zsh
+
+- name: Set owner of .oh-my-zsh
+  file:
+    path: "{{ localhost_user_home }}/.oh-my-zsh"
+    owner: "{{ localhost_user }}"
+    group: "{{ localhost_user }}"
+    state: directory
+    recurse: true
+  tags:
+    - zsh
+
+- name: Install spaceship-prompt theme
+  git:
+    repo: https://github.com/denysdovhan/spaceship-prompt.git
+    dest: "{{ localhost_user_home }}/.oh-my-zsh/themes/spaceship-prompt"
+    force: yes
+  tags:
+    - zsh
+
+- name: Set owner of my spaceship-prompt
+  file:
+    path: "{{ localhost_user_home }}/.oh-my-zsh/themes/spaceship-prompt"
+    owner: "{{ localhost_user }}"
+    group: "{{ localhost_user }}"
+    state: directory
+    recurse: true
+  tags:
+    - zsh
+
+- name: Set symlink to speceship-prompt
+  file:
+    src: "{{ localhost_user_home }}/.oh-my-zsh/themes/spaceship-prompt/spaceship.zsh-theme"
+    dest: "{{ localhost_user_home }}/.oh-my-zsh/themes/spaceship.zsh-theme"
+    owner: "{{ localhost_user }}"
+    group: "{{ localhost_user }}"
+    state: link
+  tags:
+    - zsh

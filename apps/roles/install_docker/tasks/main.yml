@@ -1,0 +1,45 @@
+---
+
+- name: Install docker packages.
+  pacman:
+    state: present
+    name:
+      - docker
+      - docker-compose
+  tags:
+    - docker
+    - install_pacman
+
+- name: Start docker service.
+  systemd:
+    name: docker.service
+    state: started
+    enabled: true
+  tags:
+    - docker
+
+- name: Create docker group.
+  group:
+    name: docker
+    state: present
+  tags:
+    - docker
+
+- name: Add docker group to user.
+  user:
+    name: "{{ localhost_user }}"
+    groups: docker
+    append: true
+  tags:
+    - docker
+
+- name: Set .docker dir ownership and permissions.
+  file:
+    path: /home/{{ localhost_user }}/.docker
+    owner: "{{ localhost_user }}"
+    group: "{{ localhost_user }}"
+    state: directory
+    recurse: true
+    force: true
+  tags:
+    - docker
