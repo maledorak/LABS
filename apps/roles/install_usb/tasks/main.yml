@@ -1,4 +1,5 @@
 ---
+# based on: https://wiki.archlinux.org/index.php/udisks#Tips_and_tricks
 
 - name: Install udisks2 package
   pacman:

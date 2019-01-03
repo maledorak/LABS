@@ -3,11 +3,23 @@ include .env
 export $(shell sed 's/=.*//' .env)
 
 help:
-	@echo "dotfiles-install - Set symlinks."
-	@echo "pipenv-install - Install apps."
+	@echo "====================     Help     ===================="
+	@echo "install ................ Set git submodules and Install pipenv apps."
+	@echo "dotfiles.configure ..... Set symlinks."
+	@echo "apps.configure ......... Configure arch localhost."
+	@echo "apps.tags .............. Configure arch localhost only with passed 'tags'."
 
-dotfiles-install:
+install:
+	git submodule init
+	git submodule update
+	pipenv install
+
+dotfiles.configure:
 	dotbot -c ${DOTBOT_CONF}
 
-pipenv-install:
-	pipenv install
+apps.configure:
+	ansible-playbook -K -vv apps/configure_arch.yml
+
+apps.tags:
+	# use: make run-tags tags="tag1,tag2"
+	ansible-playbook -K -vv apps/configure_arch.yml --tags "${tags}"

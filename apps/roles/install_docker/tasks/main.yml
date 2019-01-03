@@ -1,4 +1,5 @@
 ---
+# based on: https://docs.docker.com/install/linux/linux-postinstall/
 
 - name: Install docker packages.
   pacman:
