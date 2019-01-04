@@ -10,6 +10,8 @@ Run `make` for command help
 
 Apps configuration
 ------------------
+Apps configuration was provided by [Ansible](https://docs.ansible.com/ansible/latest/index.html)
+
 Run `make apps.configure` to start arch configuration.
 
 More info in [Docs](apps/docs/index.md)
@@ -17,4 +19,6 @@ More info in [Docs](apps/docs/index.md)
 
 Dotfiles configuration
 ----------------------
+Dotfiles configuration was provided by [Dotbot](https://github.com/anishathalye/dotbot)
+
 Run `make dotfiles.configure` to start dotfiles configuration.

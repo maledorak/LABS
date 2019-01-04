@@ -1,11 +1,17 @@
+###########################
+#   PUBLIC DOTBOT CONFIG  #
+###########################
+
 - defaults:
     link:
+      create: true
+      glob: true
       relink: true
 
 - link:
     ~/.vimrc: home/vimrc
     ~/.warprc: home/warprc
-    ~/.scripts: home/scripts
+    ~/.scripts/: home/scripts/*
     ~/.aliases: home/aliases
     ~/.bash_logout: home/bash_logout
     ~/.bash_profile: home/bash_profile

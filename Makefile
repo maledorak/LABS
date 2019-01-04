@@ -5,17 +5,19 @@ export $(shell sed 's/=.*//' .env)
 help:
 	@echo "====================     Help     ===================="
 	@echo "install ................ Set git submodules and Install pipenv apps."
-	@echo "dotfiles.configure ..... Set symlinks."
+	@echo "dotfiles.configure ..... Set dotfiles symlinks."
 	@echo "apps.configure ......... Configure arch localhost."
 	@echo "apps.tags .............. Configure arch localhost only with passed 'tags'."
 
 install:
-	git submodule init
-	git submodule update
+	git submodule update --init --recursive
 	pipenv install
 
 dotfiles.configure:
-	dotbot -c ${DOTBOT_CONF}
+	@echo "===== Public dotfiles setup ====="
+	dotbot -c ${PUBLIC_DOTBOT_CONF}
+	@echo "===== Private dotfiles setup ====="
+	dotbot -c ${PRIVATE_DOTBOT_CONF}
 
 apps.configure:
 	ansible-playbook -K -vv apps/configure_arch.yml
