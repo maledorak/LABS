@@ -7,6 +7,7 @@ Used packages docs and tutorials which I use to create roles in this ansible scr
 * bluetooth -
 [1](https://wiki.archlinux.org/index.php/bluetooth#Installation),
 [2](https://wiki.archlinux.org/index.php/Bluetooth_headset#Headset_via_Bluez5/PulseAudio)
+* backlight - [1](https://gitlab.com/wavexx/acpilight)
 * docker - [post installation tips](https://docs.docker.com/install/linux/linux-postinstall/)
 * spacemacs - [installation](https://wiki.archlinux.org/index.php/Spacemacs#Installation)
 * usb - [mount to /media tutorial](https://wiki.archlinux.org/index.php/udisks#Tips_and_tricks)
@@ -19,3 +20,10 @@ Used ansible modules
 
 ### Others
 * Spark, arch installation ansible scripts - [github](https://github.com/pigmonkey/spark)
+
+
+### Udev rules
+If you want's to add new udev rule, get smallest exists, decrease it, and use it in new rule.
+
+* 99-udisks2 - `install_usb` role
+* 98-backlight - `install_backlight` role

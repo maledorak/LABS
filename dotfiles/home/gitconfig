@@ -26,6 +26,7 @@
 # commit - amend the tip of the current branch rather than creating a new commit.
     ca = commit --amend
     can = commit --amend --no-edit
+    cana = !"git add . && git commit --amend --no-edit"
 
 
 ### checkout ###

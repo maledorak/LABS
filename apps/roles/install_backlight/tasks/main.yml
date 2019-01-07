@@ -1,0 +1,39 @@
+---
+# based on: https://gitlab.com/wavexx/acpilight
+
+- name: Install acpilight # acplight is iproved xorg-backlight
+  aur:
+    name: "{{ item }}"
+    use: trizen
+    skip_installed: true
+  with_items:
+    - acplight
+  tags:
+    - backlight
+    - install_aur
+
+- name: Set backlight udev rules
+  template:
+    src: 98-backlight.rules
+    dest: /etc/udev/rules.d/98-backlight.rules
+    owner: root
+    mode: 0644
+  tags:
+    - backlight
+    - udev
+
+- name: Create video group.
+  group:
+    name: video
+    state: present
+  tags:
+    - backlight
+    - docker
+
+- name: Add video group to user.
+  user:
+    name: "{{ localhost_user }}"
+    groups: video
+    append: true
+  tags:
+    - backlight
