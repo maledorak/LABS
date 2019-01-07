@@ -23,18 +23,19 @@
   tags:
     - usb
 
-- name: Set mounting to /media conf file
+- name: Add udev rule with mounting to /media conf file
   template:
-    src: udisks2_99-udisks2.rules
+    src: 99-udisks2.rules
     dest: /etc/udev/rules.d/99-udisks2.rules
     owner: root
     mode: 0644
   tags:
     - usb
+    - udev
 
 - name: Create tempfiles.d snippet
   template:
-    src: udisks2_media.conf
+    src: media.conf
     dest: /etc/tmpfiles.d/media.conf
     owner: root
     mode: 0644
