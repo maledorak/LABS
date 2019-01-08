@@ -15,10 +15,10 @@
     use: trizen
     skip_installed: true
   with_items:
+    - ttf-google-fonts-git
     - ttf-font-awesome
     - ttf-font-icons
     - ttf-inconsolata
-    - ttf-lato
   tags:
     - fonts
     - install_aur
