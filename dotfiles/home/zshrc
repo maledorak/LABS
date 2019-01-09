@@ -78,7 +78,7 @@ plugins=(
   ssh-agent
   systemd
   wd
-  vi-mode
+#  vi-mode
   virtualenv
   virtualenvwrapper
 )

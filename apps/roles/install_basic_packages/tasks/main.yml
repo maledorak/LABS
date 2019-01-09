@@ -13,7 +13,6 @@
       - flameshot
       - gimp
       - git
-      - guake
       - gwenview
       - imagemagick
       - keepassxc
@@ -30,6 +29,7 @@
       - texlive-core
       - texlive-latexextra
       - tig
+      - tilda
       - thunderbird
       - w3m # for ranger
       - wget

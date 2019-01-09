@@ -35,7 +35,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id firefox
 exec --no-startup-id slack
 exec --no-startup-id spotify
-exec --no-startup-id guake -f
+exec --no-startup-id tilda
 
 # Start redshift and fallback to Krakow
 # exec --no-startup-id redshift || redshift -l 50.06:19.94
@@ -254,7 +254,7 @@ bindsym $mod+4		workspace $ws4; layout tabbed
 bindsym $mod+5		workspace $ws5
 bindsym $mod+6		workspace $ws6
 bindsym $mod+7		workspace $ws7
-bindsym $mod+8		workspace $ws8
+bindsym $mod+8		workspace $ws8; layout tabbed
 bindsym $mod+9		workspace $ws9
 bindsym $mod+0		workspace $ws10
 
@@ -272,17 +272,20 @@ bindsym $mod+Shift+0	move container to workspace $ws10
 
 # window sticking to workspace
 # use `xprop` to check class instance
-for_window [instance="guake"] floating enable
+for_window [instance="tilda"] floating enable
 for_window [class="Firefox"] move to workspace $ws1
 for_window [class="jetbrains-pycharm"] move to workspace $ws2
+for_window [class="jetbrains-studio"] move to workspace $ws2
 for_window [class="google-chrome"] move to workspace $ws3
 for_window [class="Pinentry"] sticky enable
 for_window [instance="anki"] move to workspace $ws3
 for_window [instance="slack"] move to workspace $ws4
-for_window [class="Blender"] move to workspace $ws8
-for_window [class="marble"] move to workspace $ws8
-for_window [title="GIMP Startup"] move workspace $ws8
-for_window [class="Gimp"] move workspace $ws8
+for_window [class="Blender"] move to workspace $ws7
+for_window [class="marble"] move to workspace $ws7
+for_window [title="GIMP Startup"] move workspace $ws7
+for_window [class="Gimp"] move workspace $ws7
+for_window [title="LibreOffice"] move workspace $ws8
+for_window [class="libreoffice"] move workspace $ws8
 for_window [instance="nixnote2"] move to workspace $ws9
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
