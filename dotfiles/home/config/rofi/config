@@ -1,1 +1,3 @@
 rofi.theme: ./flat-orange.rasi
+rofi.show-icons: true
+rofi.modi: window,run,ssh,drun
