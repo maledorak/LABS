@@ -2,3 +2,8 @@
 .venv/
 .vscode/
 *.retry
+
+# Ranger
+dotfiles/home/config/ranger/history
+dotfiles/home/config/ranger/bookmarks
+dotfiles/home/config/ranger/tagged

@@ -13,15 +13,17 @@ install:
 	git submodule update --init --recursive
 	pipenv install
 
-dotfiles.configure:
-	@echo "===== Public dotfiles setup ====="
+dots.arch:
+	@echo "===== Public dotfiles arch setup ====="
 	dotbot -c ${PUBLIC_DOTBOT_CONF}
 # Check is private dir exists and run private Makefile
 ifneq (,$(wildcard ./private/Makefile))
 	$(MAKE) -C private configure
 endif
 
-dot: dotfiles.configure
+dots.kubuntu:
+	@echo "===== Public dotfiles kubuntu setup ====="
+	dotbot -c ${KUBUNTU_PUBLIC_DOTBOT_CONF}
 
 apps.configure:
 	ansible-playbook -K -vv apps/configure_arch.yml
