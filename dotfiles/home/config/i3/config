@@ -36,10 +36,6 @@ exec --no-startup-id firefox
 exec --no-startup-id slack
 exec --no-startup-id spotify
 exec --no-startup-id tilda
-
-# Start redshift and fallback to Krakow
-# exec --no-startup-id redshift || redshift -l 50.06:19.94
-
 exec --no-startup-id nixnote2
 
 # SYSTEMD
