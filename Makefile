@@ -5,7 +5,7 @@ export $(shell sed 's/=.*//' .env)
 help:
 	@echo "====================     Help     ===================="
 	@echo "install ................ Set git submodules and Install pipenv apps."
-	@echo "dotfiles.configure ............... Set dotfiles symlinks."
+	@echo "dots.arch ...............Set dotfiles symlinks."
 	@echo "apps.configure ......... Configure arch localhost."
 	@echo "apps.tags .............. Configure arch localhost only with passed 'tags'."
 
@@ -26,8 +26,8 @@ dots.kubuntu:
 	dotbot -c ${KUBUNTU_PUBLIC_DOTBOT_CONF}
 
 apps.configure:
-	ansible-playbook -K -vv apps/configure_arch.yml
+	$(MAKE) -C apps configure
 
 apps.tags:
 	# use: make run-tags tags="tag1,tag2"
-	ansible-playbook -K -vv apps/configure_arch.yml --tags "${tags}"
+	$(MAKE) -C apps tags

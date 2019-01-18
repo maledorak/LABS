@@ -10,7 +10,6 @@
     padding = 0
     horizontal_padding = 8
     frame_width = 3
-    frame_color = "#282828"
 
     # Define a color for the separator.
     # possible values are:
@@ -18,13 +17,12 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = frame
 
     # Sort messages by urgency.
     sort = yes
 
     idle_threshold = 120
-    font = Monospace 14
+    font = Inconsolata 14
     line_height = 0
     markup = full
 
@@ -63,6 +61,27 @@
     class = Dunst
     startup_notification = false
     force_xinerama = false
+
+# %%base16_template: dunst##default %%
+frame_color = "#504945"
+separator_color = "#504945"
+
+[base16_low]
+    msg_urgency = low
+    background = "#ebdbb2"
+    foreground = "#bdae93"
+
+[base16_normal]
+    msg_urgency = normal
+    background = "#d5c4a1"
+    foreground = "#504945"
+
+[base16_critical]
+    msg_urgency = critical
+    background = "#9d0006"
+    foreground = "#3c3836"
+# %%base16_template_end%%
+
 [experimental]
     per_monitor_dpi = false
 

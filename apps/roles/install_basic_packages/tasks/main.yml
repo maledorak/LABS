@@ -4,6 +4,7 @@
   pacman:
     state: present
     name:
+      - arandr # xrandr gui (screens)
       - deluge
       - curl
       - dunst
@@ -19,6 +20,7 @@
       - libreoffice-fresh
       - okular
       - pass
+      - polkit # allow unprivileged users to run power management commands
       - powerline
       - poppler-glib # open pdf in gimp
       - ranger
@@ -35,6 +37,7 @@
       - wget
       - vim
       - vlc
+      - xclip # clipboard utility
   tags:
     - basic_packages
     - install_pacman

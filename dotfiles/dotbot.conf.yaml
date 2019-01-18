@@ -23,11 +23,13 @@
     ~/.xinitrc: home/xinitrc
     ~/.zprofile: home/zprofile
     ~/.zshrc: home/zshrc
-    ~/.config/ranger: home/config/ranger
-    ~/.config/i3: home/config/i3
+    ~/.config/compton.conf: home/config/compton.conf
+    ~/.config/emoji: home/config/emoji
     ~/.config/dunst: home/config/dunst
     ~/.config/fontconfig: home/config/fontconfig
+    ~/.config/i3: home/config/i3
     ~/.config/polybar: home/config/polybar
+    ~/.config/ranger: home/config/ranger
     ~/.config/redshift: home/config/redshift
     ~/.config/rofi: home/config/rofi
     ~/.config/tilda: home/config/tilda
