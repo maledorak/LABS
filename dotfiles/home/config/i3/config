@@ -94,6 +94,8 @@ set $wifikill rfkill block 0 1 2
 #############################################################
 
 ###### Spotify ######
+# more comands in: https://gist.github.com/wandernauta/6800547
+
 set $music --no-startup-id spotify
 set $pause dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 set $trupause dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
@@ -102,6 +104,8 @@ set $next dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpr
 set $prev dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 set $lilfor dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Seek
 set $bigfor dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Seek(
+set $player_inc pactl_set_volume 5
+set $player_dec pactl_set_volume -5
 
 ###### PULSEAUDIO/PAMIXER ######
 set $inc --no-startup-id pamixer --allow-boost -i 5
@@ -357,9 +361,9 @@ bindsym $mod+Shift+plus         exec $biginc
 bindsym $mod+minus              exec $dec
 bindsym $mod+Shift+minus        exec $bigdec
 bindsym $mod+less               exec $prev
-bindsym $mod+Shift+less         exec $beg
+bindsym $mod+Shift+less         exec $player_dec
 bindsym $mod+greater            exec $next
-bindsym $mod+Shift+greater      exec $next
+bindsym $mod+Shift+greater      exec $player_inc
 
 # For advancing forward/backward in an mpd song
 bindsym $mod+bracketleft        exec $lilbak

@@ -5,8 +5,8 @@
     state: present
     name:
       - arandr # xrandr gui (screens)
-      - deluge
       - curl
+      - deluge
       - dunst
       - exa # modern ls
       - ffmpeg
@@ -52,7 +52,6 @@
     - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
     - dropbox
     - franz
-    - phantomjs # for youtube-dl
     - git-extras-git
     - gitflow-avh
     - gitlab-runner
@@ -60,8 +59,10 @@
     - homebank
     - insomnia # https://github.com/getinsomnia/insomnia
     - jetbrains-toolbox
+    - ncpamixer-git # pulse audio ncurses mixer
     - nixnote2
     - polybar
+    - phantomjs # for youtube-dl
     - slack-desktop
     - spotify
     - qnapi
@@ -75,6 +76,7 @@
   pacman:
     state: present
     name:
+      - glances
       - spotdl
   tags:
     - basic_packages

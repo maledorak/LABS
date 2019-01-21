@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+import sys
+
+import os
+import subprocess
+
+
+def set_volume(app, vol_change):
+    env = os.environ
+    env['LANG'] = 'en_US'
+    app = '"{}"'.format(app)
+    sinks = subprocess.check_output(['pactl', 'list', 'sink-inputs'], env=env).decode().strip().split()
+    if not app in sinks:
+        return
+
+    sink_end = sinks.index(app)
+    sinks = sinks[:sink_end]
+    sinks.reverse()
+    sink_start = sinks.index('Input')
+    sinks = sinks[:sink_start]
+    sinks.reverse()
+    sink_id = sinks[0].replace('#', '') if '#' in sinks[0] else None
+    volume_index = sinks.index('Volume:') + 4
+    volume = sinks[volume_index].replace('%', '') if '%' in sinks[volume_index] else None
+    if not sink_id or not volume:
+        return
+
+    sign = '+' if vol_change > 0 else ''
+    if int(volume) + vol_change > 100:
+        vol_change = 100
+        sign = ''
+
+    subprocess.run(['pactl', 'set-sink-input-volume', sink_id, '{}{}%'.format(sign, str(vol_change))])
+
+
+if __name__ == '__main__':
+    # Spotify has problem with controlling volume by dbus
+    # This is my improved pactl hack described here: https://wiki.archlinux.org/index.php/spotify#pactl_(pulseaudio)
+
+    vol_change = None
+    try:
+        vol_change = int(sys.argv[1])
+    except IndexError:
+        print("Set volume change number in first argument")
+    except ValueError:
+        print("First argument should be a integer from -100 to 100")
+
+    if vol_change:
+        set_volume(app='Spotify', vol_change=vol_change)
