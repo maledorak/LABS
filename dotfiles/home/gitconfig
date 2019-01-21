@@ -1,5 +1,5 @@
 [user]
-	email = mariusz.korzekwa@gmail.com
+	email = maledorak@gmail.com
 	name = Mariusz Korzekwa
 [core]
 	editor = vim
@@ -95,3 +95,5 @@ load = !"git reset HEAD^"
 branch-name = rev-parse --abbrev-ref HEAD
 
 
+[status]
+	submoduleSummary = true
