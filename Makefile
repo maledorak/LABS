@@ -5,7 +5,9 @@ export $(shell sed 's/=.*//' .env)
 help:
 	@echo "====================     Help     ===================="
 	@echo "install ................ Set git submodules and Install pipenv apps."
-	@echo "dots.arch ...............Set dotfiles symlinks."
+	@echo "dots.arch ...............Set dotfiles symlinks in arch."
+	@echo "dots.kubuntu ............Set dotfiles symlinks in kubuntu."
+	@echo "dots.macos ..............Set dotfiles symlinks in macos."
 	@echo "apps.configure ......... Configure arch localhost."
 	@echo "apps.tags .............. Configure arch localhost only with passed 'tags'."
 
@@ -24,6 +26,11 @@ endif
 dots.kubuntu:
 	@echo "===== Public dotfiles kubuntu setup ====="
 	dotbot -c ${KUBUNTU_PUBLIC_DOTBOT_CONF}
+
+dots.macos:
+	@echo "===== Public dotfiles MacOs setup ====="
+	dotbot -c ${MACOS_PUBLIC_DOTBOT_CONF}
+
 
 apps.configure:
 	$(MAKE) -C apps configure
