@@ -3,6 +3,9 @@
 .vscode/
 *.retry
 
+# Python
+*.pyc
+
 # Ranger
 dotfiles/home/config/ranger/history
 dotfiles/home/config/ranger/bookmarks
