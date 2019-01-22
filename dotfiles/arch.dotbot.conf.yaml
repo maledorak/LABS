@@ -1,10 +1,11 @@
-###########################
-#   PUBLIC DOTBOT CONFIG  #
-###########################
+#########################
+#   ARCH DOTBOT CONFIG  #
+#########################
 
 - defaults:
     link:
       create: true
+      force: true
       glob: true
       relink: true
 
@@ -33,3 +34,4 @@
     ~/.config/redshift: home/config/redshift
     ~/.config/rofi: home/config/rofi
     ~/.config/tilda: home/config/tilda
+    ~/.config/vlc/vlcrc: home/config/vlc/vlcrc

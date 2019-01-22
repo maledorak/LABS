@@ -21,7 +21,7 @@ Dotfiles configuration
 ----------------------
 Dotfiles configuration was provided by [Dotbot](https://github.com/anishathalye/dotbot)
 
-Run `make dotfiles.configure` to start dotfiles configuration.
+Run `make dots.arch` to start dotfiles configuration.
 
 
 Color Schemes to try
