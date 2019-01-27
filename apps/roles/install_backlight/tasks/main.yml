@@ -14,7 +14,7 @@
 
 - name: Set backlight udev rules
   template:
-    src: 98-backlight.rules
+    src: backlight.rules
     dest: /etc/udev/rules.d/98-backlight.rules
     owner: root
     mode: 0644

@@ -59,7 +59,6 @@
     - homebank
     - insomnia # https://github.com/getinsomnia/insomnia
     - jetbrains-toolbox
-    - ncpamixer-git # pulse audio ncurses mixer
     - nixnote2
     - polybar
     - phantomjs # for youtube-dl

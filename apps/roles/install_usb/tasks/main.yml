@@ -25,7 +25,7 @@
 
 - name: Add udev rule with mounting to /media conf file
   template:
-    src: 99-udisks2.rules
+    src: udisks2.rules
     dest: /etc/udev/rules.d/99-udisks2.rules
     owner: root
     mode: 0644

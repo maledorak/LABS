@@ -217,8 +217,8 @@ bindsym $mod+Shift+x            mode "$mode_system"
 #for_window [title="video0 - mpv"] border pixel 0
 #no_focus [title="video0 - mpv"]
 
-#bindsym $mod+c	                exec --no-startup-id camtoggle
-#bindsym $mod+Shift+c
+#bindsym $mod+c
+bindsym $mod+Shift+c            exec --no-startup-id camtoggle
 
 #bindsym $mod+v	                exec $term -e ncmpcpp -s visualizer
 #bindsym $mod+Shift+v           exec projectM-pulseaudio
@@ -278,7 +278,6 @@ bindsym $mod+Shift+0	        move container to workspace $ws10
 
 # window sticking to workspace
 # use `xprop` to check class instance
-for_window [instance="tilda"] floating enable
 for_window [class="google-chrome"] move to workspace $ws3
 for_window [class="Pinentry"] sticky enable
 for_window [instance="anki"] move to workspace $ws3
@@ -295,6 +294,17 @@ for_window [window_role="gimp-toolbox"] floating disable; move right; resize gro
 for_window [window_role="GtkFileChooserDialog"] resize shrink height 10 px
 for_window [instance="dl"] move workspace $ws10
 for_window [instance="spotify"] move workspace $ws10
+
+# Always float these applications.
+#for_window [window_role="^(bubble|pop-up)$"] floating enable, border normal
+#for_window [title="^Chessrs$"] floating enable, border normal
+for_window [class="^(tilda|qjackctl)$"] floating enable
+
+# Bindings to make the webcam float and stick.
+for_window [title="mpvfloat"] floating enable
+for_window [title="mpvfloat"] sticky enable
+for_window [title="mpvfloat"] border pixel 0
+no_focus [title="mpvfloat"]
 
 workspace $ws1 gaps inner 0
 workspace $ws1 gaps outer 0
@@ -340,8 +350,7 @@ bindsym $mod+F2                 restart
 #bindsym $mod+F9
 #bindsym $mod+F10
 #bindsym $mod+F11
-#bindsym $mod+F12
-
+bindsym $mod+F12                exec --no-startup-id pactl_module_toggle "module-loopback"
 
 ##### Arrow Keys #####
 bindsym $mod+Left               focus left

@@ -43,4 +43,4 @@ apps.configure:
 
 apps.tags:
 	# use: make run-tags tags="tag1,tag2"
-	$(MAKE) -C apps $(tags)
+	$(MAKE) -C apps tags $(tags)

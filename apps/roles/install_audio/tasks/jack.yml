@@ -1,0 +1,49 @@
+---
+
+- name: Install JACK packages
+  pacman:
+    state: present
+    name:
+      - jack
+      - qjackctl
+      - pulseaudio-jack
+  tags:
+    - audio
+    - jack
+    - install_pacman
+
+
+# based on:
+# http://jackaudio.org/faq/linux_rt_config.html
+# should be used in future:
+# https://github.com/jackaudio/jackaudio.github.com/wiki/WalkThrough_User_PulseOnJack
+# https://wiki.archlinux.org/index.php/PulseAudio/Examples#PulseAudio_through_JACK
+- name: Create realtime group for jack.
+  group:
+    name: realtime
+    state: present
+  tags:
+    - audio
+    - jack
+
+- name: Add realtime group to user.
+  user:
+    name: "{{ localhost_user }}"
+    groups: realtime
+    append: true
+  tags:
+    - audio
+    - jack
+
+- name: Set security rules
+  template:
+    src: realtime.rules
+    dest: /etc/security/limits.d/99-realtime.conf
+    owner: root
+    mode: 0644
+  tags:
+    - audio
+    - jack
+
+
+

@@ -22,8 +22,18 @@ Used ansible modules
 * Spark, arch installation ansible scripts - [github](https://github.com/pigmonkey/spark)
 
 
-### Udev rules
-If you want's to add new udev rule, get smallest exists, decrease it, and use it in new rule.
+### Rules
+If you want's to add new rule, get smallest exists, decrease it, and use it in new rule.
 
+#### Udev
+Rules path: /etc/udev/rules.d
 * 99-udisks2 - `install_usb` role
 * 98-backlight - `install_backlight` role
+
+#### Polkit
+Rules path: /etc/polkit-1/rules.d
+* 51-blueman - `install_bluetooth` role
+
+#### Security
+Rules path: /etc/security/limits.d
+* 99-realtime - `install_audio` role

@@ -10,4 +10,4 @@ configure:
 
 tags:
 	# use: make run-tags tags="tag1,tag2"
-	ansible-playbook -K -vv configure_arch.yml --tags "${tags}"
+	ansible-playbook -K -vv configure_arch.yml --tags "$(tags)"
