@@ -30,6 +30,8 @@ alias t="trizen"
 alias t="trizen -S --noedit"
 
 # Some aliases
+fen() {text="$@"; trans en:pl $text} # translate from english
+fpl() {text="$@"; trans pl:en $text} # translate from polish
 alias ssh="assh wrapper ssh"
 alias v="vim"
 alias sv="sudo vim"

@@ -4,7 +4,7 @@ if pactl list short modules | grep --quiet $1; then
     pactl unload-module $1
     notify-send "PulseAudio module: $1 was disabled"
 else
-    pactl load-module $1
+    pactl load-module $1 latency_msec=10
     # pactl load-module module-loopback latency_msec=1
     notify-send "PulseAudio module: $1 was enabled"
 fi

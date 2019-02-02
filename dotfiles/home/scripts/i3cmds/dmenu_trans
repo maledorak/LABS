@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Must have jq, trans and xclip installed to even show menu.
+jq -h > /dev/null || exit
+trans -h > /dev/null || exit
+xclip -h > /dev/null || exit
+
+from_lang=$1
+to_lang=$2
+
+json_dump=$(rofi -dmenu -l 0 -p "Trans [$from_lang to $to_lang]" | trans -dump $from_lang:$to_lang)
+sentences=$(echo $json_dump | jq -r '.[5][0][2] | map(.[0]) | join("\\n")')
+echo $sentences
+if [ ! -z "$sentences" ]; then
+    selected=$(echo -e $sentences | rofi -dmenu -i -p "Pick translation")
+    if [ ! -z "$selected" ]; then
+        echo $selected | xclip -selection clipboard
+        notify-send "'$selected' copied to clipboard." &
+    fi
+fi
+
+# todo below length options and if else could be used for fork words and sentences, because words can be grouped by (noun, etc)
+#word_length=$(echo $json_dump | jq ".[1][0] | length")
+#sentence_length=$(echo $json_dump | jq ".[5][0][2] | length")
+#if [ $word_length != 0 ]; then
+#    words=$(echo $json_dump | jq ".[1][0]")
+#    echo $words
+#    echo single
+#else
+#    sentences=$(echo $json_dump | jq ".[5][0][2]")
+#    echo $sentences
+#    echo multi
+#fi
+
+
+
+
+
+

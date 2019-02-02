@@ -16,6 +16,7 @@
       - git
       - gwenview
       - imagemagick
+      - jq # json parser
       - keepassxc
       - libreoffice-fresh
       - okular

@@ -151,8 +151,8 @@ bindsym $mod+Shift+Delete	exec $truemute ; exec $truepause ; workspace lmao ; ex
 #bindsym $mod+q
 bindsym $mod+Shift+q		    kill
 
-#bindsym $mod+w                 exec $term -e sudo wifi-menu
-#bindsym $mod+Shift+w   		exec --no-startup-id $BROWSER
+bindsym $mod+w                  exec --no-startup-id rofi -show window
+#bindsym $mod+Shift+w           exec $term -e sudo wifi-menu
 
 bindsym $mod+e                  exec --no-startup-id dmenu_emoji
 #bindsym $mod+Shift+e
@@ -160,8 +160,8 @@ bindsym $mod+e                  exec --no-startup-id dmenu_emoji
 #bindsym $mod+r                 exec $term -e ranger
 #bindsym $mod+Shift+r           exec $term -e sudo ranger /
 
-#bindsym $mod+t		            split toggle
-#bindsym $mod+Shift+t
+bindsym $mod+t		            exec --no-startup-id dmenu_trans pl en
+bindsym $mod+Shift+t		    exec --no-startup-id dmenu_trans en pl
 
 bindsym $mod+y           	    resize shrink width 10 px or 10ppt
 #bindsym $mod+Shift+y
