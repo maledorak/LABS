@@ -10,7 +10,9 @@
       relink: true
 
 - link:
+    ~/.aliases: home/aliases
     ~/.config/ranger: home/config/ranger
     ~/.gitconfig: home/gitconfig
     ~/.ideavimrc: home/ideavimrc
     ~/.vimrc: home/vimrc
+    ~/.spacemacs: home/spacemacs

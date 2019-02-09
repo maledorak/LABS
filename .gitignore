@@ -5,6 +5,7 @@
 
 # Python
 *.pyc
+*.pyo
 
 # Ranger
 dotfiles/home/config/ranger/history
