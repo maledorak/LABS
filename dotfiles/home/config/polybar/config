@@ -25,6 +25,7 @@ battery = #55aa55
 backlight = #9f78e1
 memory = #f9dc5c
 cpu = #f15025
+temperature = #f50a4d
 
 [bar/main_bar]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -61,7 +62,7 @@ font-5 = Font Awesome 5 Brands:style=Regular;pixelsize=12;1
 font-6 = Noto Color Emoji:style=Regular;size=12
 
 modules-left = bspwm i3
-modules-center = cpu memory
+modules-center = cpu memory temperature
 modules-right = volume backlight-acpi battery date
 
 tray-position = right
@@ -362,21 +363,24 @@ animation-charging-framerate = 500
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 80
 
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
+format = " <ramp> <label> "
+format-underline = ${colors.temperature}
+format-warn = " <ramp> <label-warn> "
+format-warn-background = ${colors.foreground}
 format-warn-underline = ${self.format-underline}
 
 label = %temperature%
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+ramp-0 = " "
+ramp-1 = " "
+ramp-2 = " "
+ramp-3 = " "
+ramp-4 = " "
+ramp-foreground = ${colors.temperature}
 
 [module/powermenu]
 type = custom/menu
