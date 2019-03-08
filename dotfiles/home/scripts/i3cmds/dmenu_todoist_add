@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Must have below todoist version installed to even show menu.
+# https://github.com/sachaos/todoist
+todoist -h > /dev/null || exit
+
+input=$(rofi -dmenu -l 0 -p "New Todoist Task")
+if [ ! -z "$input" ]; then
+    todoist add "$input"
+    notify-send "'$input' - Todoist new task in Inbox." &
+fi

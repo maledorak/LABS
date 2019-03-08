@@ -148,33 +148,44 @@ bindsym $mod+Shift+Delete	exec $truemute ; exec $truepause ; workspace lmao ; ex
 ###################### Letter Binding #######################
 #############################################################
 
-#bindsym $mod+q
+# %%hotkey: Add todoist task %%
+bindsym $mod+q                  exec --no-startup-id dmenu_todoist_add
+# %%hotkey: Kill current app %%
 bindsym $mod+Shift+q		    kill
 
+# %%hotkey: Show all containers in rofi %%
 bindsym $mod+w                  exec --no-startup-id rofi -show window
 #bindsym $mod+Shift+w           exec $term -e sudo wifi-menu
 
+# %%hotkey: Dmenu emoji %%
 bindsym $mod+e                  exec --no-startup-id dmenu_emoji
 #bindsym $mod+Shift+e
 
 #bindsym $mod+r                 exec $term -e ranger
 #bindsym $mod+Shift+r           exec $term -e sudo ranger /
 
+# %%hotkey: Dmenu translate pl to en %%
 bindsym $mod+t		            exec --no-startup-id dmenu_trans pl en
+# %%hotkey: Dmenu translate en to pl %%
 bindsym $mod+Shift+t		    exec --no-startup-id dmenu_trans en pl
 
+# %%hotkey: Resize shrink width of container %%
 bindsym $mod+y           	    resize shrink width 10 px or 10ppt
 #bindsym $mod+Shift+y
 
+# %%hotkey: Resize shrink height of container %%
 bindsym $mod+u                  resize shrink height 10 px or 10 ppt
 #bindsym $mod+Shift+u	        [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
+# %%hotkey: Resize grow height of container %%
 bindsym $mod+i                  resize grow height 10 px or 10 ppt
 #bindsym $mod+Shift+i           exec $term -e htop
 
+# %%hotkey: Resize grow width of container %%
 bindsym $mod+o	        	    resize grow width 10 px or 10 ppt
 #bindsym $mod+Shift+o	        sticky toggle
 
+# %%hotkey: Pause music %%
 bindsym $mod+p			        exec $pause
 #bindsym $mod+Shift+p
 
@@ -184,31 +195,45 @@ bindsym $mod+p			        exec $pause
 #bindsym $mod+s
 #bindsym $mod+Shift+s
 
-#bindsym $mod+d
+# %%hotkey: Show all dmenu menus %%
+#bindsym $mod+d                  exec --no-startup-id dmenu_menus
+# %%hotkey: Run layout mode %%
 bindsym $mod+Shift+d            mode "$mode_layout"
 
 #bindsym $mod+f
 #bindsym $mod+Shift+f
 
 #bindsym $mod+g                 workspace prev
+# %%hotkey: Run gaps mode %%
 bindsym $mod+Shift+g            mode "$mode_gaps"
 
+# %%hotkey: Focus to left container %%
 bindsym $mod+h                  focus left
+# %%hotkey: Move container to left %%
 bindsym $mod+Shift+h            move left 30
 
+# %%hotkey: Focus to down container %%
 bindsym $mod+j                  focus down
+# %%hotkey: Move container to down %%
 bindsym $mod+Shift+j            move down 30
 
+# %%hotkey: Focus to up container %%
 bindsym $mod+k                  focus up
+# %%hotkey: Move container to up %%
 bindsym $mod+Shift+k            move up 30
 
+# %%hotkey: Focus to right container %%
 bindsym $mod+l                  focus right
+# %%hotkey: Move container to right %%
 bindsym $mod+Shift+l            move right 30
 
 #bindsym $mod+z
+# %%hotkey: Run display mode %%
 bindsym $mod+Shift+z            mode "$mode_display"
 
+# %%hotkey: Lock the screen %%
 bindsym $mod+x                  exec --no-startup-id lockscreen
+# %%hotkey: Run system mode %%
 bindsym $mod+Shift+x            mode "$mode_system"
 
 # Bindings to make the webcam float and stick.
@@ -217,7 +242,9 @@ bindsym $mod+Shift+x            mode "$mode_system"
 #for_window [title="video0 - mpv"] border pixel 0
 #no_focus [title="video0 - mpv"]
 
-#bindsym $mod+c
+# %%hotkey: Dmenu calc %%
+bindsym $mod+c                  exec --no-startup-id dmenu_calc
+# %%hotkey: Show floating camera %%
 bindsym $mod+Shift+c            exec --no-startup-id camtoggle
 
 #bindsym $mod+v	                exec $term -e ncmpcpp -s visualizer
@@ -226,20 +253,21 @@ bindsym $mod+Shift+c            exec --no-startup-id camtoggle
 #bindsym $mod+b	                exec $prev
 #bindsym $mod+Shift+b           exec --no-startup-id blender; workspace $ws6
 
-bindsym $mod+m                  exec $music
-bindsym $mod+Shift+m            exec $mute
+#bindsym $mod+m                  exec $music
+#bindsym $mod+Shift+m            exec $mute
 
 
 #############################################################
 #################### Workspace Binding ######################
 #############################################################
 
-bindsym $mod+Shift+Prior        move container to workspace prev
-bindsym $mod+Next               workspace next
-bindsym $mod+Shift+Next         move container to workspace next
+#bindsym $mod+Shift+Prior        move container to workspace prev
+#bindsym $mod+Next               workspace next
+#bindsym $mod+Shift+Next         move container to workspace next
+# %%hotkey: Swich to last workspace %%
 bindsym $mod+Tab                workspace back_and_forth
-bindsym $mod+apostrophe         split horizontal ;; exec $term
-bindsym $mod+slash              split vertical ;; exec $term
+#bindsym $mod+apostrophe         split horizontal ;; exec $term
+#bindsym $mod+slash              split vertical ;; exec $term
 
 set $ws1 "1"
 set $ws2 "2"
@@ -335,10 +363,13 @@ workspace $ws8 gaps outer 0
 #bindsym F8
 #bindsym F9
 #bindsym F10
+# %%hotkey: Swich container to fullscren %%
 bindsym F11                     fullscreen toggle
 #bindsym F12
 
-#bindsym $mod+F1
+# %%hotkey: i3 hotkeys %%
+bindsym $mod+F1                 exec --no-startup-id dmenu_i3_hotkeys.py
+# %%hotkey: i3 restart %%
 bindsym $mod+F2                 restart
 #bindsym $mod+F3
 #bindsym $mod+F3
@@ -350,17 +381,18 @@ bindsym $mod+F2                 restart
 #bindsym $mod+F9
 #bindsym $mod+F10
 #bindsym $mod+F11
+# %%hotkey: Run microphone loopback %%
 bindsym $mod+F12                exec --no-startup-id pactl_module_toggle "module-loopback"
 
 ##### Arrow Keys #####
-bindsym $mod+Left               focus left
-bindsym $mod+Down               focus down
-bindsym $mod+Up                 focus up
-bindsym $mod+Right              focus right
-bindsym $mod+Shift+Left         move left
-bindsym $mod+Shift+Down         move down
-bindsym $mod+Shift+Up           move up
-bindsym $mod+Shift+Right        move right
+#bindsym $mod+Left               focus left
+#bindsym $mod+Down               focus down
+#bindsym $mod+Up                 focus up
+#bindsym $mod+Right              focus right
+#bindsym $mod+Shift+Left         move left
+#bindsym $mod+Shift+Down         move down
+#bindsym $mod+Shift+Up           move up
+#bindsym $mod+Shift+Right        move right
 
 
 ###### Media Keys #####
@@ -380,11 +412,14 @@ bindsym $mod+Shift+bracketleft 	exec $bigbak
 bindsym $mod+bracketright       exec $lilfor
 bindsym $mod+Shift+bracketright exec $bigfor
 
-# Print screen takes a screenshot.
-# With shift, it takes one only of the given window.
+# Printscreen takes a screenshot.
+# %%hotkey: Get printscreen %%
 bindsym $mod+backslash          exec flameshot gui -p ~/screens
+# %%hotkey: Get printscreen with 2s delay %%
 bindsym $mod+Shift+backslash    exec flameshot gui -p ~/screens -d 2000
+# %%hotkey: Get printscreen %%
 bindsym Print       			exec flameshot gui -p ~/screens
+# %%hotkey: Get printscreen with 2s delay %%
 bindsym Shift+Print             exec flameshot gui -p ~/screens -d 2000
 
 # For recording audio/video or stop recording. Also toggle screenkey for visual typing.

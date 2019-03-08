@@ -65,6 +65,7 @@
     - phantomjs # for youtube-dl
     - slack-desktop
     - spotify
+    - todoist-git
     - qnapi
     - youtube-dl
   tags:

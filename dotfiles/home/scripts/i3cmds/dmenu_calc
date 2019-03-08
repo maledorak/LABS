@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Must have xclip installed to even show menu.
+xclip -h > /dev/null || exit
+
+input=$()
+if [ ! -z "$input" ]; then
+    results=$(python -c "print($input)")
+    selected=$(echo -e $results | rofi -dmenu -l 1 -p "Calc results")
+    echo $selected | xclip -selection clipboard
+    notify-send "'$selected' copied to clipboard." &
+fi
