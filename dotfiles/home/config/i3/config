@@ -368,7 +368,7 @@ bindsym F11                     fullscreen toggle
 #bindsym F12
 
 # %%hotkey: i3 hotkeys %%
-bindsym $mod+F1                 exec --no-startup-id dmenu_hotkeys.py i3
+bindsym $mod+F1                 exec --no-startup-id dmenu_hotkeys --app i3 --menu rofi
 # %%hotkey: i3 restart %%
 bindsym $mod+F2                 restart
 #bindsym $mod+F3

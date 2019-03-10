@@ -9,6 +9,9 @@
     - python-virtualenvwrapper
     - python-pew
     - python-pipenv
+    - setuptools
+    - twine
+    - wheel
   tags:
     - python
     - install_pacman

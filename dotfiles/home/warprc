@@ -1,7 +1,8 @@
 doc:~/Documents
-dotfiles:~/LABS
+dots:~/LABS
 labs:~/LABS
-loc:~/LABS
+pdots:~/LABS/private
+plabs:~/LABS/private
 projects:~/code/projects
 venvs:~/code/venvs
 logs:/var/log

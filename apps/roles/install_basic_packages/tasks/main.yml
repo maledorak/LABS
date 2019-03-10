@@ -74,9 +74,10 @@
 
 
 - name: Install basic python packages
-  pacman:
+  pip:
     state: present
     name:
+      - dmenu-hotkeys
       - glances
       - spotdl
   tags:
