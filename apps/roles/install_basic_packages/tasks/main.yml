@@ -19,6 +19,7 @@
       - jq # json parser
       - keepassxc
       - libreoffice-fresh
+      - obs-studio
       - okular
       - pass
       - polkit # allow unprivileged users to run power management commands
@@ -31,6 +32,7 @@
       - samba
       - texlive-core
       - texlive-latexextra
+      - translate-shell
       - tig
       - tilda
       - thunderbird
@@ -39,6 +41,7 @@
       - vim
       - vlc
       - xclip # clipboard utility
+      - zeal # documentation utility
   tags:
     - basic_packages
     - install_pacman

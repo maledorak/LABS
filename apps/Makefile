@@ -11,3 +11,7 @@ configure:
 tags:
 	# use: make run-tags tags="tag1,tag2"
 	ansible-playbook -K -vv configure_arch.yml --tags "$(tags)"
+
+show-tags:
+	ansible-playbook --list-tags configure_arch.yml
+

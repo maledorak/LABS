@@ -1,0 +1,27 @@
+---
+# based on: https://wiki.archlinux.org/index.php/pacman#Cleaning_the_package_cache
+
+
+- name: Install pacman cache remover package
+  pacman:
+    state: present
+    name:
+      - pacman-contrib
+  tags:
+    - pacman_cache
+
+- file:
+    path: /etc/pacman.d/hooks
+    state: directory
+    mode: 0755
+  tags:
+    - pacman_cache
+
+- name: Set posttransaction pacman cache cleaner
+  template:
+    src: remove_cache.hook
+    dest: /etc/pacman.d/hooks/remove_cache.hook
+    owner: root
+    mode: 0644
+  tags:
+    - pacman_cache

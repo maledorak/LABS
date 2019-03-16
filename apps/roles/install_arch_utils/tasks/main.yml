@@ -1,0 +1,6 @@
+---
+
+- name: Include pacman cache task
+  include: pacman_cache.yml
+  tags:
+    - pacman_cache
