@@ -17,6 +17,7 @@
     ~/.gitconfig: home/gitconfig
     ~/.ideavimrc: home/ideavimrc
     ~/.scripts/: home/scripts/*
+    ~/.screenlayout: home/screenlayout
     ~/.spacemacs: home/spacemacs
     ~/.warprc: home/warprc
     ~/.vimrc: home/vimrc

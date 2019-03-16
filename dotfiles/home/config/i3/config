@@ -371,7 +371,8 @@ bindsym F11                     fullscreen toggle
 bindsym $mod+F1                 exec --no-startup-id dmenu_hotkeys --app i3 --menu rofi
 # %%hotkey: i3 restart %%
 bindsym $mod+F2                 restart
-#bindsym $mod+F3
+# %%hotkey: dmenu displays configs %%
+bindsym $mod+F3                 exec --no-startup-id dmenu_displays
 #bindsym $mod+F3
 #bindsym $mod+F4
 #bindsym $mod+F5

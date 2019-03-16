@@ -1,0 +1,9 @@
+#!/bin/sh
+# Give dmenu list of all display configurations
+# This display configurations was created by randr or arandr - (gui version of randr)
+
+layouts_path=$HOME/.screenlayout
+layouts=`ls $layouts_path`
+chosen=$(echo "${layouts}" | rofi -dmenu -i -p "Pick screen layout")
+exec $layouts_path/$chosen
+
