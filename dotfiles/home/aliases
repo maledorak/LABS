@@ -26,8 +26,7 @@ alias sctlh="sudo systemctl stop"
 # Packages
 alias update-servers="sudo reflector --country Germany --country Poland --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist"
 alias p="sudo pacman"
-alias t="trizen"
-alias t="trizen -S --noedit"
+alias t="trizen --noedit"
 
 # Some aliases
 fen() { # translate from english
