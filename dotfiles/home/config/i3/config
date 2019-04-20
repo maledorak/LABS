@@ -373,8 +373,8 @@ bindsym $mod+F1                 exec --no-startup-id dmenu_hotkeys --app i3 --me
 bindsym $mod+F2                 restart
 # %%hotkey: dmenu displays configs %%
 bindsym $mod+F3                 exec --no-startup-id dmenu_displays
-#bindsym $mod+F3
-#bindsym $mod+F4
+# %%hotkey: dmenu connect bluetooth devices %%
+bindsym $mod+F4                 exec --no-startup-id dmenu_bloototh_devices
 #bindsym $mod+F5
 #bindsym $mod+F6
 #bindsym $mod+F7

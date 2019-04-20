@@ -7,6 +7,7 @@
   pacman:
     state: present
     name:
+      - dbus
       - bluez
       - bluez-libs
       - bluez-utils

@@ -1,0 +1,100 @@
+#!/usr/bin/env python3
+import os
+import sys
+from distutils.spawn import find_executable
+from subprocess import Popen, run, call, check_output, PIPE
+
+__author__ = "Mariusz Korzekwa"
+__email__ = "maledorak@gmail.com"
+
+if not sys.version_info >= (3, 5):
+    raise SystemError("Python is to low, should be at least python 3.5")
+
+APPS_NEEDED = ["bluetoothctl", "notify-send"]
+for app in APPS_NEEDED:
+    if not find_executable(app):
+        raise SystemError("Can't find {} in your system, install it!".format(
+            app))
+
+DMENU_COMMAND = ['rofi', '-dmenu', '-i', '-p', 'Bluetooth']
+
+
+def get_paired_devices():
+    """
+    Get paired devices from 'bluetoothctl paired-devices'
+    :return: list of dict, eg. [{"id": some, "name": some}]
+    """
+
+    # Run 'bluetoothctl paired-devices'
+    devices = check_output(
+        ['bluetoothctl', 'paired-devices']
+    ).decode().strip().split('\n')
+
+    # Get list of dicts of devices info
+    for index, device in enumerate(devices):
+        device = device.split()[1:]  # remove 'Device' string
+        device = {
+            'id': device[0],
+            'name': " ".join(device[1:])
+        }
+        # Get info about device
+        device_info = check_output(
+            ['bluetoothctl', 'info', device['id']]
+        ).decode().strip().split('\n\t')
+        # Get only connection info
+        connected = list(filter(lambda x: 'Connected' in x, device_info))[0]
+        device['connected'] = connected.split(': ')[1]
+        devices[index] = device
+    return devices
+
+
+def pick_device(devices):
+    """
+    Pick device from dmenu.
+    :param devices: list of dict, eg. [{"id": some, "name": some}]
+    :return: dict, eg. {"id": some, "name": some}
+    """
+
+    devices_string = list()
+    for index, device in enumerate(devices):
+        devices_string.append("{}. {} [{}]".format(
+            index + 1, device['name'], device['id']))
+    devices_string = "\n".join(devices_string)
+    echo = Popen(["echo", devices_string], stdout=PIPE)
+    picked_device_index = check_output(
+        DMENU_COMMAND, stdin=echo.stdout
+    ).decode().strip().split('.')[0]
+    echo.stdout.close()
+    return devices[int(picked_device_index) - 1]
+
+
+def run_action(device):
+    """
+    Run bluetoothctl action
+    :param device: dict, eg. {"id": some, "name": some}
+    :return: None
+    """
+
+    ACTIONS = [
+        'connect',
+        'disconnect'
+    ]
+    ACTIONS = "\n".join(ACTIONS)
+    echo = Popen(["echo", ACTIONS], stdout=PIPE)
+    picked_action = check_output(
+        DMENU_COMMAND, stdin=echo.stdout
+    ).decode().strip()
+    echo.stdout.close()
+    # stdout printing based on: https://stackoverflow.com/a/17698359
+    with Popen(
+        ['bluetoothctl', picked_action, device['id']],
+        stdout=PIPE, bufsize=1, universal_newlines=True) as p:
+        for line in p.stdout:
+            if line is not "":
+                call(["notify-send", line])
+
+
+if __name__ == '__main__':
+    devices = get_paired_devices()
+    device = pick_device(devices)
+    run_action(device)
