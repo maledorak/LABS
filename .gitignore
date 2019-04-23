@@ -11,3 +11,7 @@
 dotfiles/home/config/ranger/history
 dotfiles/home/config/ranger/bookmarks
 dotfiles/home/config/ranger/tagged
+
+# Karabiner-Elements
+dotfiles/home/config/karabiner/automatic_backups/
+
