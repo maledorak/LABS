@@ -5,6 +5,8 @@
 # Goto
 alias labs="cd ~/LABS"
 alias plabs="cd ~/LABS/private"
+alias projects="cd ~/code/projects"
+alias venvs="cd ~/code/venvs"
 alias docs="cd ~/Documents"
 
 # Generic shortcuts:
