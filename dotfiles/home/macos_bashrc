@@ -1,0 +1,2 @@
+# Run base shell "shellrc" config
+source ~/.shellrc

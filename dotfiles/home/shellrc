@@ -1,0 +1,35 @@
+# Base config for bashrc, zshrc or other shell
+
+# set UID and GID as env variables
+export UID="$(id -u)"
+export GID="$(id -g)"
+
+# Adds `~/.scripts` and all subdirectories to $PATH
+if [ -d "$HOME/.scripts" ]; then
+    export PATH="$(du -L "$HOME/.scripts/" | cut -f2 | tr '\n' ':')$PATH"
+    echo "Home scripts loaded"
+fi
+
+# Set alias definitions
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+    echo "Aliases loaded"
+fi
+
+# ssh agent
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+    eval `ssh-agent`
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+    ssh-add
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+
+# Set virtualenvwrapper config
+if [ -f `which virtualenvwrapper.sh` ]; then
+    export WORKON_HOME=$HOME/code/venvs
+    export PROJECT_HOME=$HOME/code/projects
+    export VIRTUALENVWRAPPER_PYTHON=`which python3`
+    export VIRTUALENVWRAPPER_VIRTUALENV=`which virtualenv`
+    source `which virtualenvwrapper.sh`
+    echo "Virtualenvwrapper loaded"
+fi

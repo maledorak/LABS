@@ -2,7 +2,12 @@
 # ~/.bash_aliases
 #
 
-#Generic shortcuts:
+# Goto
+alias labs="cd ~/LABS"
+alias plabs="cd ~/LABS/private"
+alias docs="cd ~/Documents"
+
+# Generic shortcuts:
 alias music="ncmpcpp"
 alias clock="ncmpcpp -s clock"
 alias visualizer="ncmpcpp -s visualizer"

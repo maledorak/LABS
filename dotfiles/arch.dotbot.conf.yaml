@@ -18,6 +18,7 @@
     ~/.ideavimrc: home/ideavimrc
     ~/.scripts/: home/scripts/*
     ~/.screenlayout: home/screenlayout
+    ~/.shellrc: home/shellrc
     ~/.spacemacs: home/spacemacs
     ~/.warprc: home/warprc
     ~/.vimrc: home/vimrc

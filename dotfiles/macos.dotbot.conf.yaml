@@ -15,5 +15,8 @@
     ~/.config/karabiner: home/config/karabiner
     ~/.gitconfig: home/gitconfig
     ~/.ideavimrc: home/ideavimrc
-    ~/.vimrc: home/vimrc
+    ~/.bashrc: home/macos_bashrc
+    ~/.scripts/: home/scripts/*
+    ~/.shellrc: home/shellrc
     ~/.spacemacs: home/spacemacs
+    ~/.vimrc: home/vimrc
