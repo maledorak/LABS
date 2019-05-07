@@ -7,7 +7,7 @@ from subprocess import Popen, run, call, check_output, PIPE
 __author__ = "Mariusz Korzekwa"
 __email__ = "maledorak@gmail.com"
 
-if not sys.version_info >= (3, 5):
+if sys.version_info < (3, 5):
     raise SystemError("Python is to low, should be at least python 3.5")
 
 APPS_NEEDED = ["bluetoothctl", "notify-send"]
