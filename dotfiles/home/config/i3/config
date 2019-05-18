@@ -211,21 +211,29 @@ bindsym $mod+Shift+g            mode "$mode_gaps"
 bindsym $mod+h                  focus left
 # %%hotkey: Move container to left %%
 bindsym $mod+Shift+h            move left 30
+# %%hotkey: Move workspace to left output %%
+bindsym $mod+Control+h          move workspace to output left
 
 # %%hotkey: Focus to down container %%
 bindsym $mod+j                  focus down
 # %%hotkey: Move container to down %%
 bindsym $mod+Shift+j            move down 30
+# %%hotkey: Move workspace to down output %%
+bindsym $mod+Control+j          move workspace to output down
 
 # %%hotkey: Focus to up container %%
 bindsym $mod+k                  focus up
 # %%hotkey: Move container to up %%
 bindsym $mod+Shift+k            move up 30
+# %%hotkey: Move workspace to up output %%
+bindsym $mod+Control+k          move workspace to output up
 
 # %%hotkey: Focus to right container %%
 bindsym $mod+l                  focus right
 # %%hotkey: Move container to right %%
 bindsym $mod+Shift+l            move right 30
+# %%hotkey: Move workspace to right output %%
+bindsym $mod+Control+l          move workspace to output right
 
 #bindsym $mod+z
 # %%hotkey: Run display mode %%
@@ -306,7 +314,8 @@ bindsym $mod+Shift+0	        move container to workspace $ws10
 
 # window sticking to workspace
 # use `xprop` to check class instance
-for_window [class="google-chrome"] move to workspace $ws3
+for_window [class="Google-chrome"] move to workspace $ws3
+for_window [class="Google-chrome" title=^DevTools.+$] move to workspace $ws5
 for_window [class="Pinentry"] sticky enable
 for_window [instance="anki"] move to workspace $ws3
 for_window [instance="slack"] move to workspace $ws4
