@@ -1,36 +1,45 @@
-#!make
+.PHONY: help
+.DEFAULT_GOAL := help
+
+define PRINT_HELP_PYSCRIPT
+import re, sys
+
+print("{ln}{sp}HELP{sp}{ln}".format(ln=25*"=", sp=5*" "))
+for line in sys.stdin:
+	match = re.match(r'^([a-zA-Z_-]+):.*?## (.*)$$', line)
+	if match:
+		target, help = match.groups()
+		print(" - {:26} {}".format(target, help))
+endef
+export PRINT_HELP_PYSCRIPT
+
 include .env
 export $(shell sed 's/=.*//' .env)
 
-help:
-	@echo "====================     Help     ===================="
-	@echo "install ................ Set git submodules and Install pipenv apps."
-	@echo "dots.arch ...............Set dotfiles symlinks in arch."
-	@echo "dots.kubuntu ............Set dotfiles symlinks in kubuntu."
-	@echo "dots.macos ..............Set dotfiles symlinks in macos."
-	@echo "apps.configure ......... Configure arch localhost."
-	@echo "apps.tags .............. Configure arch localhost only with passed 'tags'."
 
-install:
+help:
+	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
+
+install: ## Set git submodules and Install pipenv apps.
 	git submodule update --init --recursive
 	pipenv install
 
-dots.arch:
+dots-arch: ## Set dotfiles symlinks in arch.
 	@echo "===== Public dotfiles arch setup ====="
 	dotbot -c ${ARCH_DOTBOT_CONF}
-	$(MAKE) _dots.private target="dots.arch"
+	$(MAKE) _dots-private target="dots.arch"
 
-dots.kubuntu:
+dots-kubuntu: ## Set dotfiles symlinks in kubuntu.
 	@echo "===== Public dotfiles kubuntu setup ====="
 	dotbot -c ${KUBUNTU_DOTBOT_CONF}
-	$(MAKE) _dots.private target="dots.kubuntu"
+	$(MAKE) _dots-private target="dots.kubuntu"
 
-dots.macos:
+dots-macos: ## Set dotfiles symlinks in macos.
 	@echo "===== Public dotfiles MacOs setup ====="
 	dotbot -c ${MACOS_DOTBOT_CONF}
-	$(MAKE) _dots.private target="dots.macos"
+	$(MAKE) _dots-private target="dots.macos"
 
-_dots.private:
+_dots-private:
 	# use: $(MAKE) dots.private target="dots.some"
 	# Check is private dir exists and run private Makefile
 ifneq (,$(wildcard ./private/Makefile))
@@ -38,13 +47,11 @@ ifneq (,$(wildcard ./private/Makefile))
 endif
 
 
-apps.configure:
+apps-configure: ## Configure arch localhost.
 	$(MAKE) -C apps configure
 
-apps.tags:
-	# use: make apps.tags tags="tag1,tag2"
+apps-tags: ## Configure arch localhost only with passed 'tags' ex. [make apps-tags tags="tag1,tag2"]
 	$(MAKE) -C apps tags $(tags)
 
-apps.show-tags:
-	# use: make apps.show-tags
+apps-show-tags: ## Show tags used in ansible
 	$(MAKE) -C apps show-tags
