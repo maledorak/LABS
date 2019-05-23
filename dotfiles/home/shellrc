@@ -4,6 +4,9 @@
 export UID="$(id -u)"
 export GID="$(id -g)"
 
+# PATH
+export PATH=$PATH:$HOME/.local/bin
+
 # Adds `~/.scripts` and all subdirectories to $PATH
 if [ -d "$HOME/.scripts" ]; then
     export PATH="$(du -L "$HOME/.scripts/" | cut -f2 | tr '\n' ':')$PATH"

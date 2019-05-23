@@ -16,6 +16,10 @@ alias visualizer="ncmpcpp -s visualizer"
 alias files="ranger"
 alias audio="ncpamixer"
 
+# Curl tools
+alias prices="curl rate.sx"
+alias ipinfo="curl ipinfo.io"
+
 # System Maintainence
 alias tr="gio trash" # Move file to trash
 alias progs="pacman -Qet" # List programs I've installed
