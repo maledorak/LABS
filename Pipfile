@@ -10,4 +10,4 @@ ansible = ">=2.8,<2.9"
 dotbot = ">=1.0.0,<2.0.0"
 
 [requires]
-python_version = "3.7"
+python_version = "3"

@@ -1,7 +1,3 @@
-#
-# ~/.bash_aliases
-#
-
 # Goto
 alias labs="cd ~/LABS"
 alias plabs="cd ~/LABS/private"
@@ -21,11 +17,8 @@ alias prices="curl rate.sx"
 alias ipinfo="curl ipinfo.io"
 
 # System Maintainence
-# alias tr="gio trash" # Move file to trash
-alias progs="pacman -Qet" # List programs I've installed
-alias orphans="pacman -Qdt" # List orphan programs
-alias upgr="neofetch && sudo pacman -Syyu --noconfirm && echo Update complete. | figlet"
-alias plltime="sudo timedatectl set-timezone Europe/Warsaw && i3 restart" # Eastcoast time
+alias tr="gio trash" # Move file to trash
+alias plltime="sudo timedatectl set-timezone Europe/Warsaw && i3 restart" # warsaw time
 alias sdn="sudo shutdown now"
 alias newnet="sudo systemctl restart NetworkManager" # Refresh wifi
 alias sctl="sudo systemctl"
@@ -33,11 +26,6 @@ alias sctlr="sudo systemctl restart"
 alias sctls="sudo systemctl status"
 alias sctlr="sudo systemctl start"
 alias sctlh="sudo systemctl stop"
-
-# Packages
-alias update-servers="sudo reflector --country Germany --country Poland --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist"
-alias p="sudo pacman"
-alias t="trizen --noedit"
 
 # Some aliases
 fen() { # translate from english
@@ -48,18 +36,13 @@ fpl() { # translate from polish
     text="$@"
     trans pl:en $text
 }
-#alias ssh="assh wrapper ssh"
+alias sshw="assh wrapper ssh"
+alias ssh-conf-rebuild="assh config build -e > ~/.ssh/config"
 alias v="vim"
 alias sv="sudo vim"
 alias r="ranger"
 alias sr="sudo ranger"
 alias ka="killall"
-alias g="git"
-alias s='git status'
-alias gitup="git push origin master"
-alias gitpass="git config --global credential.helper cache"
-alias gitb="git branch | grep \* | cut -d ' ' -f2"
-# alias tr="transmission-remote"
 alias mkd="mkdir -pv"
 alias resetz="echo 'Restart zshrc' && source ~/.zshrc"
 alias resetb="echo 'Restart bashrc' && source ~/.bashrc"
@@ -114,6 +97,9 @@ alias gitsa='git stash apply'
 alias gitwip='git add . && git commit -m "wip"'
 alias gitunwip='git reset HEAD~1'
 alias gitcmpcl='git checkout master && git pull && git checkout -'
+alias gitup="git push origin master"
+alias gitpass="git config --global credential.helper cache"
+alias gitb="git branch | grep \* | cut -d ' ' -f2"
 
 # ElasticSearch
 alias elastic='sudo /etc/init.d/elasticsearch'
@@ -137,8 +123,3 @@ djt() {
 alias dsu='./manage.py createsuperuser'
 alias dsp='./manage.py shell_plus'
 alias add2virtualenv_edit='cdvirtualenv && vim lib/python2.7/site-packages/_virtualenv_path_extensions.pth'
-
-# Files
-alias edit_alias='vim ~/.aliases'
-alias show_alias='cat ~/.aliases'
-alias edit_ssh='vim ~/.ssh/assh.yml'

@@ -6,6 +6,7 @@ export GID="$(id -g)"
 
 # PATH
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/go/bin
 
 # Adds `~/.scripts` and all subdirectories to $PATH
 if [ -d "$HOME/.scripts" ]; then

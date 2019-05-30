@@ -20,6 +20,15 @@ export $(shell sed 's/=.*//' .env)
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
+first-install: ## Installation on new system
+	sudo apt-get install python3-pip
+	sudo pip3 install pipenv
+	pipenv install
+	#mv ~/Downloads/id_rsa ~/.ssh
+	#sudo chmod 0600 ~/.ssh/id_rsa
+	#ssh-add ~/.ssh/id_rsa
+	git submodule update --init --recursive
+
 install: ## Set git submodules and Install pipenv apps.
 	git submodule update --init --recursive
 	pipenv install
@@ -27,17 +36,17 @@ install: ## Set git submodules and Install pipenv apps.
 dots-arch: ## Set dotfiles symlinks in arch.
 	@echo "===== Public dotfiles arch setup ====="
 	dotbot -c ${ARCH_DOTBOT_CONF}
-	$(MAKE) _dots-private target="dots.arch"
+	$(MAKE) _dots-private target="dots-arch"
 
 dots-kubuntu: ## Set dotfiles symlinks in kubuntu.
 	@echo "===== Public dotfiles kubuntu setup ====="
 	dotbot -c ${KUBUNTU_DOTBOT_CONF}
-	$(MAKE) _dots-private target="dots.kubuntu"
+	$(MAKE) _dots-private target="dots-kubuntu"
 
 dots-macos: ## Set dotfiles symlinks in macos.
 	@echo "===== Public dotfiles MacOs setup ====="
 	dotbot -c ${MACOS_DOTBOT_CONF}
-	$(MAKE) _dots-private target="dots.macos"
+	$(MAKE) _dots-private target="dots-macos"
 
 _dots-private:
 	# use: $(MAKE) dots.private target="dots.some"

@@ -10,7 +10,8 @@
       relink: true
 
 - link:
-    ~/.aliases: home/aliases
+    ~/.aliases_base: home/aliases_base
+    ~/.aliases: home/aliases_arch
     ~/.bashrc: home/bashrc
     ~/.bash_logout: home/bash_logout
     ~/.bash_profile: home/bash_profile

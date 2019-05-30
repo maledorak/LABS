@@ -10,12 +10,13 @@
       relink: true
 
 - link:
-    ~/.aliases: home/aliases
+    ~/.aliases_base: home/aliases_base
+    ~/.aliases: home/aliases_macos
     ~/.config/ranger: home/config/ranger
     ~/.config/karabiner: home/config/karabiner
     ~/.gitconfig: home/gitconfig
     ~/.ideavimrc: home/ideavimrc
-    ~/.bashrc: home/macos_bashrc
+    ~/.bashrc: home/bashrc_macos
     ~/.scripts/: home/scripts/*
     ~/.shellrc: home/shellrc
     ~/.spacemacs: home/spacemacs
