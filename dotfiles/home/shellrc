@@ -8,6 +8,11 @@ export GID="$(id -g)"
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/go/bin
 
+# ENVS
+export EDITOR="vim"
+export TERMINAL="tilda"
+export BROWSER="firefox"
+
 # Adds `~/.scripts` and all subdirectories to $PATH
 if [ -d "$HOME/.scripts" ]; then
     export PATH="$(du -L "$HOME/.scripts/" | cut -f2 | tr '\n' ':')$PATH"

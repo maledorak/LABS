@@ -27,6 +27,8 @@ first-install: ## Installation on new system
 	#mv ~/Downloads/id_rsa ~/.ssh
 	#sudo chmod 0600 ~/.ssh/id_rsa
 	#ssh-add ~/.ssh/id_rsa
+
+install-submodules: ## Install submodules
 	git submodule update --init --recursive
 
 install: ## Set git submodules and Install pipenv apps.
