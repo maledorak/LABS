@@ -15,7 +15,7 @@ export PRINT_HELP_PYSCRIPT
 
 include .env
 export $(shell sed 's/=.*//' .env)
-
+export PATH := ${NEW_PATH}
 
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)

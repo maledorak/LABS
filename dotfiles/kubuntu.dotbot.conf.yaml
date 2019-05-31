@@ -21,4 +21,5 @@
     ~/.shellrc: home/shellrc
     ~/.vim: home/vim
     ~/.vimrc: home/vimrc
+    ~/.config/kglobalshortcutsrc: home/config/kglobalshortcutsrc
     ~/.config/tilda: home/config/tilda
