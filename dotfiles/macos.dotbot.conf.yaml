@@ -9,6 +9,8 @@
       glob: true
       relink: true
 
+- clean: ['~', '~/.config']
+
 - link:
     ~/.aliases_base: home/aliases_base
     ~/.aliases: home/aliases_macos
@@ -20,4 +22,5 @@
     ~/.scripts/: home/scripts/*
     ~/.shellrc: home/shellrc
     ~/.spacemacs: home/spacemacs
+    ~/.vim: home/vim
     ~/.vimrc: home/vimrc

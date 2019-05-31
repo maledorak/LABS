@@ -9,6 +9,8 @@
       glob: true
       relink: true
 
+- clean: ['~', '~/.config']
+
 - link:
     ~/.aliases_base: home/aliases_base
     ~/.aliases: home/aliases_kubuntu
@@ -17,5 +19,6 @@
     ~/.gitconfig: home/gitconfig
     ~/.ideavimrc: home/ideavimrc
     ~/.shellrc: home/shellrc
+    ~/.vim: home/vim
     ~/.vimrc: home/vimrc
     ~/.config/tilda: home/config/tilda

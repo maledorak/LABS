@@ -9,6 +9,8 @@
       glob: true
       relink: true
 
+- clean: ['~', '~/.config']
+
 - link:
     ~/.aliases_base: home/aliases_base
     ~/.aliases: home/aliases_arch
@@ -23,6 +25,7 @@
     ~/.shellrc: home/shellrc
     ~/.spacemacs: home/spacemacs
     ~/.warprc: home/warprc
+    ~/.vim: home/vim
     ~/.vimrc: home/vimrc
     ~/.Xdefaults: home/Xdefaults
     ~/.xinitrc: home/xinitrc
