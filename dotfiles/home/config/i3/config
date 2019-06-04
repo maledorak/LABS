@@ -554,7 +554,7 @@ set $mode_system    System: (x) lock, (l) logout, (s) suspend, (h) hibernate, (S
 set $locker i3lock && sleep 1
 mode "$mode_system" {
     bindsym x exec --no-startup-id lockscreen, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit && logout, mode "default"
+    bindsym l exec --no-startup-id i3-msg exit && logout, mode "default"
     bindsym s exec --no-startup-id $locker && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $locker && systemctl hibernate, mode "default"
     bindsym Shift+r exec --no-startup-id prompt "Do you want to reboot?" "systemctl reboot", mode "default"

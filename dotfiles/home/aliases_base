@@ -17,7 +17,7 @@ alias prices="curl rate.sx"
 alias ipinfo="curl ipinfo.io"
 
 # System Maintainence
-alias tr="gio trash" # Move file to trash
+alias trash="gio trash" # Move file to trash
 alias plltime="sudo timedatectl set-timezone Europe/Warsaw && i3 restart" # warsaw time
 alias sdn="sudo shutdown now"
 alias newnet="sudo systemctl restart NetworkManager" # Refresh wifi

@@ -72,7 +72,7 @@ plugins=(
   pip
   python
   supervisor
-  ssh-agent
+#  ssh-agent
   systemd
   wd
 #  vi-mode
