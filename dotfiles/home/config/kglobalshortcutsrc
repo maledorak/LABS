@@ -18,7 +18,7 @@ _k_friendly_name=KDE Daemon
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
-_k_friendly_name=KDE Daemon
+_k_friendly_name=System Settings
 {3141eb69-0d2c-4f2a-8d46-f9b68ea88960}=Meta+Print,none,Take Active Window Screenshot
 {44eaeda0-ca3c-4c61-892b-e6d52095c28e}=Print,none,Start Screenshot Tool
 {5e2ad122-4347-4256-b81a-bbb6207d2648}=Meta+Shift+Print,none,Take Rectangular Region Screenshot

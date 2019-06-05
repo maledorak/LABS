@@ -19,6 +19,7 @@
     ~/.gitconfig: home/gitconfig
     ~/.ideavimrc: home/ideavimrc
     ~/.shellrc: home/shellrc
+    ~/.scripts/: home/scripts/*
     ~/.vim: home/vim
     ~/.vimrc: home/vimrc
     ~/.config/kglobalshortcutsrc: home/config/kglobalshortcutsrc

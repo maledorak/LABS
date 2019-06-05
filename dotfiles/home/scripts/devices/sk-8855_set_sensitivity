@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Set sensitivity for Lenovo Thinkpad SK-8855 Keyboard
+# using: sudo ./sk-8855_set_sensitivity 250
+#
+# Resources:
+# http://www.thinkwiki.org/wiki/How_to_configure_the_TrackPoint
+# https://wiki.archlinux.org/index.php/TrackPoint
+#
+
+SENSITIVITY=$1 # default 160
+if [ -z "$SENSITIVITY" ]
+then
+    echo "Pass sensitivity as a first argument"
+else
+    NAME="Lenovo ThinkPad Keyboard with TrackPoint"
+    DATA=$(lsusb | grep "$NAME")
+    BUS=$(echo "$DATA" | grep -Po 'Bus \K0*[1-9]+')
+    DEV=$(echo "$DATA" | grep -Po 'Device \K0*[1-9]+')
+    DEVPATH="/sys$(udevadm info /dev/bus/usb/"$BUS"/"$DEV" -q path)"
+    SENSITIVITY_PATH=$(find "$DEVPATH" -name "sensitivity")
+    echo -n "$SENSITIVITY" > "$SENSITIVITY_PATH"
+fi
