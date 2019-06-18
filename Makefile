@@ -20,6 +20,12 @@ export PATH := ${NEW_PATH}
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
+fetch: ## Fetch new commits
+	@echo "##### Fetch private LABS #####"
+	cd private && git fetch --all
+	@echo "##### Fetch public LABS #####"
+	git fetch --all
+
 first-install: ## Installation on new system
 	sudo apt-get install python3-pip
 	sudo pip3 install pipenv
