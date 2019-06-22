@@ -75,6 +75,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id firefox
 exec --no-startup-id slack
 exec --no-startup-id spotify
+exec --no-startup-id keepassxc
 exec --no-startup-id tilda
 exec --no-startup-id flameshot
 exec --no-startup-id nixnote2
@@ -287,6 +288,8 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
 
 # switch to workspace
 bindsym $mod+1                  workspace $ws1
@@ -299,6 +302,8 @@ bindsym $mod+7		            workspace $ws7
 bindsym $mod+8		            workspace $ws8; layout tabbed
 bindsym $mod+9		            workspace $ws9
 bindsym $mod+0		            workspace $ws10
+bindsym $mod+minus		        workspace $ws11
+bindsym $mod+plus		        workspace $ws12
 
 # move focused container to workspace
 bindsym $mod+Shift+1	        move container to workspace $ws1
@@ -311,13 +316,14 @@ bindsym $mod+Shift+7	        move container to workspace $ws7
 bindsym $mod+Shift+8	        move container to workspace $ws8
 bindsym $mod+Shift+9	        move container to workspace $ws9
 bindsym $mod+Shift+0	        move container to workspace $ws10
+bindsym $mod+Shift+minus	    move container to workspace $ws11
+bindsym $mod+Shift+plus	        move container to workspace $ws12
 
 # window sticking to workspace
 # use `xprop` to check class instance
 for_window [class="Google-chrome"] move to workspace $ws3
 for_window [class="Google-chrome" title=^DevTools.+$] move to workspace $ws5
 for_window [class="Pinentry"] sticky enable
-for_window [instance="anki"] move to workspace $ws3
 for_window [instance="slack"] move to workspace $ws4
 for_window [class="Blender"] move to workspace $ws7
 for_window [class="marble"] move to workspace $ws7
@@ -325,12 +331,14 @@ for_window [title="GIMP Startup"] move workspace $ws7
 for_window [class="Gimp"] move workspace $ws7
 for_window [title="LibreOffice"] move workspace $ws8
 for_window [class="libreoffice"] move workspace $ws8
-for_window [instance="nixnote2"] move to workspace $ws9
+for_window [instance="anki"] move to workspace $ws9
+for_window [class="keepassxc"] move workspace $ws10
+for_window [instance="nixnote2"] move to workspace $ws11
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
 for_window [window_role="GtkFileChooserDialog"] resize shrink height 10 px
-for_window [instance="dl"] move workspace $ws10
-for_window [instance="spotify"] move workspace $ws10
+for_window [instance="dl"] move workspace $ws12
+for_window [instance="spotify"] move workspace $ws12
 
 # Always float these applications.
 #for_window [window_role="^(bubble|pop-up)$"] floating enable, border normal
@@ -407,10 +415,10 @@ bindsym $mod+F12                exec --no-startup-id pactl_module_toggle "module
 
 ###### Media Keys #####
 ### Volume keys
-bindsym $mod+plus               exec $inc
-bindsym $mod+Shift+plus         exec $biginc
-bindsym $mod+minus              exec $dec
-bindsym $mod+Shift+minus        exec $bigdec
+#bindsym $mod+plus               exec $inc
+#bindsym $mod+Shift+plus         exec $biginc
+#bindsym $mod+minus              exec $dec
+#bindsym $mod+Shift+minus        exec $bigdec
 bindsym $mod+less               exec $prev
 bindsym $mod+Shift+less         exec $player_dec
 bindsym $mod+greater            exec $next
