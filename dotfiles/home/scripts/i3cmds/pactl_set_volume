@@ -4,10 +4,10 @@ import subprocess
 import sys
 
 
-def set_volume(app, vol_change):
+def set_volume(app_name, vol_change, with_notify=False):
     env = os.environ
     env['LANG'] = 'en_US'
-    app = '"{}"'.format(app)
+    app = '"{}"'.format(app_name)
     sinks = subprocess.check_output(['pactl', 'list', 'sink-inputs'], env=env).decode().strip().split()
     if not app in sinks:
         return
@@ -30,6 +30,8 @@ def set_volume(app, vol_change):
         sign = ''
 
     subprocess.run(['pactl', 'set-sink-input-volume', sink_id, '{}{}%'.format(sign, str(vol_change))])
+    if with_notify:
+        subprocess.run(['notify-send', '-t', '600', '{} volume: {}'.format(app_name, volume)])
 
 
 if __name__ == '__main__':
@@ -45,4 +47,4 @@ if __name__ == '__main__':
         print("First argument should be a integer from -100 to 100")
 
     if vol_change:
-        set_volume(app='Spotify', vol_change=vol_change)
+        set_volume(app_name='Spotify', vol_change=vol_change, with_notify=True)
