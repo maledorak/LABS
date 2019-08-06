@@ -20,6 +20,11 @@ export PATH := ${NEW_PATH}
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
+venv: ./.venv/bin/activate
+	# venv in makefile based on: https://stackoverflow.com/a/46188210
+	@echo "Dotbot is in" `which dotbot`
+	@echo "Ansible is in" `which ansible`
+
 fetch: ## Fetch new commits
 	@echo "##### Fetch private LABS #####"
 	cd private && git fetch --all
@@ -41,22 +46,22 @@ install: ## Set git submodules and Install pipenv apps.
 	git submodule update --init --recursive
 	pipenv install
 
-dots-arch: ## Set dotfiles symlinks in arch.
+dots-arch: venv ## Set dotfiles symlinks in arch.
 	@echo "===== Public dotfiles arch setup ====="
 	dotbot -c ${ARCH_DOTBOT_CONF}
 	$(MAKE) _dots-private target="dots-arch"
 
-dots-kubuntu: ## Set dotfiles symlinks in kubuntu.
+dots-kubuntu: venv ## Set dotfiles symlinks in kubuntu.
 	@echo "===== Public dotfiles kubuntu setup ====="
 	dotbot -c ${KUBUNTU_DOTBOT_CONF}
 	$(MAKE) _dots-private target="dots-kubuntu"
 
-dots-macos: ## Set dotfiles symlinks in macos.
+dots-macos: venv ## Set dotfiles symlinks in macos.
 	@echo "===== Public dotfiles MacOs setup ====="
 	dotbot -c ${MACOS_DOTBOT_CONF}
 	$(MAKE) _dots-private target="dots-macos"
 
-_dots-private:
+_dots-private: venv
 	# use: $(MAKE) dots.private target="dots.some"
 	# Check is private dir exists and run private Makefile
 ifneq (,$(wildcard ./private/Makefile))
@@ -64,11 +69,11 @@ ifneq (,$(wildcard ./private/Makefile))
 endif
 
 
-apps-configure: ## Configure arch localhost.
+apps-configure: venv ## Configure arch localhost.
 	$(MAKE) -C apps configure
 
-apps-tags: ## Configure arch localhost only with passed 'tags' ex. [make apps-tags tags="tag1,tag2"]
+apps-tags: venv ## Configure arch localhost only with passed 'tags' ex. [make apps-tags tags="tag1,tag2"]
 	$(MAKE) -C apps tags $(tags)
 
-apps-show-tags: ## Show tags used in ansible
+apps-show-tags:	venv ## Show tags used in ansible
 	$(MAKE) -C apps show-tags
