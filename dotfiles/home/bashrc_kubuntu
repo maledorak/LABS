@@ -2,8 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# Run base shell "shellrc" config
-source ~/.shellrc
+# Run base shell "base_rc" config
+source ~/.base_rc
 
 # If not running interactively, don't do anything
 case $- in

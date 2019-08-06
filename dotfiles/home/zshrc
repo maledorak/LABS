@@ -58,7 +58,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# For more plugins, check: https://github.com/unixorn/awesome-zsh-plugins 
+# For more plugins, check: https://github.com/unixorn/awesome-zsh-plugins
 plugins=(
   aws
   archlinux
@@ -113,5 +113,5 @@ source $ZSH/oh-my-zsh.sh
 setopt no_share_history
 # SHARE_HISTORY="false"
 
-# Run base shell "shellrc" config
-source ~/.shellrc
+# Run base shell "base_rc" config
+source ~/.base_rc

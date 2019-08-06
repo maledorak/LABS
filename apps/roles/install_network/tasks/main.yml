@@ -6,6 +6,8 @@
     name:
       - networkmanager
       - network-manager-applet
+      - gnome-keyring
+      - seahorse
   tags:
     - network
     - install_pacman

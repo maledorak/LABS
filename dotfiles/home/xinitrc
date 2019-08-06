@@ -6,10 +6,18 @@ setxkbmap pl
 # run udiskie automounter for udisks2
 udiskie --no-notify --tray --use-udisks2 &
 
+# run redshift
 pgrep redshift-gtk &> /dev/null || redshift-gtk &> /dev/null &
 
-# run dropbox
+# run gnome-keyring
+# based on: https://wiki.archlinux.org/index.php/GNOME/Keyring#xinitrc_method
+dbus-update-activation-environment --systemd DISPLAY
+eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
+export SSH_AUTH_SOCK
+
+# run clouds
 /usr/bin/dropbox &
+/usr/bin/pcloud &
 
 # run i3
 exec i3

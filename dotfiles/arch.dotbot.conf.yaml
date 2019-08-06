@@ -12,8 +12,10 @@
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.aliases_base: home/aliases_base
     ~/.aliases: home/aliases_arch
+    ~/.base_aliases: home/base_aliases
+    ~/.base_profile: home/base_profile
+    ~/.base_rc: home/base_rc
     ~/.bashrc: home/bashrc
     ~/.bash_logout: home/bash_logout
     ~/.bash_profile: home/bash_profile
@@ -22,7 +24,6 @@
     ~/.SpaceVim.d: home/SpaceVim.d
     ~/.scripts/: home/scripts/*
     ~/.screenlayout: home/screenlayout
-    ~/.shellrc: home/shellrc
     ~/.spacemacs: home/spacemacs
     ~/.warprc: home/warprc
     ~/.vim: home/vim

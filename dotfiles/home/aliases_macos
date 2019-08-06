@@ -1,2 +1,2 @@
-# Run base aliases "aliases_base" config
-source ~/.aliases_base
+# Run base aliases "base_aliases" config
+source ~/.base_aliases
