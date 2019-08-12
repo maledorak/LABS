@@ -32,8 +32,11 @@ fetch: ## Fetch new commits
 	git fetch --all
 
 first-install: ## Installation on new system
-	sudo apt-get install python3-pip
-	sudo pip3 install pipenv
+	git clone https://aur.archlinux.org/trizen.git
+	cd trizen && makepkg -si && cd .. && rm -rf trizen
+	sudo pacman -S firefox python-pip
+	trizen -S --noedit dropbox
+	sudo pip install pipenv
 	pipenv install
 	#mv ~/Downloads/id_rsa ~/.ssh
 	#sudo chmod 0600 ~/.ssh/id_rsa

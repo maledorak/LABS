@@ -29,7 +29,7 @@
       - poppler-glib # open pdf in gimp
       - ranger
       - redshift
-      - reflector
+#      - reflector
       - rxvt-unicode
       - samba
       - texlive-core
@@ -55,22 +55,24 @@
     name: "{{ item }}"
     use: trizen
     skip_installed: true
+  become: yes
+  become_user: aur_builder
   with_items:
     - advanced-ssh-config
-    - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
+#    - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
     - dropbox
     - franz
     - git-extras-git
-    - gitflow-avh
-    - gitlab-runner
+#    - gitflow-avh
+#    - gitlab-runner
     - google-chrome
-    - homebank
-    - insomnia # https://github.com/getinsomnia/insomnia
-    - jetbrains-toolbox
+#    - homebank
+    - postman
+#    - jetbrains-toolbox
     - nixnote2-git
     - polybar
     - phantomjs # for youtube-dl
-    - slack-desktop
+#    - slack-desktop
     - spotify
     - todoist-git
     - qnapi

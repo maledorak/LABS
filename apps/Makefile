@@ -19,7 +19,7 @@ help:
 venv: ./../.venv/bin/activate
 
 configure: venv ## Configure arch localhost.
-	ansible-playbook -K -vv apps/configure_arch.yml
+	ansible-playbook -K -vv configure_arch.yml
 
 tags: venv ## Configure arch localhost only with passed 'tags' ex. [make apps-tags tags="tag1,tag2"]
 	# use: make run-tags tags="tag1,tag2"
