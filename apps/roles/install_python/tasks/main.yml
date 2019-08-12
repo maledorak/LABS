@@ -4,23 +4,27 @@
   pacman:
     state: present
     name:
-    - python-pip
-    - python-virtualenv
-    - python-virtualenvwrapper
-    - python-pew
-    - python-pipenv
-    - setuptools
-    - twine
-    - wheel
+      - python-pip
+      - python-virtualenv
+      - python-virtualenvwrapper
+      - python-pew
+      - python-pipenv
+      - setuptools
+      - twine
+      - wheel
+      - pyenv
   tags:
     - python
     - install_pacman
 
-#- name: Install aur coding packages
-#  aur:
-#    name: "{{ item }}"
-#    use: trizen
-#    skip_installed: true
-#  with_items:
-#  - some
+- name: Install aur python packages
+  aur:
+    name: "{{ item }}"
+    use: trizen
+    skip_installed: true
+  with_items:
+  - pyenv-virtualenv
+  tags:
+    - python
+    - install_aur
 

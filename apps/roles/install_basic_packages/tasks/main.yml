@@ -67,7 +67,7 @@
     - homebank
     - insomnia # https://github.com/getinsomnia/insomnia
     - jetbrains-toolbox
-    - nixnote2
+    - nixnote2-git
     - polybar
     - phantomjs # for youtube-dl
     - slack-desktop

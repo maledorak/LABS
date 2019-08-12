@@ -5,8 +5,11 @@ export UID="$(id -u)"
 export GID="$(id -g)"
 
 # PATH
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/go/bin
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # ENVS
 export EDITOR="vim"

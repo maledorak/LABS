@@ -4,8 +4,8 @@
   pacman:
     state: present
     name:
-    - powerline-fonts
-    - noto-fonts-emoji
+      - powerline-fonts
+      - noto-fonts-emoji
   tags:
     - fonts
     - install_pacman
@@ -16,9 +16,10 @@
     use: trizen
     skip_installed: true
   with_items:
-    - ttf-font-awesome
-    - ttf-font-icons
-    - ttf-inconsolata
+    - siji-git
+#    - ttf-font-awesome
+#    - ttf-font-icons
+#    - ttf-inconsolata
   tags:
     - fonts
     - install_aur

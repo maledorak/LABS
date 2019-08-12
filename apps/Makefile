@@ -16,10 +16,12 @@ export PRINT_HELP_PYSCRIPT
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
-configure: ## Configure arch localhost.
+venv: ./../.venv/bin/activate
+
+configure: venv ## Configure arch localhost.
 	ansible-playbook -K -vv apps/configure_arch.yml
 
-tags: ## Configure arch localhost only with passed 'tags' ex. [make apps-tags tags="tag1,tag2"]
+tags: venv ## Configure arch localhost only with passed 'tags' ex. [make apps-tags tags="tag1,tag2"]
 	# use: make run-tags tags="tag1,tag2"
 	ansible-playbook -K -vv configure_arch.yml --tags "$(tags)"
 
