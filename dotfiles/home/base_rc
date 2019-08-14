@@ -8,8 +8,9 @@ export GID="$(id -g)"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# add pyenw pythons version on front of PATH
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 # ENVS
 export EDITOR="vim"
@@ -41,8 +42,8 @@ export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 if [ -f `which virtualenvwrapper.sh` ]; then
     export WORKON_HOME=$HOME/code/venvs
     export PROJECT_HOME=$HOME/code/projects
-    export VIRTUALENVWRAPPER_PYTHON=`which python3`
-    export VIRTUALENVWRAPPER_VIRTUALENV=`which virtualenv`
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
     source `which virtualenvwrapper.sh`
     echo "Virtualenvwrapper loaded"
 fi
