@@ -123,3 +123,13 @@ djt() {
 alias dsu='./manage.py createsuperuser'
 alias dsp='./manage.py shell_plus'
 alias add2virtualenv_edit='cdvirtualenv && vim lib/python2.7/site-packages/_virtualenv_path_extensions.pth'
+
+# Node
+function lastTestFile () {
+  find test/ -name '*.test.js' -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -f2- -d" "
+}
+
+function yrtl () {
+  TEST_FILE=`lastTestFile`
+  yarn test $TEST_FILE
+}

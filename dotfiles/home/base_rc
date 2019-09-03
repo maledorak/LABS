@@ -7,8 +7,9 @@ export GID="$(id -g)"
 # PATH
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
-export PATH="$HOME/.pyenv/bin:$PATH"
-# add pyenw pythons version on front of PATH
+
+# Pyenv - Add shims dir to PATH on back, because `pyenv init` add it to the front
+export PATH="$PATH:$HOME/.pyenv/shims"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 

@@ -32,3 +32,6 @@
 	path = dotfiles/home/vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown
     ignore = untracked
+[submodule "jetbrains"]
+	path = jetbrains
+	url = git@github.com:maledorak/jetbrains-shared-settings.git

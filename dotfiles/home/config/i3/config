@@ -300,7 +300,7 @@ bindsym $mod+5		            workspace $ws5
 bindsym $mod+6		            workspace $ws6
 bindsym $mod+7		            workspace $ws7
 bindsym $mod+8		            workspace $ws8; layout tabbed
-bindsym $mod+9		            workspace $ws9
+bindsym $mod+9		            workspace $ws9; layout tabbed
 bindsym $mod+0		            workspace $ws10
 bindsym $mod+minus		        workspace $ws11
 bindsym $mod+plus		        workspace $ws12
