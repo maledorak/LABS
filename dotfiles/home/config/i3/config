@@ -327,6 +327,7 @@ for_window [class="Google-chrome"] move to workspace $ws3
 for_window [class="Google-chrome" title=^DevTools.+$] move to workspace $ws5
 for_window [class="Pinentry"] sticky enable
 for_window [instance="slack"] move to workspace $ws4
+for_window [instance="discord"] move to workspace $ws4
 for_window [class="Blender"] move to workspace $ws7
 for_window [class="marble"] move to workspace $ws7
 for_window [title="GIMP Startup"] move workspace $ws7

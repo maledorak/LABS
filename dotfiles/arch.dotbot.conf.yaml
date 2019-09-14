@@ -41,5 +41,6 @@
     ~/.config/ranger: home/config/ranger
     ~/.config/redshift: home/config/redshift
     ~/.config/rofi: home/config/rofi
+    ~/.config/Thunar: home/config/Thunar
     ~/.config/tilda: home/config/tilda
     ~/.config/vlc/vlcrc: home/config/vlc/vlcrc
