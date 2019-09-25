@@ -51,10 +51,10 @@ dots-arch: venv ## Set dotfiles symlinks in arch.
 	dotbot -c ${ARCH_DOTBOT_CONF}
 	$(MAKE) _dots-private target="dots-arch"
 
-dots-kubuntu: venv ## Set dotfiles symlinks in kubuntu.
-	@echo "===== Public dotfiles kubuntu setup ====="
-	dotbot -c ${KUBUNTU_DOTBOT_CONF}
-	$(MAKE) _dots-private target="dots-kubuntu"
+dots-manjaro: venv ## Set dotfiles symlinks in manjaro.
+	@echo "===== Public dotfiles manjaro setup ====="
+	dotbot -c ${MANJARO_DOTBOT_CONF}
+#	$(MAKE) _dots-private target="dots-manjaro"
 
 dots-macos: venv ## Set dotfiles symlinks in macos.
 	@echo "===== Public dotfiles MacOs setup ====="
