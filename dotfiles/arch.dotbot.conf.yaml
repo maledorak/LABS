@@ -12,13 +12,19 @@
 - clean: ['~', '~/.config']
 
 - link:
+    ##### Linux configs #####
     ~/.aliases: home/aliases-arch
     ~/.aliases-base: home/aliases-base
-    ~/.base_profile: home/base_profile
+    ~/.profile-base: home/profile-base
     ~/.rc-base: home/rc-base
     ~/.bashrc: home/bashrc
     ~/.bash_logout: home/bash_logout-base
     ~/.bash_profile: home/bash_profile
+    ~/.Xdefaults: home/Xdefaults
+    ~/.xinitrc: home/xinitrc
+    ~/.zprofile: home/zprofile
+    ~/.zshrc: home/zshrc
+    ##### Rest configs #####
     ~/.gitconfig: home/gitconfig
     ~/.ideavimrc: home/ideavimrc
     ~/.SpaceVim.d: home/SpaceVim.d
@@ -28,10 +34,6 @@
     ~/.warprc: home/warprc
     ~/.vim: home/vim
     ~/.vimrc: home/vimrc
-    ~/.Xdefaults: home/Xdefaults
-    ~/.xinitrc: home/xinitrc
-    ~/.zprofile: home/zprofile
-    ~/.zshrc: home/zshrc
     ~/.config/compton.conf: home/config/compton.conf
     ~/.config/emoji: home/config/emoji
     ~/.config/dunst: home/config/dunst

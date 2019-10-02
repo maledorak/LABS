@@ -1,3 +1,3 @@
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+source ~/.profile-base
 
-source ~/.base_profile
+[[ -f ~/.bashrc ]] && . ~/.bashrc

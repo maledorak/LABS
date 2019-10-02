@@ -1,3 +1,3 @@
-[[ -f ~/.zshrc ]] && . ~/.zshrc
+source ~/.profile-base
 
-source ~/.base_profile
+[[ -f ~/.zshrc ]] && . ~/.zshrc

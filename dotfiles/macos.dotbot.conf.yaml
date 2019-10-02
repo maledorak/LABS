@@ -14,7 +14,7 @@
 - link:
     ~/.aliases: home/aliases-macos
     ~/.aliases-base: home/aliases-base
-    ~/.base_profile: home/base_profile
+    ~/.profile-base: home/profile-base
     ~/.rc-base: home/rc-base
     ~/.bashrc: home/bashrc_macos
     ~/.config/ranger: home/config/ranger
