@@ -1,5 +1,5 @@
-# Run base aliases "base_aliases" config
-source ~/.base_aliases
+# Run base aliases "aliases-base" config
+source ~/.aliases-base
 
 # System Maintainence
 alias progs="pacman -Qet" # List programs I've installed

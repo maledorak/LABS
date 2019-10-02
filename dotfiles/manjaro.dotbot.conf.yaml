@@ -12,9 +12,10 @@
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.aliases: home/aliases_arch
+    ~/.aliases-base: home/aliases-base
+    ~/.aliases-arch: home/aliases-arch
+    ~/.aliases: home/aliases-manjaro
 #    ~/.base_profile: home/base_profile
-    ~/.base_aliases: home/base_aliases
 #    ~/.base_rc: home/base_rc
 #    ~/.bashrc: home/bashrc_manjaro
     ~/.gitconfig: home/gitconfig

@@ -12,8 +12,8 @@
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.aliases: home/aliases_macos
-    ~/.base_aliases: home/base_aliases
+    ~/.aliases: home/aliases-macos
+    ~/.aliases-base: home/aliases-base
     ~/.base_profile: home/base_profile
     ~/.base_rc: home/base_rc
     ~/.bashrc: home/bashrc_macos
