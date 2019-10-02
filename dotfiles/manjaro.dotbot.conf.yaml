@@ -20,6 +20,8 @@
     ~/.bashrc: home/bashrc-manjaro
     ~/.profile-base: home/profile-base
     ~/.bash_logout: home/bash_logout-base
+    ~/.zprofile: home/zprofile
+    ~/.zshrc: home/zshrc
     ##### Rest configs #####
     ~/.gitconfig: home/gitconfig
     ~/.ideavimrc: home/ideavimrc
