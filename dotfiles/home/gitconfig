@@ -17,7 +17,7 @@
     m = merge
     o = checkout
     p = pull
-    r = remote
+    r = reset
     s = status
     w = whatchanged
 
@@ -88,6 +88,8 @@ ffpub = !"git add . && git commit --amend --no-edit && git push --force --set-up
 save = !"git add . && git commit -m 'WIP' --no-verify && git push --force --set-upstream origin $(git branch-name)"
 load = !"git reset HEAD^"
 
+### reset ###
+ra = !"git reset ."
 
 ### SHELL SCRIPTING ALIASES ###
 #

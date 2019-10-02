@@ -28,6 +28,7 @@
     ~/.scripts/: home/scripts/*
     ~/.vim: home/vim
     ~/.vimrc: home/vimrc
+    ~/.warprc: home/warprc
 #    ~/.config/kglobalshortcutsrc: home/config/kglobalshortcutsrc
 #    ~/.config/compton.conf: home/config/compton.conf
 #    ~/.config/emoji: home/config/emoji
@@ -36,6 +37,6 @@
 #    ~/.config/i3: home/config/i3
 #    ~/.config/polybar: home/config/polybar
     ~/.config/ranger: home/config/ranger
-#    ~/.config/redshift: home/config/redshift
+    ~/.config/redshift: home/config/redshift
 #    ~/.config/rofi: home/config/rofi
     ~/.config/tilda: home/config/tilda
