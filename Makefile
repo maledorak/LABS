@@ -69,8 +69,11 @@ ifneq (,$(wildcard ./private/Makefile))
 endif
 
 
-apps-configure: venv ## Configure arch localhost.
-	$(MAKE) -C apps configure
+apps-configure-arch: venv ## Configure arch localhost.
+	$(MAKE) -C apps configure-arch
+
+apps-configure-manjaro: venv ## Configure manjaro localhost.
+	$(MAKE) -C apps configure-manjaro
 
 apps-tags: venv ## Configure arch localhost only with passed 'tags' ex. [make apps-tags tags="tag1,tag2"]
 	$(MAKE) -C apps tags $(tags)

@@ -1,0 +1,23 @@
+---
+
+- name: Configure manjaro
+  hosts: all
+  become: true
+  vars:
+    localhost_user: mariusz
+    localhost_user_home: /home/mariusz
+    update_cache: false
+  roles:
+#    - update_pacman_cache
+#    - install_aur_helper
+#    - install_arch_utils
+#    - install_python
+#    - install_basic_packages
+#    - install_audio
+#    - install_bluetooth
+#    - install_docker
+#    - install_fonts
+#    - install_network
+#    - install_spacemacs
+#    - install_usb
+    - install_zsh
