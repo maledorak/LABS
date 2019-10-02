@@ -15,11 +15,11 @@
     ##### Linux configs #####
     ~/.aliases: home/aliases-arch
     ~/.aliases-base: home/aliases-base
-    ~/.profile-base: home/profile-base
     ~/.rc-base: home/rc-base
-    ~/.bashrc: home/bashrc
-    ~/.bash_logout: home/bash_logout-base
+    ~/.bashrc: home/bashrc-arch
+    ~/.profile-base: home/profile-base
     ~/.bash_profile: home/bash_profile
+    ~/.bash_logout: home/bash_logout-base
     ~/.Xdefaults: home/Xdefaults
     ~/.xinitrc: home/xinitrc
     ~/.zprofile: home/zprofile

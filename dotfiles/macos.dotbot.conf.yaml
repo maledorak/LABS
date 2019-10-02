@@ -12,11 +12,13 @@
 - clean: ['~', '~/.config']
 
 - link:
+    ##### MacOs configs #####
     ~/.aliases: home/aliases-macos
     ~/.aliases-base: home/aliases-base
+    ~/.bashrc: home/bashrc-macos
     ~/.profile-base: home/profile-base
     ~/.rc-base: home/rc-base
-    ~/.bashrc: home/bashrc_macos
+    ##### Rest configs #####
     ~/.config/ranger: home/config/ranger
     ~/.config/karabiner: home/config/karabiner
     ~/.gitconfig: home/gitconfig
