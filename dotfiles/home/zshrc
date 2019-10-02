@@ -113,5 +113,5 @@ source $ZSH/oh-my-zsh.sh
 setopt no_share_history
 # SHARE_HISTORY="false"
 
-# Run base shell "base_rc" config
-source ~/.base_rc
+# Run base shell "rc-base" config
+source ~/.rc-base

@@ -1,5 +1,5 @@
-# Run base shell "base_rc" config
-source ~/.base_rc
+# Run base shell "rc-base" config
+source ~/.rc-base
 
 # Enable vim mode in bash with <ESCAPE> key.
 set -o vi

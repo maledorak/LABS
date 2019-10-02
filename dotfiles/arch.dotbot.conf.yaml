@@ -15,7 +15,7 @@
     ~/.aliases: home/aliases-arch
     ~/.aliases-base: home/aliases-base
     ~/.base_profile: home/base_profile
-    ~/.base_rc: home/base_rc
+    ~/.rc-base: home/rc-base
     ~/.bashrc: home/bashrc
     ~/.bash_logout: home/bash_logout-base
     ~/.bash_profile: home/bash_profile

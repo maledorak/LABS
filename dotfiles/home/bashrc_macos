@@ -1,4 +1,4 @@
-# Run base shell "base_rc" config
-source ~/.base_rc
+# Run base shell "rc-base" config
+source ~/.rc-base
 
 export PATH=$PATH:$HOME/Library/Python/2.7/bin:$HOME/Library/Python/3.7/bin

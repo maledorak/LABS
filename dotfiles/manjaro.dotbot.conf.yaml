@@ -16,7 +16,7 @@
     ~/.aliases-arch: home/aliases-arch
     ~/.aliases: home/aliases-manjaro
 #    ~/.base_profile: home/base_profile
-#    ~/.base_rc: home/base_rc
+    ~/.rc-base: home/rc-base
 #    ~/.bashrc: home/bashrc_manjaro
     ~/.bash_logout: home/bash_logout-base
     ~/.gitconfig: home/gitconfig
