@@ -1,3 +1,5 @@
+echo "Loading .profile-base"
+
 export EDITOR="vim"
 export TERMINAL="tilda"
 export BROWSER="firefox"

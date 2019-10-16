@@ -1,3 +1,4 @@
+echo "Loading .bash_profile"
 source ~/.profile-base
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
