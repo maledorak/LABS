@@ -133,3 +133,6 @@ function yrtl () {
   TEST_FILE=`lastTestFile`
   yarn test $TEST_FILE
 }
+
+alias testvenv=". $HOME/code/venvs/test/bin/activate"
+alias worth="website_worth run"

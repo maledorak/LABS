@@ -25,6 +25,7 @@
     ##### Rest configs #####
     ~/.gitconfig: home/gitconfig
     ~/.ideavimrc: home/ideavimrc
+    ~/.npmrc: home/npmrc
     ~/.scripts/: home/scripts/*
     ~/.vim: home/vim
     ~/.vimrc: home/vimrc
