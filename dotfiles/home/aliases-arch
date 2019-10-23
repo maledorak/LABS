@@ -4,6 +4,8 @@ source ~/.aliases-base
 # System Maintainence
 alias progs="pacman -Qet" # List programs I've installed
 alias orphans="pacman -Qdt" # List orphan programs
+alias rmcache="paccache -rvk1 && paccache -rvuk0" # Leave only 1 cached version of apps in pacman
+alias rmorphans="sudo pacman -Rns $(pacman -Qtdq)"
 alias upgr="neofetch && sudo pacman -Syyu --noconfirm && echo Update complete. | figlet"
 alias update-servers="sudo reflector --country Germany --country Poland --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist"
 alias p="sudo pacman"

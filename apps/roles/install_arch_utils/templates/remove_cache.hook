@@ -8,4 +8,4 @@ Target = *
 [Action]
 Description = Keep the last cache and the currently installed.
 When = PostTransaction
-Exec = /usr/bin/paccache -rvk2 && /usr/bin/paccache -rvuk1
+Exec = /usr/bin/paccache -rvk1 && /usr/bin/paccache -rvuk0
