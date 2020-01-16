@@ -136,3 +136,5 @@ function yrtl () {
 
 alias testvenv=". $HOME/code/venvs/test/bin/activate"
 alias worth="website_worth run"
+alias wo="website_worth run"
+alias wh="whois"

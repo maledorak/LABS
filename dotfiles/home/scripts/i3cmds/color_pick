@@ -1,0 +1,12 @@
+#!/bin/sh
+# Sometimes this script don't work on i3wm, so you must on/off/on/off it few times untill a cursor will change to pointing cross.
+# Must have gpick and xclip installed.
+gpick -h > /dev/null || exit
+xclip -h > /dev/null || exit
+# Below line add posibility to on/off toggling this script
+killall -vq gpick || selected=$(gpick -pso) && killall -q gpick
+echo $selected
+if [ ! -z "$selected" ]; then
+    echo $selected | xclip -selection clipboard
+    notify-send "'$selected' colour copied to the clipboard." &
+fi

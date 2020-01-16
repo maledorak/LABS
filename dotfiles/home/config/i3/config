@@ -207,6 +207,8 @@ bindsym $mod+Shift+d            mode "$mode_layout"
 #bindsym $mod+g                 workspace prev
 # %%hotkey: Run gaps mode %%
 bindsym $mod+Shift+g            mode "$mode_gaps"
+# %%hotkey: Run gpick %%
+bindsym $mod+Control+g          exec --no-startup-id color_pick
 
 # %%hotkey: Focus to left container %%
 bindsym $mod+h                  focus left
@@ -335,7 +337,7 @@ for_window [class="Gimp"] move workspace $ws7
 for_window [title="LibreOffice"] move workspace $ws8
 for_window [class="libreoffice"] move workspace $ws8
 for_window [instance="anki"] move to workspace $ws9
-for_window [class="keepassxc"] move workspace $ws10
+for_window [class="KeePassXC"] move workspace $ws10
 for_window [instance="nixnote2"] move to workspace $ws11
 for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
 for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
