@@ -1,4 +1,4 @@
-; Thunar GtkAccelMap rc-file         -*- scheme -*-
+; thunar GtkAccelMap rc-file         -*- scheme -*-
 ; this file is an automated accelerator map dump
 ;
 ; (gtk_accel_path "<Actions>/ThunarBookmarks/07685f3ff25887f4baf11f184f192dc8" "")
@@ -22,6 +22,7 @@
 ; (gtk_accel_path "<Actions>/ThunarStandardView/properties" "<Alt>Return")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/open-in-new-window" "<Primary><Shift>o")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/back" "<Alt>Left")
+; (gtk_accel_path "<Actions>/ThunarStandardView/setup-columns" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/sendto-menu" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/delete" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/select-by-pattern" "<Primary>s")
@@ -50,6 +51,7 @@
 ; (gtk_accel_path "<Actions>/ThunarWindow/close-window" "<Primary>q")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/cut" "<Primary>x")
 ; (gtk_accel_path "<Actions>/ThunarWindow/switch-previous-tab" "<Primary>Page_Up")
+; (gtk_accel_path "<Actions>/ThunarLocationButtons/location-buttons-down-folder" "<Alt>Down")
 ; (gtk_accel_path "<Actions>/ThunarBookmarks/7a3f072e2465f05763206f92eb9369b8" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/sort-by-type" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/close-all-windows" "<Primary><Shift>w")

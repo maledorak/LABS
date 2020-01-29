@@ -1,10 +1,3 @@
-# vim: filetype=i3
-# i3 config file (v4)
-
-#############################################################
-#################### BASE16 COLORS START ####################
-#############################################################
-
 # %%base16_template: i3##colors %%
 ## Base16 Gruvbox dark, hard
 # Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
@@ -139,7 +132,7 @@ bindsym $mod+Shift+Escape 	    exec i3-msg exit
 #bindsym $mod+BackSpace
 #bindsym $mod+Shift+BackSpace
 
-bindsym $mod+grave              exec rofi -show run
+#bindsym $mod+grave              exec rofi -show run
 #bindsym $mod+asciitilde
 
 #STOP/HIDE EVERYTHING:
@@ -201,7 +194,8 @@ bindsym $mod+p			        exec $pause
 # %%hotkey: Run layout mode %%
 bindsym $mod+Shift+d            mode "$mode_layout"
 
-#bindsym $mod+f
+
+bindsym $mod+f                  exec --no-startup-id thunar
 #bindsym $mod+Shift+f
 
 #bindsym $mod+g                 workspace prev
@@ -280,6 +274,7 @@ bindsym $mod+Tab                workspace back_and_forth
 #bindsym $mod+apostrophe         split horizontal ;; exec $term
 #bindsym $mod+slash              split vertical ;; exec $term
 
+set $ws0 "0"
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -294,6 +289,7 @@ set $ws11 "11"
 set $ws12 "12"
 
 # switch to workspace
+bindsym $mod+grave              workspace $ws0
 bindsym $mod+1                  workspace $ws1
 bindsym $mod+2		            workspace $ws2; layout tabbed
 bindsym $mod+3		            workspace $ws3
@@ -308,6 +304,7 @@ bindsym $mod+minus		        workspace $ws11
 bindsym $mod+plus		        workspace $ws12
 
 # move focused container to workspace
+bindsym $mod+Shift+grave	    move container to workspace $ws0
 bindsym $mod+Shift+1	        move container to workspace $ws1
 bindsym $mod+Shift+2	        move container to workspace $ws2
 bindsym $mod+Shift+3	        move container to workspace $ws3
@@ -323,6 +320,7 @@ bindsym $mod+Shift+plus	        move container to workspace $ws12
 
 # window sticking to workspace
 # use `xprop` to check class instance
+for_window [class="Thunderbird"] move to workspace $ws0
 for_window [class="firefox"] move to workspace $ws1
 for_window [class=^jetbrains.*$] move to workspace $ws2
 for_window [class="Google-chrome"] move to workspace $ws3
@@ -356,6 +354,8 @@ for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
+workspace $ws0 gaps inner 0
+workspace $ws0 gaps outer 0
 workspace $ws1 gaps inner 0
 workspace $ws1 gaps outer 0
 workspace $ws2 gaps inner 0
