@@ -47,3 +47,4 @@
     ~/.config/Thunar: home/config/Thunar
     ~/.config/tilda: home/config/tilda
     ~/.config/vlc/vlcrc: home/config/vlc/vlcrc
+    ~/.local/share/applications/mimeapps.list: home/local/share/applications/mimeapps.list

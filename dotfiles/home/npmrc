@@ -1,1 +1,2 @@
-prefix=/home/mariusz/.local
+# nvm have problem with this prefix
+# prefix=/home/mariusz/.local

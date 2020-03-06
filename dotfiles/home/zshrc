@@ -79,6 +79,7 @@ plugins=(
 #  vi-mode
   virtualenv
   virtualenvwrapper
+  zsh-nvm
 )
 
 # spaceship-prompt
