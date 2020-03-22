@@ -289,10 +289,10 @@ set $ws11 "11"
 set $ws12 "12"
 
 # switch to workspace
-bindsym $mod+grave              workspace $ws0
-bindsym $mod+1                  workspace $ws1
+bindsym $mod+grave              workspace $ws0; layout tabbed
+bindsym $mod+1                  workspace $ws1; layout tabbed
 bindsym $mod+2		            workspace $ws2; layout tabbed
-bindsym $mod+3		            workspace $ws3
+bindsym $mod+3		            workspace $ws3; layout tabbed
 bindsym $mod+4		            workspace $ws4; layout tabbed
 bindsym $mod+5		            workspace $ws5
 bindsym $mod+6		            workspace $ws6

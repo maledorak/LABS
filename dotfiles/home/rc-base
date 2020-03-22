@@ -19,6 +19,12 @@ export EDITOR="vim"
 export TERMINAL="tilda"
 export BROWSER="firefox"
 
+# ENVS from ~/.env
+if [ -f "$HOME/.env" ]; then
+    export $(egrep -v '^#' "$HOME/.env" | xargs)
+    echo "Envs from .env loaded"
+fi
+
 # Adds `~/.scripts` and all subdirectories to $PATH
 if [ -d "$HOME/.scripts" ]; then
     export PATH="$(du -L "$HOME/.scripts/" | cut -f2 | tr '\n' ':')$PATH"
