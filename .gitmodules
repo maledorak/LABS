@@ -4,6 +4,7 @@
 [submodule "dotbot"]
 	path = .dotbot
 	url = https://github.com/anishathalye/dotbot
+	branch = master
 [submodule "ansible-aur"]
 	path = apps/modules/ansible-aur
 	url = https://github.com/kewlfft/ansible-aur.git
