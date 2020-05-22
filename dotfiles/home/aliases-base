@@ -27,6 +27,11 @@ alias sctls="sudo systemctl status"
 alias sctlr="sudo systemctl start"
 alias sctlh="sudo systemctl stop"
 
+# Virtualcam
+# Based on: https://unix.stackexchange.com/a/555356
+alias virtualcam_left="sudo modprobe v4l2loopback exclusive_caps=1 && ffmpeg -f x11grab -framerate 30 -video_size 1920x1080 -i :0.0+0,0 -f v4l2 -vcodec rawvideo -pix_fmt rgb24 /dev/video4"
+alias virtualcam_center="sudo modprobe v4l2loopback exclusive_caps=1 && ffmpeg -f x11grab -framerate 30 -video_size 1920x1080 -i :0.0+1920,0 -f v4l2 -vcodec rawvideo -pix_fmt rgb24 /dev/video4"
+
 # Some aliases
 fen() { # translate from english
     text="$@"
@@ -91,6 +96,7 @@ alias s='git status'
 alias gitc='git commit'
 alias gitp='git push -u'
 alias gitcem='git checkout master'
+alias gitced='git checkout develop'
 alias gitcel='git checkout -'
 alias gits='git stash'
 alias gitsa='git stash apply'
@@ -138,3 +144,6 @@ alias testvenv=". $HOME/code/venvs/test/bin/activate"
 alias worth="website_worth run"
 alias wo="website_worth run"
 alias wh="whois"
+
+# Import private aliases
+source ~/.aliases-private

@@ -9,6 +9,12 @@ export GID="$(id -g)"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
 
+# XDG configs: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+
 # Pyenv - Add shims dir to PATH on back, because `pyenv init` add it to the front
 export PATH="$PATH:$HOME/.pyenv/shims"
 #eval "$(pyenv init -)"

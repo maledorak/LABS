@@ -1,0 +1,9 @@
+#!/bin/sh
+# Must have below todoist_templates installed to even show menu.
+todoist_templates -h > /dev/null || exit
+
+tasks_path=$HOME/tasks
+tasks=`ls $tasks_path`
+chosen=$(echo "${tasks}" | rofi -dmenu -i -p "Pick project to create")
+[ "$chosen" != "" ] || exit
+prompt "Do you want to create ${chosen} project?" "todoist_templates $tasks_path/$chosen"

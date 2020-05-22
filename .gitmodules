@@ -9,29 +9,35 @@
 	url = https://github.com/kewlfft/ansible-aur.git
     ignore = untracked
 [submodule "Vundle.vim"]
-	path = dotfiles/home/vim/bundle/Vundle.vim
+	path = dotfiles/home/config/vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
     ignore = untracked
+	branch = master
 [submodule "tabular"]
-	path = dotfiles/home/vim/bundle/tabular
+	path = dotfiles/home/config/vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular
     ignore = untracked
+	branch = master
 [submodule "vim-grammarous"]
-	path = dotfiles/home/vim/bundle/vim-grammarous
+	path = dotfiles/home/config/vim/bundle/vim-grammarous
 	url = https://github.com/rhysd/vim-grammarous
     ignore = untracked
+	branch = master
 [submodule "vim-javascript"]
-	path = dotfiles/home/vim/bundle/vim-javascript
+	path = dotfiles/home/config/vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
     ignore = untracked
+	branch = master
 [submodule "vim-json"]
-	path = dotfiles/home/vim/bundle/vim-json
+	path = dotfiles/home/config/vim/bundle/vim-json
 	url = https://github.com/elzr/vim-json
     ignore = untracked
+	branch = master
 [submodule "vim-markdown"]
-	path = dotfiles/home/vim/bundle/vim-markdown
+	path = dotfiles/home/config/vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown
     ignore = untracked
+	branch = master
 [submodule "jetbrains"]
 	path = jetbrains
 	url = git@github.com:maledorak/jetbrains-shared-settings.git

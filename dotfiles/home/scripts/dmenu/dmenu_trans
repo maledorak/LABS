@@ -9,15 +9,17 @@ from_lang=$1
 to_lang=$2
 
 json_dump=$(rofi -dmenu -l 0 -p "Trans [$from_lang to $to_lang]" | trans -dump $from_lang:$to_lang)
-sentences=$(echo $json_dump | jq -r '.[5][0][2] | map(.[0]) | join("\\n")')
+echo $json_dump
+sentences=$(echo $json_dump | jq -r '.[5]')
+# sentences=$(echo $json_dump | jq -r '.[5][0][2] | map(.[0]) | join("\\n")')
 echo $sentences
-if [ ! -z "$sentences" ]; then
-    selected=$(echo -e $sentences | rofi -dmenu -i -p "Pick translation")
-    if [ ! -z "$selected" ]; then
-        echo $selected | xclip -selection clipboard
-        notify-send "'$selected' copied to clipboard." &
-    fi
-fi
+# if [ ! -z "$sentences" ]; then
+#     selected=$(echo -e $sentences | rofi -dmenu -i -p "Pick translation")
+#     if [ ! -z "$selected" ]; then
+#         echo $selected | xclip -selection clipboard
+#         notify-send "'$selected' copied to clipboard." &
+#     fi
+# fi
 
 # todo below length options and if else could be used for fork words and sentences, because words can be grouped by (noun, etc)
 #word_length=$(echo $json_dump | jq ".[1][0] | length")

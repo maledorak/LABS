@@ -183,11 +183,13 @@ bindsym $mod+o	        	    resize grow width 10 px or 10 ppt
 bindsym $mod+p			        exec $pause
 #bindsym $mod+Shift+p
 
+# %%hotkey: Show adding todoist project %%
+bindsym $mod+a                  exec --no-startup-id dmenu_todoist_add_project
 #bindsym $mod+a                 [instance="math"] scratchpad show; [instance="math"] move position center
-#bindsym $mod+Shift+a           exec $term -e ncpamixer
+#bindsym $mod+Shift+a           exec $term -e ncpamixer # discord push to talk
 
 #bindsym $mod+s
-#bindsym $mod+Shift+s
+bindsym $mod+Shift+s            mode "$mode_services_restart"
 
 # %%hotkey: Show all dmenu menus %%
 #bindsym $mod+d                  exec --no-startup-id dmenu_menus
@@ -343,6 +345,7 @@ for_window [window_role="gimp-toolbox"] floating disable; move right; resize gro
 for_window [window_role="GtkFileChooserDialog"] resize shrink height 10 px
 for_window [instance="dl"] move workspace $ws12
 for_window [instance="spotify"] move workspace $ws12
+for_window [title="Picture-in-Picture"] floating enable; sticky enable
 
 # Always float these applications.
 #for_window [window_role="^(bubble|pop-up)$"] floating enable, border normal
@@ -573,6 +576,24 @@ mode "$mode_system" {
     bindsym h exec --no-startup-id $locker && systemctl hibernate, mode "default"
     bindsym Shift+r exec --no-startup-id prompt "Do you want to reboot?" "systemctl reboot", mode "default"
     bindsym Shift+s exec --no-startup-id prompt "Do you want to shutdown?" "systemctl poweroff -i", mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+###############################################################
+########################## Services Restart ###########################
+###############################################################
+
+# Press $mod+Shift+s to enter the system mode.
+set $mode_services_restart Services restart: (b) bluetooth, (n) network
+
+## below bindsym was binded in 'Letter Binding' part
+# bindsym $mod+Shift+s mode "$mode_services_restart"
+
+mode "$mode_services_restart" {
+    bindsym b exec --no-startup-id systemctl restart bluetooth.service, mode "default"
+    bindsym n exec --no-startup-id systemctl restart dhcpcd.service, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"

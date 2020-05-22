@@ -77,7 +77,7 @@
 
 
 ### push ###
-# 
+#
 # Publish the current branch by pushing it to the remote "origin",
 # and setting the current branch to track the upstream branch.
 pub = !"git push --set-upstream origin $(git branch-name)"

@@ -69,6 +69,7 @@ plugins=(
   docker-compose
   git
   git-extras
+  kubectl
   npm
   pip
   python
