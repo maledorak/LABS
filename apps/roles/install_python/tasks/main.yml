@@ -20,7 +20,7 @@
 - name: Install aur python packages
   aur:
     name: "{{ item }}"
-    use: trizen
+    use: yay
     skip_installed: true
   with_items:
   - pyenv-virtualenv

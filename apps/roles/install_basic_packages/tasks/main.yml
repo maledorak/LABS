@@ -14,11 +14,13 @@
       - flameshot
       - gimp
       - git
+      - i3-gaps
       - gwenview
       - gvfs # thunar need it
       - imagemagick
       - jq # json parser
       - keepassxc
+      - kazam
       - libreoffice-fresh
       - neovim
       - obs-studio
@@ -45,7 +47,7 @@
       - vim
       - vlc
       - xclip # clipboard utility
-      - zeal # documentation utility
+      # - zeal # documentation utility
   tags:
     - basic_packages
     - install_pacman
@@ -53,26 +55,26 @@
 - name: Install basic aur packages
   aur:
     name: "{{ item }}"
-    use: trizen
+    use: yay
     skip_installed: true
   with_items:
     - advanced-ssh-config
     - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
     - dropbox
-    - franz
+    # - franz
     - git-extras-git
-    - gitflow-avh
-    - gitlab-runner
+    # - gitflow-avh
+    # - gitlab-runner
     - google-chrome
-    - homebank
-    - insomnia # https://github.com/getinsomnia/insomnia
-    - jetbrains-toolbox
+    # - homebank
+    # - insomnia # https://github.com/getinsomnia/insomnia
+    # - jetbrains-toolbox
     - nixnote2-git
     - polybar
     - phantomjs # for youtube-dl
     - slack-desktop
     - spotify
-    - todoist-git
+    # - todoist-git
     - qnapi
     - youtube-dl
   tags:
@@ -84,9 +86,9 @@
   pip:
     state: present
     name:
-      - dmenu-hotkeys
+      # - dmenu-hotkeys
       - glances
-      - spotdl
+      # - spotdl
   tags:
     - basic_packages
     - install_pip

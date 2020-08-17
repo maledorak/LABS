@@ -9,8 +9,8 @@
     update_cache: false
   roles:
     - update_pacman_cache
-    - install_aur_helper
-    - install_arch_utils
+    # - install_aur_helper
+    # - install_arch_utils
     - install_python
     - install_basic_packages
     - install_audio

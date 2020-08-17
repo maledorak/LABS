@@ -5,7 +5,7 @@ echo "Loading .xinitrc"
 setxkbmap pl
 
 # run udiskie automounter for udisks2
-udiskie --no-notify --tray --use-udisks2 &
+udiskie --tray &
 
 # run redshift
 pgrep redshift-gtk &> /dev/null || redshift-gtk &> /dev/null &
