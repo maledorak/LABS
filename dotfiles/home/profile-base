@@ -1,4 +1,4 @@
-echo "Loading .profile-base"
+echo "===== Loading .profile-base ====="
 
 export EDITOR="vim"
 export TERMINAL="tilda"

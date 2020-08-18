@@ -1,5 +1,5 @@
 # Base config for bashrc, zshrc or other shell
-echo "Loading .rc-base"
+echo "===== Loading .rc-base ====="
 
 # set UID and GID as env variables
 export UID="$(id -u)"

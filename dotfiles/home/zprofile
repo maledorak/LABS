@@ -1,4 +1,4 @@
-echo "Loading .zprofile"
+echo "===== Loading .zprofile ====="
 [[ -f ~/.zshrc ]] && . ~/.zshrc
 
 # Profile base should be source after zshrc, because of PATH loading

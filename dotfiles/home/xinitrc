@@ -1,5 +1,5 @@
 #! /bin/bash
-echo "Loading .xinitrc"
+echo "===== Loading .xinitrc ====="
 
 # set polish keyboard
 setxkbmap pl
@@ -21,8 +21,8 @@ export SSH_AUTH_SOCK
 /usr/bin/pcloud &
 
 ## Run i3 with basic logging
-# exec /usr/bin/i3 >~/i3log-$(date +'%F-%k-%M-%S') 2>&1
+exec /usr/bin/i3 >~/i3log-$(date +'%F-%k-%M-%S') 2>&1
 ## Run i3 with extended logging
 # exec /usr/bin/i3 -V -d all >~/i3log-$(date +'%F-%k-%M-%S') 2>&1
 ##  Run i3
-exec i3
+#exec i3

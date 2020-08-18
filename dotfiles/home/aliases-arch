@@ -1,3 +1,4 @@
+echo "===== Loading .aliases (arch) ====="
 # Run base aliases "aliases-base" config
 source ~/.aliases-base
 

@@ -1,1 +1,1 @@
-../modules/ansible-aur/aur.py
+../modules/ansible-aur/library/aur.py
