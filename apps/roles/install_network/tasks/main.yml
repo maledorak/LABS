@@ -6,6 +6,8 @@
     name:
       - networkmanager
       - network-manager-applet
+      - openconnect
+      - networkmanager-openconnect
       - gnome-keyring
       - seahorse
   tags:
