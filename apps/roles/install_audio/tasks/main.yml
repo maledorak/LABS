@@ -7,13 +7,13 @@
       - pulseaudio
       - pulseaudio-alsa
       - pamixer
-      - ncpamixer-git # pulse audio ncurses mixer
+        #- ncpamixer # pulse audio ncurses mixer <- change to aur
       - pavucontrol
   tags:
     - audio
     - install_pacman
 
-- name: Include JACK tasks
-  include: jack.yml
-  tags:
-    - audio
+      #- name: Include JACK tasks
+      #  include: jack.yml
+      #  tags:
+      #    - audio

@@ -8,23 +8,21 @@
       - python-virtualenv
       - python-virtualenvwrapper
       - python-pew
-      - python-pipenv
-      - setuptools
+      - python-setuptools
       - twine
-      - wheel
       - pyenv
   tags:
     - python
     - install_pacman
 
-- name: Install aur python packages
-  aur:
-    name: "{{ item }}"
-    use: yay
-    skip_installed: true
-  with_items:
-  - pyenv-virtualenv
-  tags:
-    - python
-    - install_aur
-
+      #- name: Install aur python packages
+      #  aur:
+      #    name: "{{ item }}"
+      #    use: yay
+      #    state: present
+      #  with_items:
+      #  - pyenv-virtualenv
+      #  tags:
+      #    - python
+      #    - install_aur
+      #
