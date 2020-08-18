@@ -60,6 +60,7 @@ exec_always --no-startup-id feh --bg-scale $wallpaper
 bindsym Menu	exec --no-startup-id xmodmap -e 'keycode 135 = Super_R'
 
 ### Autostart
+exec --no-startup-id ~/.scripts/i3cmds/set_default_screenlayout.sh
 # Unclutter makes the mouse invisible after a brief period
 exec --no-startup-id unclutter
 # Network Manager applet
@@ -68,7 +69,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id firefox
 exec --no-startup-id slack
 exec --no-startup-id spotify
-exec --no-startup-id keepassxc
+exec --no-startup-id QT_AUTO_SCREEN_SCALE_FACTOR=0 keepassxc
 exec --no-startup-id tilda
 exec --no-startup-id flameshot
 exec --no-startup-id nixnote2
@@ -441,13 +442,13 @@ bindsym $mod+Shift+bracketright exec $bigfor
 
 # Printscreen takes a screenshot.
 # %%hotkey: Get printscreen %%
-bindsym $mod+backslash          exec flameshot gui -p ~/screens
+bindsym $mod+backslash          exec flameshot gui -p ~/Screenshots
 # %%hotkey: Get printscreen with 2s delay %%
-bindsym $mod+Shift+backslash    exec flameshot gui -p ~/screens -d 2000
+bindsym $mod+Shift+backslash    exec flameshot gui -p ~/Screenshots -d 2000
 # %%hotkey: Get printscreen %%
-bindsym Print       			exec flameshot gui -p ~/screens
+bindsym Print       			exec flameshot gui -p ~/Screenshots
 # %%hotkey: Get printscreen with 2s delay %%
-bindsym Shift+Print             exec flameshot gui -p ~/screens -d 2000
+bindsym Shift+Print             exec flameshot gui -p ~/Screenshots -d 2000
 
 # For recording audio/video or stop recording. Also toggle screenkey for visual typing.
 #bindsym $mod+Print             exec --no-startup-id "killall screenkey || screenkey"
