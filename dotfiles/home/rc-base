@@ -20,6 +20,10 @@ export PATH="$PATH:$HOME/.pyenv/shims"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
+# Node - npm/yarn global installation directory
+PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
 # ENVS
 export EDITOR="vim"
 export TERMINAL="tilda"
