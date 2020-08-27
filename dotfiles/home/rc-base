@@ -29,6 +29,9 @@ export EDITOR="vim"
 export TERMINAL="tilda"
 export BROWSER="firefox"
 
+# qt large screen scale fix
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+
 # ENVS from ~/.env
 if [ -f "$HOME/.env" ]; then
     export $(egrep -v '^#' "$HOME/.env" | xargs)
