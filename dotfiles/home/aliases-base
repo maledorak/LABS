@@ -27,6 +27,7 @@ alias sctlr="sudo systemctl restart"
 alias sctls="sudo systemctl status"
 alias sctlr="sudo systemctl start"
 alias sctlh="sudo systemctl stop"
+alias time-sync="sudo ntpd -qg"
 
 # Virtualcam
 # Based on: https://unix.stackexchange.com/a/555356
