@@ -32,6 +32,7 @@
     ~/.config/emoji: home/config/emoji
     ~/.config/fontconfig: home/config/fontconfig
     ~/.config/git: home/config/git
+    ~/.config/gtk-3.0/settings.ini: home/config/gtk-3.0/settings.ini
     ~/.config/i3: home/config/i3
     ~/.config/ideavim: home/config/ideavim
     ~/.config/polybar: home/config/polybar
