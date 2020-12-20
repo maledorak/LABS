@@ -16,11 +16,10 @@
   tags:
     - aur_helper
 
-- name: Install trizen
+- name: Install yay
   aur:
-    name: trizen
-    use: internal
-    skip_installed: true
+    name: yay
+    use: makepkg
   become: yes
   become_user: aur_builder
   tags:
