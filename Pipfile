@@ -6,8 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-ansible = "==2.8.8"
-dotbot = "==1.14.1"
+ansible = "==2.10.4"
+dotbot = "==1.17.1"
 
 [requires]
 python_version = "3"
