@@ -53,35 +53,36 @@
     - basic_packages
     - install_pacman
 
-      #- name: Install basic aur packages
-      #  aur:
-      #    name: "{{ item }}"
-      #    use: yay
-      #    skip_installed: true
-      #  with_items:
-      #    - advanced-ssh-config
-      #    - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
-      #    - dropbox
-      #    # - franz
-      #    - git-extras-git
-      #    # - gitflow-avh
-      #    # - gitlab-runner
-      #    - google-chrome
-      #    # - homebank
-      #    # - insomnia # https://github.com/getinsomnia/insomnia
-      #    # - jetbrains-toolbox
-      #    - nixnote2-git
-      #    - polybar
-      #    - phantomjs # for youtube-dl
-      #    - slack-desktop
-      #    - spotify
-      #    # - todoist-git
-      #    - qnapi
-      #    - youtube-dl
-      #  tags:
-      #    - basic_packages
-      #    - install_aur
-      #
+- name: Install basic aur packages
+  aur:
+    name: "{{ item }}"
+    use: yay
+    skip_installed: true
+  with_items:
+    - advanced-ssh-config
+    # - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
+    - dropbox
+    # - franz
+    - git-extras-git
+    # - gitflow-avh
+    # - gitlab-runner
+    - google-chrome
+    # - homebank
+    # - insomnia # https://github.com/getinsomnia/insomnia
+    # - jetbrains-toolbox
+    - nixnote2-git
+    - polybar
+    - phantomjs # for youtube-dl
+    - slack-desktop
+    - spotify
+    # - todoist-git
+    - qnapi
+    - youtube-dl
+    - zoom
+  tags:
+    - basic_packages
+    - install_aur
+
 
 - name: Install basic python packages
   pip:
