@@ -1,0 +1,38 @@
+---
+
+- name: Install node packages
+  pacman:
+    state: present
+    name:
+      - nodejs-lts-fermium # 14.X version
+      - npm
+      - yarn
+      - typescript
+      - ts-node
+  tags:
+    - node
+    - install_pacman
+
+- name: Install aur node packages
+  aur:
+    name: "{{ item }}"
+    use: yay
+    state: present
+  with_items:
+    - nvm-git
+  become: true
+  become_user: aur_builder
+  tags:
+    - node
+    - install_aur
+
+- name: Install npm global packages
+  npm:
+    state: present
+    production: yes
+    global: yes
+    name: "{{ item }}"
+  with_items:
+    - git-open
+  tags:
+    - node
