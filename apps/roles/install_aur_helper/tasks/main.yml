@@ -18,6 +18,7 @@
 
 - name: Install yay
   aur:
+    state: present
     name: yay
     use: makepkg
   become: yes

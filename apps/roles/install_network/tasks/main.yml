@@ -13,3 +13,16 @@
   tags:
     - network
     - install_pacman
+
+- name: Install network aur packages
+  aur:
+    name: "{{ item }}"
+    use: yay
+    state: present
+  with_items:
+    - vpn-slice
+  become: true
+  become_user: aur_builder
+  tags:
+    - basic_packages
+    - install_aur

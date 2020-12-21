@@ -4,10 +4,12 @@
 - name: Install acpilight # acplight is iproved xorg-backlight
   aur:
     name: "{{ item }}"
-    use: trizen
-    skip_installed: true
+    use: yay
+    state: present
   with_items:
-    - acplight
+    - acpilight
+  become: true
+  become_user: aur_builder
   tags:
     - backlight
     - install_aur
@@ -15,7 +17,7 @@
 - name: Set backlight udev rules
   template:
     src: backlight.rules
-    dest: /etc/udev/rules.d/98-backlight.rules
+    dest: /etc/udev/rules.d/90-backlight.rules
     owner: root
     mode: 0644
   tags:

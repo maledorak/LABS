@@ -39,7 +39,7 @@
   systemd:
     name: bluetooth.service
     state: started
-    enabled: true
+    enabled: yes
   tags:
     - bluetooth
 

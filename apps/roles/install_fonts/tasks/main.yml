@@ -10,16 +10,18 @@
     - fonts
     - install_pacman
 
-      #- name: Install aur fonts
-      #  aur:
-      #    name: "{{ item }}"
-      #    use: trizen
-      #    skip_installed: true
-      #  with_items:
-      #    - siji-git
-      ##    - ttf-font-awesome
-      ##    - ttf-font-icons
-      ##    - ttf-inconsolata
-      #  tags:
-      #    - fonts
-      #    - install_aur
+- name: Install aur fonts
+  aur:
+    name: "{{ item }}"
+    use: yay
+    state: present
+  with_items:
+    - siji-git
+    - ttf-font-awesome
+    - ttf-font-icons
+    - ttf-inconsolata
+  become: true
+  become_user: aur_builder
+  tags:
+    - fonts
+    - install_aur

@@ -108,7 +108,7 @@ set $biginc --no-startup-id pamixer --allow-boost -i 15
 set $dec --no-startup-id pamixer --allow-boost -d 5
 set $bigdec --no-startup-id pamixer --allow-boost -d 15
 set $mute --no-startup-id pamixer --allow-boost -t
-set $micmute --no-startup-id pamixer --allow-boost -t
+set $micmute --no-startup-id pamixer --default-source -t
 set $truemute --no-startup-id pamixer -m
 set $screencast  --no-startup-id bash ~/.config/Scripts/screencast_pulse.sh
 set $audio --no-startup-id bash ~/.config/Scripts/audio_pulse.sh

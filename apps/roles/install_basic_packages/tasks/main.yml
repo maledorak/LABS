@@ -5,8 +5,11 @@
     state: present
     name:
       - arandr # xrandr gui (screens)
+      - aws-cli
       - curl
+      - code
       - deluge
+      - discord
       - dunst
       - exa # modern ls
       - ffmpeg
@@ -14,14 +17,18 @@
       - flameshot
       - gimp
       - git
+      - htop
+      - xorg-xinit # i3 need it
       - i3-gaps
       - i3lock
       - gwenview
       - gvfs # thunar need it
       - imagemagick
+      - inkscape
       - jq # json parser
       - keepassxc
-        #- kazam
+      # - kazam
+      - kubectl
       - libreoffice-fresh
       - neovim
       - obs-studio
@@ -30,6 +37,7 @@
       - polkit # allow unprivileged users to run power management commands
       - powerline
       - poppler-glib # open pdf in gimp
+      - prusa-slicer
       - ranger
       - redshift
       - reflector
@@ -44,6 +52,7 @@
       - tilda
       - thunderbird
       - w3m # for ranger
+      - imlib2 # for w3m
       - wget
       - vim
       - vlc
@@ -57,9 +66,10 @@
   aur:
     name: "{{ item }}"
     use: yay
-    skip_installed: true
+    state: present
   with_items:
     - advanced-ssh-config
+    - aws-okta-bin
     # - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
     - dropbox
     # - franz
@@ -70,15 +80,18 @@
     # - homebank
     # - insomnia # https://github.com/getinsomnia/insomnia
     # - jetbrains-toolbox
-    - nixnote2-git
+    # - nixnote2-git
     - polybar
-    - phantomjs # for youtube-dl
+    - phantomjs # for youtube-dlc
     - slack-desktop
     - spotify
-    # - todoist-git
+    - todoist-git
+    - tfenv
     - qnapi
-    - youtube-dl
+    - youtube-dlc
     - zoom
+  become: true
+  become_user: aur_builder
   tags:
     - basic_packages
     - install_aur

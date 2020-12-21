@@ -11,6 +11,11 @@
 
 - clean: ['~', '~/.config']
 
+- create: [
+  ~/Screenshots,
+  ~/Documents
+]
+
 - link:
     ##### Linux configs #####
     ~/.aliases: home/aliases-arch

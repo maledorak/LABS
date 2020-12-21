@@ -15,6 +15,13 @@
     - python
     - install_pacman
 
+- name: Install python pip packages
+  pip:
+    state: present
+    name:
+      - virtualenvwrapper
+      - pipenv
+
       #- name: Install aur python packages
       #  aur:
       #    name: "{{ item }}"
