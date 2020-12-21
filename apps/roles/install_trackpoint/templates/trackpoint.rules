@@ -1,0 +1,3 @@
+# Based on: http://www.thinkwiki.org/wiki/How_to_configure_the_TrackPoint#Configuring_other_options_.28e.g._Press_to_select.2C_Sensitivity_and_Speed.29
+# check all ATTR via cmd: udevadm info --query all --attribute-walk --path /sys/devices/platform/i8042/serio1/driver/serio2
+SUBSYSTEM=="serio", DRIVERS=="psmouse", KERNEL=="serio2", ATTR{sensitivity}="255", ATTR{speed}="255"

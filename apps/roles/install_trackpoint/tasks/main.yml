@@ -1,0 +1,12 @@
+---
+# based on: https://gitlab.com/wavexx/acpilight
+
+- name: Set trackpoint t480 udev rules
+  template:
+    src: trackpoint.rules
+    dest: /etc/udev/rules.d/91-trackpoint.rules
+    owner: root
+    mode: 0644
+  tags:
+    - trackpoint
+    - udev
