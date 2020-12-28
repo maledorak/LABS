@@ -34,5 +34,6 @@
     name: "{{ item }}"
   with_items:
     - git-open
+    - lerna
   tags:
     - node

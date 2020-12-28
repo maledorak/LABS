@@ -8,10 +8,13 @@
       - aws-cli
       - curl
       - code
+      - calibre
       - deluge
+      - deluge-gtk
       - discord
       - dunst
       - exa # modern ls
+      - electrum
       - ffmpeg
       - firefox
       - flameshot
@@ -33,6 +36,7 @@
       - neovim
       - obs-studio
       - okular
+      - ntp # time sync
       - pass
       - polkit # allow unprivileged users to run power management commands
       - powerline
@@ -54,6 +58,7 @@
       - w3m # for ranger
       - imlib2 # for w3m
       - wget
+      - whois
       - vim
       - vlc
       - xclip # clipboard utility
@@ -73,6 +78,7 @@
     # - arch-wiki-man # https://github.com/greg-js/arch-wiki-man
     - dropbox
     # - franz
+    - freecad-appimage-git
     - git-extras-git
     # - gitflow-avh
     # - gitlab-runner
@@ -80,7 +86,7 @@
     # - homebank
     # - insomnia # https://github.com/getinsomnia/insomnia
     # - jetbrains-toolbox
-    # - nixnote2-git
+    - nixnote2-git
     - polybar
     - phantomjs # for youtube-dlc
     - slack-desktop
