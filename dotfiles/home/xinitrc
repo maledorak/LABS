@@ -42,6 +42,9 @@ fi
 
 # ==== my xinitrc stuff =====
 
+# bind hotkeys
+sxhkd &
+
 # set polish keyboard
 setxkbmap pl
 

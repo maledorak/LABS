@@ -63,8 +63,8 @@ ZSH_THEME="spaceship"
 plugins=(
   aws
   archlinux
-  celery
-  django
+#   celery
+#   django
   docker
   docker-compose
   git
@@ -74,7 +74,7 @@ plugins=(
   npm
   pip
   python
-  supervisor
+#   supervisor
 #  ssh-agent
   systemd
   terraform
@@ -94,6 +94,9 @@ export KEYTIMEOUT=1
 export SPACESHIP_BATTERY_SHOW=false
 
 source $ZSH/oh-my-zsh.sh
+
+# -- Spaceship prompt --
+SPACESHIP_KUBECONTEXT_SHOW="true"
 
 # User configuration
 

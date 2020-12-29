@@ -47,6 +47,7 @@
       - reflector
       - rxvt-unicode
       - samba
+      - sxhkd # hotkeys daemon
       - texlive-core
       - texlive-latexextra
       - thunar # file manager
