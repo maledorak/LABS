@@ -28,6 +28,7 @@ cpu = #f15025
 filesystem_root = #0098ff
 filesystem_home = #55aa55
 temperature = #f50a4d
+toggl = #c57cd8
 
 [bar/main_bar]
 monitor = ${env:MONITOR:}
@@ -62,7 +63,7 @@ font-4 = Font Awesome 5 Free:style=Solid:pixelsize=12;1
 font-5 = Font Awesome 5 Brands:style=Regular;pixelsize=12;1
 font-6 = Noto Color Emoji:style=Regular;size=12
 
-modules-left = bspwm i3 filesystem_root filesystem_home
+modules-left = bspwm i3 filesystem_root filesystem_home toggl
 modules-center = cpu memory temperature
 modules-right = alsa backlight-acpi battery date
 
@@ -440,3 +441,16 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+
+[module/toggl]
+type = custom/script
+
+exec = "python $HOME/.scripts/polybar/toggl-widget.py"
+interval = 5.0
+format = <label>
+format-prefix = "  "
+format-prefix-foreground = ${colors.toggl}
+format-underline = ${colors.toggl}
+format-padding = 1
+; Add below line if you have xdg-utils
+click-right = "xdg-open https://toggl.com/app/timer"
