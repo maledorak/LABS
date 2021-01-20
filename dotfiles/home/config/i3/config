@@ -52,7 +52,7 @@ exec --no-startup-id compton --xrender-sync-fence
 # Launch Polybar where appropriate:
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 # Add wallpaper:
-set $wallpaper ~/Wallpapers/mars1.jpg
+set $wallpaper ~/Wallpapers/anakin.webp
 exec_always --no-startup-id feh --bg-scale $wallpaper
 #exec_always --no-startup-id wal -c -i $wallpaper
 # Remap Menu button to Super:
@@ -395,15 +395,15 @@ bindsym F11                     fullscreen toggle
 #bindsym F12
 
 # %%hotkey: i3 hotkeys %%
-bindsym $mod+F1                 exec --no-startup-id dmenu_hotkeys run --app i3 --menu rofi
-# %%hotkey: i3 restart %%
-bindsym $mod+F2                 restart
-# %%hotkey: dmenu displays configs %%
-bindsym $mod+F3                 exec --no-startup-id dmenu_displays
-# %%hotkey: dmenu connect bluetooth devices %%
+#;bindsym $mod+F1                 exec --no-startup-id dmenu_hotkeys run --app i3 --menu rofi
+bindsym $mod+F1                 exec --no-startup-id xdg-open https://translate.google.pl/?sl=en&tl=pl
+bindsym $mod+F2                 exec --no-startup-id xdg-open https://track.toggl.com/timer
+bindsym $mod+F3                 exec --no-startup-id xdg-open https://todoist.com/app/#/today
 bindsym $mod+F4                 exec --no-startup-id dmenu_bloototh_devices
-#bindsym $mod+F5
-#bindsym $mod+F6
+# %%hotkey: i3 restart %%
+bindsym $mod+F5                 restart
+# %%hotkey: dmenu displays configs %%
+bindsym $mod+F6                 exec --no-startup-id dmenu_displays
 #bindsym $mod+F7
 #bindsym $mod+F8
 #bindsym $mod+F9
