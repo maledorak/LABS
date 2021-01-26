@@ -40,6 +40,8 @@
     ~/.config/gtk-3.0/settings.ini: home/config/gtk-3.0/settings.ini
     ~/.config/i3: home/config/i3
     ~/.config/ideavim: home/config/ideavim
+    ~/.config/mimeapps.list: home/config/mimeapps.list
+    ~/.local/share/applications/mimeapps.list: home/config/mimeapps.list # some apps still use it
     ~/.config/polybar: home/config/polybar
     ~/.config/ranger: home/config/ranger
     ~/.config/redshift: home/config/redshift
@@ -48,7 +50,6 @@
     ~/.config/tilda: home/config/tilda
     ~/.config/vim: home/config/vim
     ~/.config/vlc/vlcrc: home/config/vlc/vlcrc
-    ~/.local/share/applications/mimeapps.list: home/local/share/applications/mimeapps.list
     ~/.npmrc: home/npmrc
     ~/.screenlayout: home/screenlayout
     ~/.scripts/: home/scripts/*

@@ -1,0 +1,8 @@
+[Added Associations]
+image/png=google-chrome.desktop
+application/pdf=okularApplication_pdf.desktop;
+
+[Default Applications]
+x-scheme-handler/lbry=lbry.desktop
+application/pdf=okularApplication_pdf.desktop
+text/plain=gvim.desktop
