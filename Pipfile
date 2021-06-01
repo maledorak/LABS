@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-ansible = "==2.10.4"
+ansible = "==2.10.7"
 dotbot = "==1.17.1"
 
 [requires]
