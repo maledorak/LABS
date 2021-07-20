@@ -11,7 +11,7 @@
 SENSITIVITY=$1 # default 160
 if [ -z "$SENSITIVITY" ]
 then
-    SENSITIVITY=250
+    SENSITIVITY=255
     echo "First argument is empty, sensitivity will be set to ${SENSITIVITY}"
 fi
 NAME="Lenovo ThinkPad Keyboard with TrackPoint"
@@ -21,4 +21,5 @@ DEV=$(echo "$DATA" | grep -Po 'Device \K0*[1-9]+')
 DEVPATH="/sys$(udevadm info /dev/bus/usb/"$BUS"/"$DEV" -q path)"
 SENSITIVITY_PATH=$(find "$DEVPATH" -name "sensitivity")
 echo "Sensitivity ${SENSITIVITY} will be set."
+echo "In path ${SENSITIVITY_PATH}"
 echo -n "$SENSITIVITY" > "$SENSITIVITY_PATH"

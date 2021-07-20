@@ -12,7 +12,7 @@
 SENSITIVITY=$1 # default 160
 if [ -z "$SENSITIVITY" ]
 then
-    SENSITIVITY=250
+    SENSITIVITY=255
     echo "First argument is empty, sensitivity will be set to ${SENSITIVITY}"
 fi
 

@@ -50,6 +50,7 @@ alias sv="sudo vim"
 alias r="ranger"
 alias sr="sudo ranger"
 alias ka="killall"
+alias killl="kill -9 %" #kill last
 alias mkd="mkdir -pv"
 alias resetz="echo 'Restart zshrc' && source ~/.zshrc"
 alias resetb="echo 'Restart bashrc' && source ~/.bashrc"
@@ -79,7 +80,6 @@ alias lll='ls -hlFAN --color --group-directories-first | less -R'
 alias grep="grep --color=always" # Color grep - highlight desired sequence.
 alias ccat="highlight --out-format=xterm256" #Color cat - print file with syntax highlighting.
 
-# Laptop management
 alias lsc="screen.sh l" # Use laptop screen only
 alias vsc="screen.sh v" # Use VGA only
 alias dsc="screen.sh d" # Use both laptop and VGA screen

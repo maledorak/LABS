@@ -19,7 +19,7 @@ help:
 venv: ./../.venv/bin/activate
 
 configure-arch: venv ## Configure arch localhost.
-	ansible-playbook -K -vv configure_arch.yml
+	ansible-playbook -K -vvv configure_arch.yml
 
 configure-manjaro: venv ## Configure manjaro localhost.
 	ansible-playbook -K -vv configure_manjaro.yml

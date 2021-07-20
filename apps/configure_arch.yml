@@ -15,8 +15,8 @@
     - install_python
     - install_node
     - install_network
-    - install_backlight
-    - install_trackpoint
+    # - install_backlight
+    # - install_trackpoint
     - install_audio
     - install_bluetooth
     - install_docker

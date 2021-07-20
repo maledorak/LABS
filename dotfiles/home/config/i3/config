@@ -143,8 +143,8 @@ bindsym $mod+Shift+Delete	exec $truemute ; exec $truepause ; workspace lmao ; ex
 ###################### Letter Binding #######################
 #############################################################
 
-# %%hotkey: Add todoist task %%
-bindsym $mod+q                  exec --no-startup-id dmenu_todoist_add
+# %%hotkey: Push %%
+bindsym $mod+q                  exec --no-startup-id dmenu_push
 # %%hotkey: Kill current app %%
 bindsym $mod+Shift+q		    kill
 
@@ -332,10 +332,12 @@ for_window [class="Google-chrome" title=^DevTools.+$] move to workspace $ws5
 for_window [class="Pinentry"] sticky enable
 for_window [instance="slack"] move to workspace $ws4
 for_window [instance="discord"] move to workspace $ws4
+for_window [instance="altrady"] move to workspace $ws5
 for_window [class="Blender"] move to workspace $ws7
 for_window [class="marble"] move to workspace $ws7
 for_window [title="GIMP Startup"] move workspace $ws7
 for_window [class="Gimp"] move workspace $ws7
+for_window [class="resolve"] move workspace $ws7
 for_window [title="LibreOffice"] move workspace $ws8
 for_window [class="libreoffice"] move workspace $ws8
 for_window [instance="anki"] move to workspace $ws9
@@ -388,7 +390,8 @@ workspace $ws8 gaps outer 0
 #bindsym F6
 #bindsym F7
 #bindsym F8
-#bindsym F9
+# %%hotkey: open coin %%
+bindsym F9      exec --no-startup-id dmenu_charts_open
 #bindsym F10
 # %%hotkey: Swich container to fullscren %%
 bindsym F11                     fullscreen toggle

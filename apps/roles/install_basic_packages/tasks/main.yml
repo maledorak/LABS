@@ -18,8 +18,10 @@
       - ffmpeg
       - firefox
       - flameshot
+      - feh
       - gimp
       - git
+      - glances
       - htop
       - xorg-xinit # i3 need it
       - i3-gaps
@@ -58,6 +60,7 @@
       - thunderbird
       - w3m # for ranger
       - imlib2 # for w3m
+      - usbutils
       - wget
       - whois
       - vim

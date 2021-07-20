@@ -1,0 +1,25 @@
+#!/bin/sh
+
+youtube-dl -h > /dev/null || exit
+
+msg=$(rofi -dmenu -l 0 -p "Push")
+# chosen=$(grep -v "#" ~/.config/emoji | rofi -dmenu -i -l 20 -p "Pick emoji")
+
+[ "$msg" != "" ] || exit
+
+if [[ -z $PUSHOVER_APP_TOKEN ]]; then
+    notify-send "No PUSHOVER_APP_TOKEN variable" &
+    exit
+fi
+
+if [[ -z $PUSHOVER_USER_TOKEN ]]; then
+    notify-send "No PUSHOVER_USER_TOKEN variable" &
+    exit
+fi
+
+title=$(youtube-dl -s --get-title $msg)
+
+wget https://api.pushover.net/1/messages.json --post-data="token=$PUSHOVER_APP_TOKEN&user=$PUSHOVER_USER_TOKEN&message=$msg&title=$title" -qO- > /dev/null 2>&1 &
+
+notify-send "'$title' has pushed" &
+

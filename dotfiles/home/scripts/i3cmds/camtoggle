@@ -5,4 +5,4 @@ pkill -f /dev/video || mpv --no-osc \
                            --geometry=-0-0 \
                            --autofit=30% \
                            --title="mpvfloat" \
-                           /dev/video2
+                           /dev/video0
