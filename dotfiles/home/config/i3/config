@@ -348,7 +348,7 @@ for_window [window_role="gimp-toolbox"] floating disable; move right; resize gro
 for_window [window_role="GtkFileChooserDialog"] resize shrink height 10 px
 for_window [instance="dl"] move workspace $ws12
 for_window [instance="spotify"] move workspace $ws12
-for_window [title="Picture-in-Picture"] floating enable; sticky enable
+for_window [title="Picture-in-Picture"] sticky enable
 
 # Always float these applications.
 #for_window [window_role="^(bubble|pop-up)$"] floating enable, border normal
