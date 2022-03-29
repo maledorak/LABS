@@ -6,9 +6,10 @@ configuration {
 	show-icons: true;
 	hide-scrollbar: true;
 	fake-transparency: true;
-	theme: "./base16.rasi";
 	color-normal: "#111, #819396, #222, #008ed4, #ffffff";
 	color-urgent: "#002b37, #da4281, #003643, #008ed4, #890661";
 	color-active: "#002b37, #008ed4, #003643, #008ed4, #66c6ff";
 	color-window: "#000, #000, #000";
 }
+
+@theme "./base16.rasi"

@@ -28,7 +28,7 @@ export npm_config_prefix=~/.node_modules
 # ENVS
 export EDITOR="vim"
 export TERMINAL="tilda"
-export BROWSER="firefox"
+export BROWSER="brave"
 
 # qt large screen scale fix
 export QT_AUTO_SCREEN_SCALE_FACTOR=0

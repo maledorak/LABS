@@ -2,7 +2,7 @@ echo "===== Loading .profile-base ====="
 
 export EDITOR="vim"
 export TERMINAL="tilda"
-export BROWSER="firefox"
+export BROWSER="brave"
 
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
