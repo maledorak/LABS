@@ -35,9 +35,10 @@ venv-reinstall: ## Reinstall LABS Python virtualenv - Use when it's broken
 	rm -rf .venv
 	@echo "Install venv with python:" `which python`
 	python -m virtualenv .venv
-	@echo "Install pipenv applications"
+	@echo "Install git submodule"
 	git submodule update --init --recursive
-	pipenv install
+	@echo "Install pip applications"
+	.venv/bin/python -m pip install -r requirements.txt
 
 fetch: ## Fetch LABS new commits
 	@echo "##### Fetch private LABS #####"

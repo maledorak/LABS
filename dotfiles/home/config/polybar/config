@@ -454,7 +454,7 @@ format-prefix-foreground = ${colors.toggl}
 format-underline = ${colors.toggl}
 format-padding = 1
 ; Add below line if you have xdg-utils
-click-right = "xdg-open https://toggl.com/app/timer"
+click-right = "xdg-open https://track.toggl.com/timer"
 
 [module/todoist]
 type = custom/script

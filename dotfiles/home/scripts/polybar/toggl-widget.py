@@ -3,10 +3,16 @@
 
 import os, json, requests, time, math
 from configparser import ConfigParser
-from pathlib import Path
 
 def parser(api_token):
-    req = requests.get("https://api.track.toggl.com/api/v8/time_entries/current", auth=(api_token, "api_token"))
+    try:
+        req = requests.get("https://api.track.toggl.com/api/v8/time_entries/current", auth=(api_token, "api_token"))
+    except requests.exceptions.ConnectionError:
+        return "No connection"
+
+    if req.status_code != 200:
+        return req.reason
+
     tracking = json.loads(req.content)
 
     if tracking['data'] is None:
@@ -19,7 +25,10 @@ def parser(api_token):
 
 
     if "pid" in tracking["data"]:
-        link = 'https://api.track.toggl.com/api/v8/projects/' + str(tracking['data']['pid'])
+        try:
+            link = 'https://api.track.toggl.com/api/v8/projects/' + str(tracking['data']['pid'])
+        except requests.exceptions.ConnectionError:
+            return "No connection"
         name = json.loads(requests.get(link, auth=(api_token, "api_token")).content)["data"]["name"]
     elif "description" in tracking["data"]:
         name = tracking['data']['description']

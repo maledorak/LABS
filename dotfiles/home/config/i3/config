@@ -324,7 +324,9 @@ bindsym $mod+Shift+plus	        move container to workspace $ws12
 # window sticking to workspace
 # use `xprop` to check class instance
 for_window [class="Thunderbird"] move to workspace $ws0
+for_window [class="obsidian"] move to workspace $ws0
 for_window [class="firefox"] move to workspace $ws1
+for_window [class="brave-browser"] move to workspace $ws1
 for_window [class=^jetbrains.*$] move to workspace $ws2
 for_window [class="vscodium"] move to workspace $ws2
 for_window [class="Google-chrome"] move to workspace $ws3

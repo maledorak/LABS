@@ -1,0 +1,4 @@
+ansible==2.10.4
+bpython==0.22.1
+dotbot==1.19.0
+requests==2.27.1

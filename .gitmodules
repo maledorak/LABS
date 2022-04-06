@@ -1,6 +1,6 @@
 [submodule "private"]
 	path = private
-	url = git@gitlab.com:mariuszkorzekwa/private-labs.git
+	url = git@github.com:maledorak/private-labs.git
 [submodule "dotbot"]
 	path = .dotbot
 	url = https://github.com/anishathalye/dotbot
