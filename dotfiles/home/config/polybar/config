@@ -460,7 +460,7 @@ click-right = "xdg-open https://track.toggl.com/timer"
 type = custom/script
 
 exec = "python $HOME/.scripts/polybar/todoist-widget.py"
-interval = 60.0
+interval = 300.0
 format = <label>
 format-prefix = "  "
 format-prefix-foreground = ${colors.todoist}
