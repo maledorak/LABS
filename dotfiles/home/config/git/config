@@ -76,6 +76,8 @@
 #
     pr = pull --rebase
 
+force-pull = !"git fetch; git reset --hard @{u}"
+
 
 ### push ###
 #
