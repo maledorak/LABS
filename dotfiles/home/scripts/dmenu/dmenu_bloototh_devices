@@ -27,7 +27,7 @@ def get_paired_devices():
 
     # Run 'bluetoothctl paired-devices'
     devices = check_output(
-        ['bluetoothctl', 'paired-devices']
+        ['bluetoothctl', 'devices']
     ).decode().strip().split('\n')
 
     # Get list of dicts of devices info
