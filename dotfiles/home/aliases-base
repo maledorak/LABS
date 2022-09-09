@@ -28,6 +28,7 @@ alias sctls="sudo systemctl status"
 alias sctlr="sudo systemctl start"
 alias sctlh="sudo systemctl stop"
 alias time-sync="sudo ntpd -qg"
+alias path="sed 's/:/\n/g' <<< \"$PATH\""
 
 # Virtualcam
 # Based on: https://unix.stackexchange.com/a/555356

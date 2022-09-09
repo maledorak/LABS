@@ -20,6 +20,7 @@ success = #55aa55
 danger = #f5a70a
 alert = #ff5555
 
+alsa = #0098ff
 time = #0098ff
 battery = #55aa55
 backlight = #9f78e1
@@ -30,6 +31,7 @@ filesystem_home = #55aa55
 temperature = #f50a4d
 toggl = #c57cd8
 todoist = #e44232
+rescuetime = #5bd1d7
 
 [bar/main_bar]
 monitor = ${env:MONITOR:}
@@ -65,8 +67,8 @@ font-5 = Font Awesome 6 Brands:style=Regular;pixelsize=12;1
 font-6 = Noto Color Emoji:style=Regular;size=12
 
 modules-left = bspwm i3 filesystem_root filesystem_home cpu memory temperature
-modules-center = toggl todoist
-modules-right = alsa backlight-acpi battery date
+modules-center = toggl todoist rescuetime
+modules-right = alsa-label backlight-acpi battery date
 
 ;tray-position = right
 tray-position = ${env:TRAY_POSITION:}
@@ -309,7 +311,7 @@ format-underline = ${colors.time}
 format-prefix = "  "
 label = "%date% %time% "
 
-[module/alsa]
+[module/alsa-bar]
 type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
@@ -336,6 +338,27 @@ bar-volume-fill-font = 2
 bar-volume-empty = 
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
+click-right = "pavucontrol"
+
+
+[module/alsa-label]
+type = internal/alsa
+
+format-volume = <label-volume>
+format-volume-prefix = "  "
+format-volume-foreground = ${colors.alsa}
+format-volume-underline = ${colors.alsa}
+label-volume = "%percentage%% "
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = "  "
+format-muted-foreground = ${colors.alsa}
+format-muted-underline = ${colors.alsa}
+label-muted = "00% "
+label-muted-foreground = ${root.foreground}
+
+click-right = "pavucontrol"
 
 [module/battery]
 type = internal/battery
@@ -468,3 +491,16 @@ format-underline = ${colors.todoist}
 format-padding = 1
 ; Add below line if you have xdg-utils
 click-right = "xdg-open https://todoist.com/app/#/today"
+
+[module/rescuetime]
+type = custom/script
+
+exec = "python $HOME/.scripts/polybar/rescuetime-widget.py"
+interval = 60.0
+format = <label>
+format-prefix = "  "
+format-prefix-foreground = ${colors.rescuetime}
+format-underline = ${colors.rescuetime}
+format-padding = 1
+; Add below line if you have xdg-utils
+click-right = "xdg-open https://www.rescuetime.com/dashboard"
