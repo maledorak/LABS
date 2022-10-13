@@ -1,4 +1,4 @@
-ansible==2.10.4
+ansible==4.2.0
 bpython==0.22.1
 dotbot==1.19.0
 pytest==7.1.3
