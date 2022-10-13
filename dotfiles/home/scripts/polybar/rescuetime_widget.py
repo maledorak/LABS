@@ -4,7 +4,6 @@
 import os
 import datetime
 from configparser import ConfigParser
-from pdb import Pdb
 
 import requests
 
@@ -79,17 +78,41 @@ def focustime_start(api_token, duration):
 def focustime_end(api_token):
     return _focustime_action(api_token, action_type=END)
 
+def iso_tz_aware_string_to_utc_datetime(date_string):
+    date = datetime.datetime.fromisoformat(date_string)
+    return datetime.datetime.fromtimestamp(date.timestamp(), tz=datetime.timezone.utc)
 
-def is_focustime_active(focustime_record):
-    if not focustime_record:
+
+
+def is_focustime_active(started_records=[], ended_records=[]):
+    if len(started_records) == 0:
         return False, 0
 
-    start_date = datetime.datetime.fromisoformat(focustime_record['timestamp'])
-    start_date_utc = datetime.datetime.fromtimestamp(start_date.timestamp(), tz=datetime.timezone.utc)
+    started_last = started_records[0]
+
+    start_date_utc = iso_tz_aware_string_to_utc_datetime(started_last['created_at'])
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     delta = now_utc - start_date_utc
-    is_active = delta.seconds <= focustime_record['duration'] * 60
-    min_left = focustime_record['duration'] - int(delta.seconds / 60)
+
+    is_active = delta.seconds <= started_last['duration'] * 60
+    min_left = started_last['duration'] - int(delta.seconds / 60)
+
+    # In case that focustime was ended before duration time
+    # if is_active and len(ended_records) > 0:
+    #     ended = ended_records[0]
+    #     end_date_utc = iso_tz_aware_string_to_utc_datetime(ended['created_at'])
+    #     if len(started_records) == 1 and now_utc > end_date_utc:
+    #         # Only 1 started record means that its current one
+    #         is_active = False
+    #         min_left = 0
+
+        # elif len(started_records) > 1 and now_utc > end_date_utc:
+        #     started_previously = started_records[1]
+        #     started_previously_date_utc = iso_tz_aware_string_to_utc_datetime(started_previously['created_at'])
+        #     import pdb; pdb.set_trace()
+
+
+
     return is_active, min_left
 
 
@@ -104,6 +127,7 @@ if __name__ == '__main__':
     if not api_token:
         exit(f"ERROR: No api token in {config_path}")
 
-    started = get_focustime_started(api_token)
-    is_active, min_left = is_focustime_active(started[0])
+    started_records = get_focustime_started(api_token)
+    ended_records = get_focustime_ended(api_token)
+    is_active, min_left = is_focustime_active(started_records, ended_records)
     print(f'{min_left} min' if is_active else 'Focus Off')

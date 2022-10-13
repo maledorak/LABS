@@ -2,15 +2,8 @@
 pkill -f /dev/video || mpv --no-osc \
                            --no-input-default-bindings \
                            --input-conf=/dev/null \
+                           --record-file=/home/mariusz/Videos/video.mp4 \
                            --geometry=-0-0 \
                            --autofit=30% \
                            --title="mpvfloat" \
                            /dev/video0
-
-
-# Other libs for camera:
-# - guvcview
-# - v4l2-ctl
-
-# https://alexandra-zaharia.github.io/posts/autofocus-of-the-logitech-c920-webcam-in-linux/
-# https://christitus.com/logitech-c920-linux-driver/

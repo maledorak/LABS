@@ -1,5 +1,5 @@
 #!/bin/bash
-# Get different version of kubectl and add it to /usr/local/bin/kubectl
+# Get different version of gcloud
 
 ver=$1
 if [ -z "$ver" ]

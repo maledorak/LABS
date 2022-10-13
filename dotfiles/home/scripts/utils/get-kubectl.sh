@@ -1,10 +1,11 @@
 #!/bin/bash
 # Get different version of kubectl and add it to /usr/local/bin/kubectl
 
-kube_ver=$1 # default 160
+kube_ver=$1
 if [ -z "$kube_ver" ]
 then
-    echo "Set kubectl version as a first argument"
+    echo "Set below kubectl versions as a first argument:"
+    curl -sL https://api.github.com/repos/kubernetes/kubernetes/releases | jq -r 'sort_by(.tag_name) | .[].tag_name'
     exit 1
 fi
 
