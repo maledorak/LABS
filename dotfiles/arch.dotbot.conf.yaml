@@ -11,10 +11,7 @@
 
 - clean: ['~', '~/.config']
 
-- create: [
-  ~/Screenshots,
-  ~/Documents
-]
+- create: [~/Screenshots, ~/Documents]
 
 - link:
     ##### Linux configs #####
@@ -32,9 +29,10 @@
     ##### Rest configs #####
     ~/.SpaceVim.d: home/SpaceVim.d
     ~/.config/Thunar: home/config/Thunar
+    ~/.config/appimagelauncher.cfg: home/config/appimagelauncher.cfg
     ~/.config/compton.conf: home/config/compton.conf
     ~/.config/dunst: home/config/dunst
-    ~/.config/emoji: home/config/emoji
+    ~/.config/emoji.json: home/config/emoji.json
     ~/.config/fontconfig: home/config/fontconfig
     ~/.config/git: home/config/git
     ~/.config/gtk-3.0/settings.ini: home/config/gtk-3.0/settings.ini
@@ -47,7 +45,9 @@
     ~/.config/redshift: home/config/redshift
     ~/.config/rofi: home/config/rofi
     ~/.config/spacemacs: home/config/spacemacs
+    ~/.config/screenkey.json: home/config/screenkey.json
     ~/.config/tilda: home/config/tilda
+    ~/.config/user-dirs.dirs: home/config/user-dirs.dirs
     ~/.config/vim: home/config/vim
     ~/.config/vlc/vlcrc: home/config/vlc/vlcrc
     ~/.npmrc: home/npmrc

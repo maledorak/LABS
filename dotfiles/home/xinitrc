@@ -64,7 +64,7 @@ export SSH_AUTH_SOCK
 /usr/bin/dropbox &
 /usr/bin/pcloud &
 
-# run rescuetime
+# run productivity apps
 /usr/bin/rescuetime &
 
 ## Run i3 with basic logging

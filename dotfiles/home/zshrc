@@ -96,7 +96,14 @@ export SPACESHIP_BATTERY_SHOW=false
 source $ZSH/oh-my-zsh.sh
 
 # -- Spaceship prompt --
-SPACESHIP_KUBECONTEXT_SHOW="true"
+# https://spaceship-prompt.sh/sections/
+
+SPACESHIP_KUBECTL_SHOW="true"
+SPACESHIP_KUBECTL_VERSION_SHOW="false"
+
+# Clouds
+SPACESHIP_AWS_SHOW="true"
+SPACESHIP_GCLOUD_SHOW="false"
 
 # User configuration
 
@@ -123,3 +130,9 @@ setopt no_share_history
 
 # Run base shell "rc-base" config
 source ~/.rc-base
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/mariusz/.local/opt/google-cloud-cli/path.zsh.inc' ]; then . '/home/mariusz/.local/opt/google-cloud-cli/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/mariusz/.local/opt/google-cloud-cli/completion.zsh.inc' ]; then . '/home/mariusz/.local/opt/google-cloud-cli/completion.zsh.inc'; fi

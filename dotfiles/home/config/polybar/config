@@ -20,7 +20,7 @@ success = #55aa55
 danger = #f5a70a
 alert = #ff5555
 
-alsa = #0098ff
+alsa = #f9dc5c
 time = #0098ff
 battery = #55aa55
 backlight = #9f78e1
@@ -67,7 +67,7 @@ font-5 = Font Awesome 6 Brands:style=Regular;pixelsize=12;1
 font-6 = Noto Color Emoji:style=Regular;size=12
 
 modules-left = bspwm i3 filesystem_root filesystem_home cpu memory temperature
-modules-center = toggl todoist rescuetime
+modules-center = toggl rescuetime todoist
 modules-right = alsa-label backlight-acpi battery date
 
 ;tray-position = right
@@ -151,6 +151,8 @@ ws-icon-9 = 9;
 ws-icon-10 = 10;
 ws-icon-11 = 11;
 ws-icon-12 = 12;
+ws-icon-13 = 13;
+ws-icon-14 = 14;
 ws-icon-default = 
 
 ; Only show workspaces on the same output as the bar
@@ -469,7 +471,7 @@ margin-bottom = 5
 [module/toggl]
 type = custom/script
 
-exec = "python $HOME/.scripts/polybar/toggl-widget.py"
+exec = "python $HOME/.scripts/polybar/toggl_widget.py"
 interval = 5.0
 format = <label>
 format-prefix = "  "
@@ -482,7 +484,7 @@ click-right = "xdg-open https://track.toggl.com/timer"
 [module/todoist]
 type = custom/script
 
-exec = "python $HOME/.scripts/polybar/todoist-widget.py"
+exec = "python $HOME/.scripts/polybar/todoist_widget.py"
 interval = 300.0
 format = <label>
 format-prefix = "  "
@@ -495,7 +497,7 @@ click-right = "xdg-open https://todoist.com/app/#/today"
 [module/rescuetime]
 type = custom/script
 
-exec = "python $HOME/.scripts/polybar/rescuetime-widget.py"
+exec = "python $HOME/.scripts/polybar/rescuetime_widget.py"
 interval = 60.0
 format = <label>
 format-prefix = "  "

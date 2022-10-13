@@ -1,4 +1,4 @@
-doc:~/Documents
+doc:~/Dropbox/Documents
 dots:~/LABS
 labs:~/LABS
 pdots:~/LABS/private
@@ -6,4 +6,3 @@ plabs:~/LABS/private
 projects:~/code/projects
 venvs:~/code/venvs
 logs:/var/log
-venvs:~/code/venvs

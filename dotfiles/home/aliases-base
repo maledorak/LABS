@@ -4,7 +4,7 @@ alias labs="cd ~/LABS"
 alias plabs="cd ~/LABS/private"
 alias projects="cd ~/code/projects"
 alias venvs="cd ~/code/venvs"
-alias docs="cd ~/Documents"
+alias docs="cd ~/Dropbox/Documents"
 
 # Generic shortcuts:
 alias music="ncmpcpp"
@@ -35,6 +35,10 @@ alias path="sed 's/:/\n/g' <<< \"$PATH\""
 alias virtualcam_left="sudo modprobe v4l2loopback exclusive_caps=1 && ffmpeg -f x11grab -framerate 30 -video_size 1920x1080 -i :0.0+0,0 -f v4l2 -vcodec rawvideo -pix_fmt rgb24 /dev/video4"
 alias virtualcam_center="sudo modprobe v4l2loopback exclusive_caps=1 && ffmpeg -f x11grab -framerate 30 -video_size 1920x1080 -i :0.0+1920,0 -f v4l2 -vcodec rawvideo -pix_fmt rgb24 /dev/video4"
 
+# Grep
+alias genv="env | grep "
+alias galias="alias | grep"
+
 # Some aliases
 fen() { # translate from english
     text="$@"
@@ -58,7 +62,6 @@ alias resetb="echo 'Restart bashrc' && source ~/.bashrc"
 alias ref="~/.config/Scripts/shortcuts.sh && source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
 alias bars="bash ~/.config/polybar/launch.sh" # Run Polybar relaunch script
 alias bw="wal -i ~/.config/wall.png" # Rerun pywal
-alias envg="env | grep "
 alias i="invoke"
 alias il="invoke --list"
 alias ntruf="node_modules/.bin/truffle"
@@ -72,6 +75,22 @@ looper() {
         eval $command
         sleep 1
     done
+}
+fuck () {
+    TF_PYTHONIOENCODING=$PYTHONIOENCODING;
+    export TF_SHELL=zsh;
+    export TF_ALIAS=fuck;
+    TF_SHELL_ALIASES=$(alias);
+    export TF_SHELL_ALIASES;
+    TF_HISTORY="$(fc -ln -10)";
+    export TF_HISTORY;
+    export PYTHONIOENCODING=utf-8;
+    TF_CMD=$(
+        thefuck THEFUCK_ARGUMENT_PLACEHOLDER $@
+    ) && eval $TF_CMD;
+    unset TF_HISTORY;
+    export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
+    test -n "$TF_CMD" && print -s $TF_CMD
 }
 # Adding color
 #alias ls='ls -hF --color --group-directories-first'
@@ -109,6 +128,24 @@ alias gitcmpcl='git checkout master && git pull && git checkout -'
 alias gitup="git push origin master"
 alias gitpass="git config --global credential.helper cache"
 alias gitb="git branch | grep \* | cut -d ' ' -f2"
+
+# Kubectl
+ksetns() { kubectl config set-context --current --namespace=$@}
+alias kubealiases='alias | grep kubectl'
+
+alias kapir='kubectl api-resources'
+
+alias kd='kubectl describe'
+
+alias kg='kubectl get'
+
+alias kak='kubectl apply -k'
+alias kdk='kubectl delete -k'
+
+alias kusb='kustomize build . | yq'
+
+alias kyverno-logs='kubectl -n kyverno logs -l app=kyverno'
+
 
 # ElasticSearch
 alias elastic='sudo /etc/init.d/elasticsearch'

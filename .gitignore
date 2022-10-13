@@ -6,6 +6,8 @@
 # Python
 *.pyc
 *.pyo
+.pytest_cache/
+__pycache__/
 
 # Ranger
 dotfiles/home/config/ranger/history

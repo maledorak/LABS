@@ -21,9 +21,6 @@ venv: ./../.venv/bin/activate
 configure-arch: venv ## Configure arch localhost.
 	ansible-playbook -K -vvv configure_arch.yml
 
-configure-manjaro: venv ## Configure manjaro localhost.
-	ansible-playbook -K -vv configure_manjaro.yml
-
 tags: venv ## Configure arch localhost only with passed 'tags' ex. [make apps-tags tags="tag1,tag2"]
 	# use: make run-tags tags="tag1,tag2"
 	ansible-playbook -K -vv configure_arch.yml --tags "$(tags)"

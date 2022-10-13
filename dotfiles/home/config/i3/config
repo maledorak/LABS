@@ -72,7 +72,6 @@ exec --no-startup-id spotify
 exec --no-startup-id QT_AUTO_SCREEN_SCALE_FACTOR=0 QT_SCALE_FACTOR=1.01 keepassxc
 exec --no-startup-id tilda
 exec --no-startup-id flameshot
-# exec --no-startup-id nixnote2
 
 # SYSTEMD
 set $shutdown sudo -A shutdown -h now
@@ -118,9 +117,6 @@ set $audio --no-startup-id bash ~/.config/Scripts/audio_pulse.sh
 ####################### Basic Binding #######################
 #############################################################
 
-bindsym $mod+Return 		exec $term
-#bindsym $mod+Shift+Return 	exec $term -e tmux
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 bindsym $mod+Shift+space 	    floating toggle
@@ -129,9 +125,6 @@ bindsym $mod+space             exec rofi -show drun
 
 bindsym $mod+Escape		        workspace prev
 bindsym $mod+Shift+Escape 	    exec i3-msg exit
-
-#bindsym $mod+BackSpace
-#bindsym $mod+Shift+BackSpace
 
 #bindsym $mod+grave              exec rofi -show run
 #bindsym $mod+asciitilde
@@ -290,6 +283,8 @@ set $ws9 "9"
 set $ws10 "10"
 set $ws11 "11"
 set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
 
 # switch to workspace
 bindsym $mod+grave              workspace $ws0; layout tabbed
@@ -305,6 +300,8 @@ bindsym $mod+9		            workspace $ws9; layout tabbed
 bindsym $mod+0		            workspace $ws10
 bindsym $mod+minus		        workspace $ws11
 bindsym $mod+plus		        workspace $ws12
+bindsym $mod+BackSpace		        workspace $ws13
+bindsym $mod+Return		        workspace $ws14
 
 # move focused container to workspace
 bindsym $mod+Shift+grave	    move container to workspace $ws0
@@ -320,15 +317,17 @@ bindsym $mod+Shift+9	        move container to workspace $ws9
 bindsym $mod+Shift+0	        move container to workspace $ws10
 bindsym $mod+Shift+minus	    move container to workspace $ws11
 bindsym $mod+Shift+plus	        move container to workspace $ws12
+bindsym $mod+Shift+BackSpace	        move container to workspace $ws13
+bindsym $mod+Shift+Return	        move container to workspace $ws14
 
 # window sticking to workspace
 # use `xprop` to check class instance
 for_window [class="Thunderbird"] move to workspace $ws0
-for_window [class="obsidian"] move to workspace $ws0
 for_window [class="firefox"] move to workspace $ws1
-for_window [class="brave-browser"] move to workspace $ws1
+for_window [class="Brave-browser"] move to workspace $ws1
 for_window [class=^jetbrains.*$] move to workspace $ws2
 for_window [class="vscodium"] move to workspace $ws2
+for_window [class="code"] move to workspace $ws2
 for_window [class="Google-chrome"] move to workspace $ws3
 for_window [class="Google-chrome" title=^DevTools.+$] move to workspace $ws5
 for_window [class="Pinentry"] sticky enable
@@ -350,6 +349,8 @@ for_window [window_role="gimp-toolbox"] floating disable; move right; resize gro
 for_window [window_role="GtkFileChooserDialog"] resize shrink height 10 px
 for_window [instance="dl"] move workspace $ws12
 for_window [instance="spotify"] move workspace $ws12
+for_window [class="todoist"] move to workspace $ws13
+for_window [class="obsidian"] move to workspace $ws14
 for_window [title="Picture-in-Picture"] sticky enable
 for_window [class="peek"] sticky enable
 for_window [class="peek"] floating enable
@@ -576,7 +577,7 @@ set $mode_system    System: (x) lock, (l) logout, (s) suspend, (h) hibernate, (S
 ## below bindsym was binded in 'Letter Binding' part
 # bindsym $mod+Shift+x mode "$mode_system"
 
-set $locker i3lock && sleep 1
+set $locker i3lock -c 000000 && sleep 1
 mode "$mode_system" {
     bindsym x exec --no-startup-id lockscreen, mode "default"
     bindsym l exec --no-startup-id i3-msg exit && logout, mode "default"
