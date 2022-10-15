@@ -1,0 +1,19 @@
+#!/bin/sh
+# Give dmenu list of sbagen presets and run picked in background.
+
+# Uses https://uazu.net/sbagen
+
+# Must have below libs installed to even show menu
+sbagen -h > /dev/null || exit
+
+SBAGEN_PRESETS_DIR=$XDG_CONFIG_HOME/sbagen
+chosen=$(\
+    ls -1 $SBAGEN_PRESETS_DIR | grep .sbg \
+    | rofi -dmenu -i -l 20 -p "Pick binaural preset"\
+)
+
+[ "$chosen" != "" ] || exit
+chosen_path=$SBAGEN_PRESETS_DIR/$chosen
+kill -9 $(pidof sbagen)
+sbagen $chosen_path &
+notify-send "Starting '$chosen' preset" &

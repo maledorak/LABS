@@ -68,3 +68,8 @@ set $truemute --no-startup-id pamixer -m
 set $screencast  --no-startup-id bash ~/.config/Scripts/screencast_pulse.sh
 set $audio --no-startup-id bash ~/.config/Scripts/audio_pulse.sh
 
+
+
+### Examples
+# Moving to different workspace after calling a cmd
+    bindsym $mod+Shift+b            exec --no-startup-id blender; workspace $ws6

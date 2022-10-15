@@ -251,8 +251,8 @@ bindsym $mod+Shift+c            exec --no-startup-id camtoggle
 #bindsym $mod+v	                exec $term -e ncmpcpp -s visualizer
 #bindsym $mod+Shift+v           exec projectM-pulseaudio
 
-#bindsym $mod+b	                exec $prev
-#bindsym $mod+Shift+b           exec --no-startup-id blender; workspace $ws6
+bindsym $mod+b                  exec --no-startup-id dmenu_sbagen
+bindsym $mod+Shift+b            exec pkill -f sbagen
 
 #bindsym $mod+m                  exec $music
 #bindsym $mod+Shift+m            exec $mute
