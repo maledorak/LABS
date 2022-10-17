@@ -1,0 +1,48 @@
+#!/bin/sh
+# Open web search websites using dmenu
+APP=$1
+
+YOUTUBE="youtube"
+YOUTUBE_MUSIC="youtube-music"
+WIKIPEDIA="wikipedia"
+GOOGLE="google"
+ALL_APPS_ARRAY=($YOUTUBE $YOUTUBE_MUSIC $WIKIPEDIA $GOOGLE)
+ALL_APPS_PIPED=$(IFS="|" ; echo "${ALL_APPS_ARRAY[*]}")
+
+if [[ ! "$APP" =~ ^($ALL_APPS_PIPED)$ ]]; then
+    echo "You can use only [$ALL_APPS_PIPED] as a first argument!"
+    exit 1
+fi
+
+query=$(rofi -dmenu -l 0 -p "Search in $APP")
+
+if [ -z "$query" ]; then
+    exit 0
+fi
+
+case $APP in
+    $YOUTUBE)
+        $BROWSER "https://youtube.com/results?search_query=$query" ;;
+
+    $YOUTUBE_MUSIC)
+        $BROWSER "https://music.youtube.com/search?q=$query" ;;
+
+    $GOOGLE)
+        $BROWSER "https://www.google.com/search?q=$query" ;;
+
+    $WIKIPEDIA)
+        $BROWSER "https://en.wikipedia.org/w/index.php?search=$query&title=Special:Search&profile=advanced&fulltext=1&ns0=1" ;;
+
+    *)
+        echo "Service not supported"
+        exit 1
+esac
+
+case $BROWSER in
+    "brave") class="brave-browser" ;;
+    "google-chrome") class="google-chrome" ;;
+    "firefox") class="firefox" ;;
+    *) echo "Browser not supported"
+esac
+
+i3-msg "workspace 1" >& /dev/null

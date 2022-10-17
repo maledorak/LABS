@@ -414,8 +414,10 @@ bindsym $mod+F5                 restart
 bindsym $mod+F6                 exec --no-startup-id dmenu_displays
 #bindsym $mod+F7
 #bindsym $mod+F8
-#bindsym $mod+F9
-#bindsym $mod+F10
+bindsym $mod+F9                 exec --no-startup-id dmenu_query youtube
+bindsym $mod+Shift+F9           exec --no-startup-id dmenu_query youtube-music
+bindsym $mod+F10                exec --no-startup-id dmenu_query google
+bindsym $mod+Shift+F10          exec --no-startup-id dmenu_query wikipedia
 #bindsym $mod+F11
 # %%hotkey: Run microphone loopback %%
 bindsym $mod+F12                exec --no-startup-id pactl_module_toggle "module-loopback"
