@@ -50,6 +50,7 @@
     ~/.config/user-dirs.dirs: home/config/user-dirs.dirs
     ~/.config/vim: home/config/vim
     ~/.config/vlc/vlcrc: home/config/vlc/vlcrc
+    ~/.local/share/fonts/: home/local/share/fonts/*
     ~/.npmrc: home/npmrc
     ~/.screenlayout: home/screenlayout
     ~/.scripts/: home/scripts/*
