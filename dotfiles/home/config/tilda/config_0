@@ -1,6 +1,6 @@
 tilda_config_version="1.4.1"
 command=""
-font="Inconsolata 16"
+font="Iosevka 15"
 key="F12"
 addtab_key="<Shift><Control>t"
 fullscreen_key="F11"

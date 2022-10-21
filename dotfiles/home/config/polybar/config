@@ -58,7 +58,7 @@ module-margin-left = 1
 module-margin-right = 2
 
 # check fonts in your system with `fc-match`
-font-0 = fixed:pixelsize=12;1
+font-0 = Atkinson Hyperlegible:size=13;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = Font Awesome 6 Free:style=Regular:pixelsize=12;1
