@@ -17,3 +17,5 @@ dotfiles/home/config/ranger/tagged
 # Karabiner-Elements
 dotfiles/home/config/karabiner/automatic_backups/
 
+# Remove uuid from fonts
+dotfiles/home/local/share/fonts/**/.uuid
