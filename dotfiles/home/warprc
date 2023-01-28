@@ -1,8 +1,9 @@
+brain:~/Dropbox/backup/Brain
 doc:~/Dropbox/Documents
 dots:~/LABS
 labs:~/LABS
+logs:/var/log
 pdots:~/LABS/private
 plabs:~/LABS/private
 projects:~/code/projects
 venvs:~/code/venvs
-logs:/var/log

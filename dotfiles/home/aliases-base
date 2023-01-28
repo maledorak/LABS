@@ -1,6 +1,7 @@
 echo "===== Loading alias_base ====="
 # Goto
 alias labs="cd ~/LABS"
+alias clabs="code ~/LABS"
 alias plabs="cd ~/LABS/private"
 alias projects="cd ~/code/projects"
 alias venvs="cd ~/code/venvs"

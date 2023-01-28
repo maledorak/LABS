@@ -13,6 +13,7 @@ alias update-servers="sudo reflector --country Germany --country Poland --verbos
 alias p="sudo pacman"
 alias t="trizen --noedit"
 alias prename="perl-rename"
+alias kpl="setxkbmap pl"
 
 pacman-fix-keys() {
     # Based on: https://archived.forum.manjaro.org/t/manjaro-refuses-to-update-after-reinstall/135964/4

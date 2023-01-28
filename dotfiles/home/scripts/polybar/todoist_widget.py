@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 # Todoist polybar widget
 
-import os, requests
+import os
 from configparser import ConfigParser
+
+import requests
+
 
 def parser(api_token):
     try:
         # filter based on https://todoist.com/help/articles/introduction-to-filters
         req = requests.get(
-            "https://api.todoist.com/rest/v1/tasks",
+            "https://api.todoist.com/rest/v2/tasks",
             params={"filter": "today | overdue"}, headers={"Authorization": f"Bearer {api_token}"}
         )
 
