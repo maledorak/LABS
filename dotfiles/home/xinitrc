@@ -67,6 +67,7 @@ export SSH_AUTH_SOCK
 # run productivity apps
 /usr/bin/rescuetime &
 
+## Running i3 with logging (relogging is required)
 ## Run i3 with basic logging
 # exec /usr/bin/i3 >~/i3log-$(date +'%F-%k-%M-%S') 2>&1
 ## Run i3 with extended logging

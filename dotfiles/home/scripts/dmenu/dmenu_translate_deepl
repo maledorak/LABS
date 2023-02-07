@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Must have jq and xclip installed to even show menu.
+jq -h > /dev/null || exit
+xclip -h > /dev/null || exit
+curl -h > /dev/null || exit
+
+from_lang=$1
+to_lang=$2
+
+text=$(rofi -dmenu -l 0 -p "Trans [$from_lang to $to_lang]")
+raw_json=$(curl -X POST "https://api-free.deepl.com/v2/translate" \
+	-H "Authorization: DeepL-Auth-Key ${DEEPL_API}" \
+	-d "text=${text}" \
+	-d "source_lang=${from_lang}" \
+	-d "target_lang=${to_lang}")
+
+sentences=$(echo $raw_json | jq -r '.translations[].text')
+
+if [ ! -z "$sentences" ]; then
+    selected=$(echo -e $sentences | rofi -dmenu -i -p "Pick translation")
+    if [ ! -z "$selected" ]; then
+        echo $selected | xclip -selection clipboard
+        notify-send "'$selected' copied to clipboard." &
+    fi
+fi
