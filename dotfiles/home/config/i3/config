@@ -142,8 +142,10 @@ bindsym $mod+q                  exec --no-startup-id dmenu_push
 bindsym $mod+Shift+q		    kill
 
 # %%hotkey: Show all containers in rofi %%
-bindsym $mod+w                  exec --no-startup-id rofi -show window
-#bindsym $mod+Shift+w           exec $term -e sudo wifi-menu
+bindsym $mod+w                  exec --no-startup-id whisper -c transcribe
+bindsym $mod+Shift+w            exec --no-startup-id whisper -c translate
+
+#bindsym $mod+Shift+w            exec --no-startup-id rofi -show window
 
 # %%hotkey: Dmenu emoji %%
 bindsym $mod+e                  exec --no-startup-id dmenu_emoji
@@ -405,7 +407,8 @@ bindsym F11                     fullscreen toggle
 # %%hotkey: i3 hotkeys %%
 #;bindsym $mod+F1                 exec --no-startup-id dmenu_hotkeys run --app i3 --menu rofi
 bindsym $mod+F1                 exec --no-startup-id xdg-open https://translate.google.pl/?sl=en&tl=pl
-bindsym $mod+F2                 exec --no-startup-id xdg-open https://track.toggl.com/timer
+#bindsym $mod+F2                 exec --no-startup-id xdg-open https://track.toggl.com/timer
+bindsym $mod+F2                 exec --no-startup-id xdg-open https://platform.openai.com/playground?mode=chat
 bindsym $mod+F3                 exec --no-startup-id xdg-open https://todoist.com/app/#/today
 bindsym $mod+F4                 exec --no-startup-id dmenu_bloototh_devices
 # %%hotkey: i3 restart %%
