@@ -144,6 +144,7 @@ bindsym $mod+Shift+q		    kill
 # %%hotkey: Show all containers in rofi %%
 bindsym $mod+w                  exec --no-startup-id whisper -c transcribe
 bindsym $mod+Shift+w            exec --no-startup-id whisper -c translate
+bindsym $mod+Control+w          exec --no-startup-id whisper -k
 
 #bindsym $mod+Shift+w            exec --no-startup-id rofi -show window
 

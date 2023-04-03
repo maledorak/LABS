@@ -32,57 +32,10 @@ function show_help_and_exit
     printf "  %-20s  - %s\n"  "-h|--help"        "Show this help message"
     printf "  %-20s  - %s\n"  "-c"               "Whisper command to run [${COMMANDS_PIPED}}]"
     printf "  %-20s  - %s\n"  "-l"               "Record length in seconds (default: 30)"
+    printf "  %-20s  - %s\n"  "-k"               "Kill all whisper processes"
     printf "\n"
     fail
 }
-
-# ----------------------------------------------------------------------------------------------------------------------
-
-COMMAND=
-LENGTH=30
-
-# Parse arguments
-while getopts "hc:l:" opt; do
-    case "${opt}" in
-        h)
-            show_help_and_exit
-            ;;
-        \?)
-            error "Unknown option: $1"
-            show_help_and_exit
-            ;;
-        c)
-            COMMAND=${OPTARG}
-            ;;
-        l)
-            LENGTH=${OPTARG}
-            ;;
-    esac
-done
-
-# Validate command argument
-if [[ -z $COMMAND ]]; then
-    show_help_and_exit
-fi
-
-# Validate command argument, only transcribe or translate are supported
-if [[ ! "$COMMAND" =~ ^($COMMANDS_PIPED)$ ]]; then
-    echo "You can use only [$COMMANDS_PIPED] as a command [-c] argument, but '${COMMAND}' was used!"
-    show_help_and_exit
-fi
-
-# Validate length argument
-if [[ ! $LENGTH =~ ^[[:digit:]-]+$ ]]; then
-	echo "Length [-l] argument must be a number, but '${LENGTH}' was used!"
-    fail
-fi
-
-# Validate length argument
-if [[ -z $OPENAI_API_KEY ]]; then
-    echo "OPENAI_API_KEY environment variable is not set!"
-    echo "Use the following link to set it up: https://platform.openai.com/account/api-keys"
-    fail
-fi
 
 #====== Check if following commands are installed ====
 # Check if ffmpeg is installed
@@ -121,23 +74,76 @@ then
 fi
 #=======================================
 
+# ----------------------------------------------------------------------------------------------------------------------
+
+COMMAND=
+LENGTH=30
+
+# Parse arguments
+while getopts "hkc:l:" opt; do
+    case "${opt}" in
+        h)
+            show_help_and_exit
+            ;;
+        \?)
+            error "Unknown option: $1"
+            show_help_and_exit
+            ;;
+        c)
+            COMMAND=${OPTARG}
+            ;;
+        l)
+            LENGTH=${OPTARG}
+            ;;
+        k)
+            notify-send "Whisper" "Killing all processes" &
+            pkill -f whisper
+            exit 0
+            ;;
+    esac
+done
+
+# Validate command argument
+if [[ -z $COMMAND ]]; then
+    show_help_and_exit
+fi
+
+# Validate command argument, only transcribe or translate are supported
+if [[ ! "$COMMAND" =~ ^($COMMANDS_PIPED)$ ]]; then
+    echo "You can use only [$COMMANDS_PIPED] as a command [-c] argument, but '${COMMAND}' was used!"
+    show_help_and_exit
+fi
+
+# Validate length argument
+if [[ ! $LENGTH =~ ^[[:digit:]-]+$ ]]; then
+	echo "Length [-l] argument must be a number, but '${LENGTH}' was used!"
+    fail
+fi
+
+# Validate length argument
+if [[ -z $OPENAI_API_KEY ]]; then
+    echo "OPENAI_API_KEY environment variable is not set!"
+    echo "Use the following link to set it up: https://platform.openai.com/account/api-keys"
+    fail
+fi
+
 FILE_PREFIX=whisper_$COMMAND
 file_path=$(pgrep -fa $FILE_PREFIX | awk '{print $NF}')
 
 case $COMMAND in
     $TRANSCRIBE)
         url_path=transcriptions
-        notify_string=transcribing
+        notify_string=Transcribing
         ;;
     $TRANSLATE)
         url_path=translations
-        notify_string=translating
+        notify_string=Translating
         ;;
 esac
 
 if [ -z "$file_path" ]; then
     echo "No process, recording"
-    notify-send "Whisper $COMMAND is listening..." &
+    notify-send "Whisper" "$COMMAND is listening..." &
 
     file_path="/tmp/${FILE_PREFIX}_$(date '+%Y%m%d%H%M%S').mp3"
     ffmpeg \
@@ -159,7 +165,7 @@ else
     done
 fi
 
-notify-send "Whisper is $notify_string..." &
+notify-send "Whisper" "$notify_string..." &
 # https://platform.openai.com/docs/api-reference/audio/create
 response=$(curl https://api.openai.com/v1/audio/$url_path \
         -H "Authorization: Bearer $OPENAI_API_KEY" \
@@ -170,12 +176,12 @@ response=$(curl https://api.openai.com/v1/audio/$url_path \
 echo $response
 trans=$(echo $response | jq -r '.text')
 if [ "$trans" == "null" ]; then
-    notify-send "Whisper had error..." &
+    notify-send "Whisper" "error..." &
 else
     # trim whitespaces
     trans=$(echo $trans | sed 's/ *$//')
     echo $trans | xclip -selection clipboard
-    notify-send "'$trans' copied to clipboard." &
+    notify-send "Whisper" "'$trans' copied to clipboard." &
 fi
 
 rm -rf $file_path
