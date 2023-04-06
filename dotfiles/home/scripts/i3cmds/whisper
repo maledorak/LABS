@@ -154,6 +154,11 @@ if [ -z "$file_path" ]; then
         -t $LENGTH \
         $file_path
 
+    if [ $? -ne 0 ]; then
+        notify-send "Whisper" "FFmpeg error..." &
+        exit 1
+    fi
+
 else
     echo "Process found, killing and trimming audio"
 

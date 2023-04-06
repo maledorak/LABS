@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+"""
+Based on:
+- https://gist.github.com/ottokruse/1c0f79d51cdaf82a3885f9b532df1ce5
+- https://gist.github.com/davideicardi/48dfc3b664b4c39cd48708ea7f2899dd
+Usage:
+ - Save this script somewhere on your path (e.g. `vi /usr/local/bin/aws-console && chmod +x /usr/local/bin/aws-console`)
+ - Install dependencies: pip install boto3
+ - Make AWS credentials available in one of the usual places where boto3 can find them (~/.aws/credentials, env var, etc.)
+ - Excute the script: `AWS_PROFILE=your-profile aws-console`
+ - :tada: Your browser opens and you are signed in into the AWS console
+"""
+
+import json
+from urllib import parse, request
+import webbrowser
+import argparse
+import boto3
+
+def open_console(echo_to_stdout=False):
+    DURATION=900
+
+    session = boto3.Session()
+    sts = boto3.client('sts')
+    federation_token = sts.get_federation_token(
+        Name=f'tk_{session.profile_name}',
+        PolicyArns=[
+            {
+                'arn': 'arn:aws:iam::aws:policy/AdministratorAccess' # TODO limit your policy depending on your use case
+            },
+        ],
+        DurationSeconds=DURATION,
+        Tags=[]
+    )
+    url_credentials = dict(sessionId=federation_token["Credentials"]["AccessKeyId"],sessionKey=federation_token["Credentials"]["SecretAccessKey"], sessionToken=federation_token["Credentials"]["SessionToken"])
+
+    request_parameters = "?Action=getSigninToken"
+    request_parameters += f"&DurationSeconds={DURATION}"
+    request_parameters += "&Session=" + parse.quote_plus(json.dumps(url_credentials))
+    request_url = "https://signin.aws.amazon.com/federation" + request_parameters
+    with request.urlopen(request_url) as response:
+        if not response.status == 200:
+            raise Exception("Failed to get federation token")
+        signin_token = json.loads(response.read())
+
+    request_parameters = "?Action=login"
+    request_parameters += "&Destination=" + parse.quote_plus("https://console.aws.amazon.com/")
+    request_parameters += "&SigninToken=" + signin_token["SigninToken"]
+    request_url = "https://signin.aws.amazon.com/federation" + request_parameters
+
+    if echo_to_stdout:
+        print(request_url)
+    else:
+        webbrowser.open(request_url)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Open the AWS console in your web browser, using your AWS CLI credentials')
+    parser.add_argument('--stdout', action='store_true', help='don\'t open the webbrowser, but echo the signin URL to stdout')
+
+    args = parser.parse_args()
+    open_console(args.stdout)
