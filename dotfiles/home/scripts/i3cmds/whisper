@@ -8,7 +8,7 @@
 #
 # how to use:
 #   1. run it - this will start recording sound: ./whisper.sh -c transcribe -l 30
-#   2. stop recording by pressing Ctrl+C or reruning it again with the same arguments to 'shorten' the recording
+#   2. stop recording by pressing Ctrl+C or rerun it again with the same arguments to 'shorten' the recording
 #
 # tips:
 #   The best way to use it is to bind it to a key combination in your window manager
@@ -127,25 +127,32 @@ if [[ -z $OPENAI_API_KEY ]]; then
     fail
 fi
 
-FILE_PREFIX=whisper_$COMMAND
-file_path=$(pgrep -fa $FILE_PREFIX | awk '{print $NF}')
+function openai_request {
+    local cmd=$1
+    local file_path=$2
 
-case $COMMAND in
-    $TRANSCRIBE)
-        url_path=transcriptions
-        notify_string=Transcribing
-        ;;
-    $TRANSLATE)
-        url_path=translations
-        notify_string=Translating
-        ;;
-esac
+    declare -A cmd_map=( ["$TRANSCRIBE"]="transcriptions" ["$TRANSLATE"]="translations" )
+    local url_path=${cmd_map[$cmd]}
 
-if [ -z "$file_path" ]; then
-    echo "No process, recording"
-    notify-send "Whisper" "$COMMAND is listening..." &
+    # https://platform.openai.com/docs/api-reference/audio/create
+    local response=$(curl https://api.openai.com/v1/audio/$url_path \
+            -H "Authorization: Bearer $OPENAI_API_KEY" \
+            -H "Content-Type: multipart/form-data" \
+            -F file="@$file_path" \
+            -F model="whisper-1")
 
-    file_path="/tmp/${FILE_PREFIX}_$(date '+%Y%m%d%H%M%S').mp3"
+    local text=$(echo $response | jq -r '.text')
+    if [ "$text" == "null" ]; then
+        echo "Whisper API error $response"
+        return 1
+    else
+        echo $text
+        return 0
+    fi
+}
+
+function ffmpeg_record {
+    local file_path=$1
     ffmpeg \
         -f alsa \
         -channels 2 \
@@ -154,39 +161,63 @@ if [ -z "$file_path" ]; then
         -t $LENGTH \
         $file_path
 
-    if [ $? -ne 0 ]; then
-        notify-send "Whisper" "FFmpeg error..." &
-        exit 1
+    local code=$?
+    if [ $code -eq 255 ]; then
+        # ffmpeg returns 255 when Ctrl+C is pressed or SIGINT (-2) is received
+        echo "FFmpeg has stopped with SIGINT"
+        return 0
+    elif [ $code -ne 0 ]; then
+        echo "FFmpeg error $code"
+        return $code
+    else
+        echo "FFmpeg has stopped"
+        return 0
     fi
+}
 
+FILE_PREFIX=whisper_$COMMAND
+IS_OTHER_INSTANCE_RUNNING=$(pgrep -fa $FILE_PREFIX | awk '{print $NF}')
+
+if [ -z "$IS_OTHER_INSTANCE_RUNNING" ]; then
+    echo "No process, FFmpeg recording"
+    notify-send "Whisper" "$COMMAND is listening..." &
+
+    FFMPEG_OUT="/tmp/${FILE_PREFIX}_$(date '+%Y%m%d%H%M%S').mp3"
+    ffmpeg_record $FFMPEG_OUT
+    ffmpeg_record_code=$?
+    if [ $ffmpeg_record_code -eq 0 ]; then
+        echo "FFmpeg has stopped, sending request to OpenAI"
+
+        declare -A cmd_map=( ["$TRANSCRIBE"]="Transcribing" ["$TRANSLATE"]="Translating" )
+        notify_string=${cmd_map[$COMMAND]}
+
+        notify-send "Whisper" "$notify_string..." &
+        text=$(openai_request $COMMAND $FFMPEG_OUT)
+        openai_code=$?
+        if [ $openai_code -ne 0 ]; then
+            notify-send "Whisper" "OpenAI error..." &
+            rm -rf $FFMPEG_OUT
+            exit $openai_code
+        else
+            echo "OpenAI response: $text"
+            echo -n $text | xclip -selection clipboard
+            notify-send "Whisper" "'$text' copied to clipboard." &
+            echo "Clean up file $FFMPEG_OUT"
+            rm -rf $FFMPEG_OUT
+            exit 0
+        fi
+    else
+        echo "FFmpeg error $ffmpeg_record_code"
+        notify-send "Whisper" "FFmpeg error $ffmpeg_record_code" &
+        exit $ffmpeg_record_code
+    fi
 else
     echo "Process found, killing and trimming audio"
 
     pid=$(pgrep -fa $FILE_PREFIX | awk '{print $1}')
-    kill -2 $pid
+    kill -SIGINT $pid
     while $(kill -0 $pid 2>/dev/null); do
         echo 'Waiting for ffmpeg to finish...'
         sleep 0.01
     done
 fi
-
-notify-send "Whisper" "$notify_string..." &
-# https://platform.openai.com/docs/api-reference/audio/create
-response=$(curl https://api.openai.com/v1/audio/$url_path \
-        -H "Authorization: Bearer $OPENAI_API_KEY" \
-        -H "Content-Type: multipart/form-data" \
-        -F file="@$file_path" \
-        -F model="whisper-1")
-
-echo $response
-trans=$(echo $response | jq -r '.text')
-if [ "$trans" == "null" ]; then
-    notify-send "Whisper" "error..." &
-else
-    # trim whitespaces
-    trans=$(echo $trans | sed 's/ *$//')
-    echo $trans | xclip -selection clipboard
-    notify-send "Whisper" "'$trans' copied to clipboard." &
-fi
-
-rm -rf $file_path
