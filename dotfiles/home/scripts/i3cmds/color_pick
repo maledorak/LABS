@@ -7,6 +7,6 @@ xclip -h > /dev/null || exit
 killall -vq gpick || selected=$(gpick -pso) && killall -q gpick
 echo $selected
 if [ ! -z "$selected" ]; then
-    echo $selected | xclip -selection clipboard
+    echo $selected | xclip -r -selection clipboard
     notify-send "'$selected' colour copied to the clipboard." &
 fi

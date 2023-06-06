@@ -14,7 +14,7 @@ sentences=$(trans $from_lang:$to_lang "$choice_word" | sed -n '3p;4p' |awk -F1m 
 if [ ! -z "$sentences" ]; then
     selected=$(echo -e $sentences | rofi -dmenu -i -p "Pick translation")
     if [ ! -z "$selected" ]; then
-        echo $selected | xclip -selection clipboard
+        echo $selected | xclip -r -selection clipboard
         notify-send "'$selected' copied to clipboard." &
     fi
 fi

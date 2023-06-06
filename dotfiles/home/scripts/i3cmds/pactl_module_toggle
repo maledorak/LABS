@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Usage: pactl_module_toggle "module-name"
+# Description: Toggles a PulseAudio module on or off.
+# Example: pactl_module_toggle "module-loopback"
+
 if pactl list short modules | grep --quiet $1; then
     pactl unload-module $1
     notify-send "PulseAudio module: $1 was disabled"

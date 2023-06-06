@@ -6,7 +6,7 @@ import sys
 
 def set_volume(app_name, vol_change, with_notify=False):
     env = os.environ
-    env['LANG'] = 'en_US'
+    env['LANG'] = 'en_GB'
     app = '"{}"'.format(app_name)
     sinks = subprocess.check_output(['pactl', 'list', 'sink-inputs'], env=env).decode().strip().split()
     if not app in sinks:

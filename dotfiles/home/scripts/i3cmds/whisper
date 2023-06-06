@@ -29,10 +29,10 @@ function show_help_and_exit
     printf "\nUsage: %s -c [${COMMANDS_PIPED}] -s [30] \n\n" "$(basename "$0")"
     printf "Script for recording voice from microphone and sending to Whisper OpenAI \n\n"
     printf "Options:\n"
-    printf "  %-20s  - %s\n"  "-h|--help"        "Show this help message"
-    printf "  %-20s  - %s\n"  "-c"               "Whisper command to run [${COMMANDS_PIPED}}]"
-    printf "  %-20s  - %s\n"  "-l"               "Record length in seconds (default: 30)"
-    printf "  %-20s  - %s\n"  "-k"               "Kill all whisper processes"
+    printf "  %-20s  - %s\n"  "-h"   "Show this help message"
+    printf "  %-20s  - %s\n"  "-c"   "Whisper command to run [${COMMANDS_PIPED}}]"
+    printf "  %-20s  - %s\n"  "-l"   "Record length in seconds (default: 30)"
+    printf "  %-20s  - %s\n"  "-k"   "Kill all whisper processes"
     printf "\n"
     fail
 }
@@ -200,7 +200,7 @@ if [ -z "$IS_OTHER_INSTANCE_RUNNING" ]; then
             exit $openai_code
         else
             echo "OpenAI response: $text"
-            echo -n $text | xclip -selection clipboard
+            echo $text | xclip -r -selection clipboard
             notify-send "Whisper" "'$text' copied to clipboard." &
             echo "Clean up file $FFMPEG_OUT"
             rm -rf $FFMPEG_OUT

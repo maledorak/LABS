@@ -58,11 +58,26 @@ alias sr="sudo ranger"
 alias ka="killall"
 alias killl="kill -9 %" #kill last
 alias mkd="mkdir -pv"
+mksh() {
+    if [ -z "$1" ]; then
+        echo "No script name provided"
+        return 1
+    fi
+    local name="$1".sh
+    if [ -f "$name.sh" ]; then
+        echo "File $name.sh already exists"
+        return 1
+    fi
+    touch $name
+    chmod +x $name
+    echo "#!/bin/bash" > $name
+}
 alias resetz="echo 'Restart zshrc' && source ~/.zshrc"
 alias resetb="echo 'Restart bashrc' && source ~/.bashrc"
 alias ref="~/.config/Scripts/shortcuts.sh && source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
 alias bars="bash ~/.config/polybar/launch.sh" # Run Polybar relaunch script
 alias bw="wal -i ~/.config/wall.png" # Rerun pywal
+alias cpwd="pwd | xclip -r -selection clipboard" # Copy current working directory to clipboard
 alias i="invoke"
 alias il="invoke --list"
 alias ntruf="node_modules/.bin/truffle"

@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Set sensitivity for Lenovo Thinkpad KU-1255 Keyboard
+# using: sudo ./ku-1255_set_sensitivity 250
+#
+# Resources:
+# http://www.thinkwiki.org/wiki/How_to_configure_the_TrackPoint
+# https://wiki.archlinux.org/index.php/TrackPoint
+#
+
+SENSITIVITY=$1 # default 160
+if [ -z "$SENSITIVITY" ]
+then
+    SENSITIVITY=255
+    echo "First argument is empty, sensitivity will be set to ${SENSITIVITY}"
+fi
+NAME="Lenovo ThinkPad Compact Keyboard with TrackPoint"
+DATA=$(lsusb | grep "$NAME")
+BUS=$(echo "$DATA" | grep -Po 'Bus \K0*[1-9]+')
+DEV=$(echo "$DATA" | grep -Po 'Device \K0*[1-9]+')
+DEVPATH="/sys$(udevadm info /dev/bus/usb/"$BUS"/"$DEV" -q path)"
+SENSITIVITY_PATH=$(find "$DEVPATH" -name "sensitivity")
+echo "Sensitivity ${SENSITIVITY} will be set."
+echo "In path ${SENSITIVITY_PATH}"
+echo -n "$SENSITIVITY" > "$SENSITIVITY_PATH"
