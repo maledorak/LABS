@@ -157,7 +157,7 @@ function ffmpeg_record {
         -f alsa \
         -channels 2 \
         -sample_rate 44100 \
-        -i hw:0 \
+        -i default \
         -t $LENGTH \
         $file_path
 
