@@ -1,0 +1,31 @@
+"" Binding ""
+" Fixing VSCode folding feature
+
+"" Remap jk keys
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+"" Remap ctrl d and u
+nnoremap <C-d> 25gj
+nnoremap <C-u> 25gk
+vnoremap <C-d> 25gj
+vnoremap <C-u> 25gk
+
+"" Remap ctrl b and f
+nnoremap <C-b> 50gj
+nnoremap <C-f> 50gk
+vnoremap <C-b> 50gj
+vnoremap <C-f> 50gk
+
+"" Clipboard ""
+"set clipboard=unnamedplus " clipboard as default register
+	noremap <Leader>y "*y
+	noremap <Leader>p "*p
+	noremap <Leader>Y "+y
+	noremap <Leader>P "+p
+
+" Copy selected text to system clipboard (requires xclip installed):
+	vnoremap <C-c> "cy<esc>:!echo -n '<C-R>c' \|<space>xclip<CR><enter>
+

@@ -34,6 +34,7 @@ _venv: ./.venv/bin/activate
 ### Utils commands
 .PHONY: venv-reinstall
 venv-reinstall: ## Reinstall LABS Python virtualenv - Use when it's broken
+	sudo chown -R ${USER}:${USER} .venv
 	@echo "Remove old .venv"
 	rm -rf .venv
 	@echo "Install venv with python:" `which python`

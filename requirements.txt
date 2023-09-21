@@ -1,5 +1,7 @@
 ansible==2.10.4
 bpython==0.22.1
-dotbot==1.19.0
+dotbot==1.20.1
+# git+https://github.com/corypaik/dotbot.git@update-pyyaml
 pytest==7.1.3
+PyYAML==6.0.1
 requests==2.27.1
