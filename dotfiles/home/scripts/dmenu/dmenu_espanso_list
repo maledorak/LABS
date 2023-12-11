@@ -1,0 +1,10 @@
+#!/bin/sh
+# Give dmenu list of all espanso snippets to search.
+
+# Must have below libs installed to even show menu
+chosen=$(\
+    espanso match list \
+    | rofi -dmenu -i -l 20 -p "Espanso"\
+)
+
+[ "$chosen" != "" ] || exit

@@ -181,7 +181,8 @@ bindsym $mod+p			        exec $pause
 #bindsym $mod+Shift+p
 
 # %%hotkey: Show adding todoist project %%
-bindsym $mod+a                  exec --no-startup-id dmenu_todoist_add_project
+bindsym $mod+a                  exec --no-startup-id tailwind_translate.sh
+#bindsym $mod+a                  exec --no-startup-id dmenu_todoist_add_project
 #bindsym $mod+a                 [instance="math"] scratchpad show; [instance="math"] move position center
 #bindsym $mod+Shift+a           exec $term -e ncpamixer # discord push to talk
 
@@ -260,6 +261,11 @@ bindsym $mod+Shift+b            exec pkill -f sbagen
 #bindsym $mod+m                  exec $music
 #bindsym $mod+Shift+m            exec $mute
 
+#############################################################
+############### Other Characters Binding ####################
+#############################################################
+
+bindsym $mod+semicolon         exec --no-startup-id dmenu_espanso_list
 
 #############################################################
 #################### Workspace Binding ######################
