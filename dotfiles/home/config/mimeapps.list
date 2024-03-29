@@ -6,3 +6,5 @@ application/pdf=okularApplication_pdf.desktop;
 x-scheme-handler/lbry=lbry.desktop
 application/pdf=okularApplication_pdf.desktop
 text/plain=gvim.desktop
+x-scheme-handler/prusaslicer=PrusaSlicerURLProtocol.desktop
+x-scheme-handler/discord=discord.desktop

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Must have below libs installed to even show menu
+openai -h > /dev/null || exit
+
+
+command=$(rofi -dmenu -l 0 -p "Search")
+[ "$command" != "" ] || exit
+output=$(openai -k ${OPENAI_API} api completions.create -m text-davinci-002 -p "${command}" -t 1 -M 100 --stream)
+echo $output | rofi -dmenu -i -l 20
+
+# EMOJI_FILE=$XDG_CONFIG_HOME/emoji.json
+# chosen=$(\
+#     jq < $EMOJI_FILE 'to_entries[] | .value|= join(", ") | .value |= split("_") | .value |= join(" ") | [.key, .value] | join(" - ")' -r \
+#     | rofi -dmenu -i -l 20 -p "Pick emoji"\
+# )
+
+# [ "$chosen" != "" ] || exit
+
+# c=$(echo "$chosen" | sed "s/ .*//")
+# echo "$c" | tr -d '\n' | xclip -selection clipboard
+# notify-send "'$c' copied to clipboard." &
+
+## Dont know why this is in here, maybe vim primary regiser
+# s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
+# echo "$s" | tr -d '\n' | xclip
+# notify-send "'$s' copied to primary." &
+
+# Paste to the current text field
+# xdotool key "ctrl+shift+v"

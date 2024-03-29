@@ -2,7 +2,27 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../.aws"
+		},
+		{
+			"path": "../.ssh"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"aliases*": "shellscript",
+			"bash*": "shellscript",
+			"profile*": "shellscript",
+			"rc-base": "shellscript",
+			"xinitrc": "shellscript",
+			"env*": "shellscript",
+			"pypirc": "ini",
+			"Xdefaults": "xdefaults",
+			"*/i3/config": "i3"
+		},
+		"vim.vimrc.enable": true,
+		"vim.vimrc.path": "$HOME/.config/vim/vscodevimrc"
+	}
 }

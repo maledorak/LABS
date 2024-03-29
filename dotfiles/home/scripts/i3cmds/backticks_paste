@@ -1,0 +1,10 @@
+#!/bin/sh
+
+xdotool -h > /dev/null || exit
+
+clip=$(xclip -o -selection clipboard)
+printf "\`\`\`\n%s\n\`\`\`\n" "$clip" | xclip -selection clipboard -i
+sleep 0.3
+
+# Paste to the current text field
+xdotool key ctrl+shift+v

@@ -56,13 +56,13 @@ pgrep redshift-gtk &> /dev/null || redshift-gtk &> /dev/null &
 
 # run gnome-keyring
 # based on: https://wiki.archlinux.org/index.php/GNOME/Keyring#xinitrc_method
-dbus-update-activation-environment --systemd DISPLAY
-eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
+#dbus-update-activation-environment --systemd DISPLAY
+# eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs12,secrets,ssh)"
 export SSH_AUTH_SOCK
 
 # run clouds
 /usr/bin/dropbox &
-/usr/bin/pcloud &
+# /usr/bin/pcloud &
 
 # run productivity apps
 /usr/bin/rescuetime &

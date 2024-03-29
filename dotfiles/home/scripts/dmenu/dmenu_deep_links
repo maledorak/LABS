@@ -1,0 +1,22 @@
+#!/bin/sh
+
+jq -h > /dev/null || exit
+
+# Open ~/.config/deep-links.json with jq and rofi
+# key is the name of the link
+# value is the link itself
+chosen=$(\
+    jq -r 'keys[]' ~/.config/deep-links.json \
+    | rofi -dmenu -i -l 20 -p "Deep Links"\
+)
+
+[ "$chosen" != "" ] || exit
+
+# Get the link from the chosen key
+link=$(jq -r ".\"$chosen\"" ~/.config/deep-links.json)
+# Open the link
+xdg-open "$link"
+
+app_name=$(echo "$link" | cut -d: -f1)
+i3-msg workspace 4
+i3-msg "[instance=\"$app_name\"] focus"

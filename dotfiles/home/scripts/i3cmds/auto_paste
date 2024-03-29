@@ -1,0 +1,12 @@
+#!/bin/sh
+
+xdotool -h > /dev/null || exit
+
+# copy from clipboard to clip variable
+clip=$(xclip -o -selection clipboard)
+out="npm run test -- -t '$clip'"
+echo $out | xclip -r -selection clipboard
+notify-send "'$out' copied to clipboard." &
+sleep 0.3
+# Paste to the current text field
+xdotool key "ctrl+shift+v"

@@ -189,8 +189,8 @@ bindsym $mod+a                  exec --no-startup-id tailwind_translate.sh
 #bindsym $mod+s
 bindsym $mod+Shift+s            mode "$mode_services_restart"
 
-# %%hotkey: Show all dmenu menus %%
-#bindsym $mod+d                  exec --no-startup-id dmenu_menus
+# %%hotkey: Show all deep links %%
+bindsym $mod+d                  exec --no-startup-id dmenu_deep_links
 # %%hotkey: Run layout mode %%
 bindsym $mod+Shift+d            mode "$mode_layout"
 
@@ -252,7 +252,7 @@ bindsym $mod+c                  exec --no-startup-id dmenu_calc
 # %%hotkey: Show floating camera %%
 bindsym $mod+Shift+c            exec --no-startup-id camtoggle
 
-#bindsym $mod+v	                exec $term -e ncmpcpp -s visualizer
+bindsym $mod+v	                exec --no-startup-id backticks_paste
 #bindsym $mod+Shift+v           exec projectM-pulseaudio
 
 bindsym $mod+b                  exec --no-startup-id dmenu_sbagen
